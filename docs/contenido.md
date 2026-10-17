@@ -37,7 +37,7 @@ Origen de las imágenes: capturas de los sitios en línea (15-10-2026) y archivo
 ## 4. Pendientes de contenido
 1. Foto de Willder → `assets/img/willder.jpg` y reemplazar el bloque marcado en "Sobre mí".
 2. Clave de Web3Forms en `js/contact.js`.
-3. Dominio definitivo (hoy se usa la URL provisional de Cloudflare: willdev-landing.willdev-landing.workers.dev).
+3. ~~Dominio definitivo~~ Hecho: https://willnet.dev (16-10-2026).
 4. Imagen OG de 1200×630.
 5. Testimonios reales.
 6. Agendar videollamadas (fase 2).

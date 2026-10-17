@@ -9,5 +9,13 @@
   "assets": {
     // Carpeta que se publica. Se genera con: npm run dist (solo index.html, css/styles.css, js/ y assets/)
     "directory": "./dist"
-  }
+  },
+  // Dominio propio (comprado en Cloudflare el 2026-10-16). "custom_domain" hace que Cloudflare
+  // cree solo los registros DNS y el certificado HTTPS (los .dev solo funcionan con HTTPS).
+  "routes": [
+    { "pattern": "willnet.dev", "custom_domain": true },
+    { "pattern": "www.willnet.dev", "custom_domain": true }
+  ],
+  // Mantener también la URL vieja (willdev-landing.willdev-landing.workers.dev) para no romper enlaces
+  "workers_dev": true
 }

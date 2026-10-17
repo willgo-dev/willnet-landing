@@ -7,12 +7,12 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Tema | Decisión |
 |---|---|
 | Nombre | **WillNet** en los textos y **WILLNET** en mayúsculas junto a la W del menú (2026-10-16). No se explica su significado en la web. El logo (la W) y los colores no cambian por ahora |
-| Lo que NO cambia de nombre | El correo **willdevgo@gmail.com**, el usuario de GitHub **willgo-dev**, el proyecto de Cloudflare **`willdev-landing`** (y por eso su URL) y el logotipo PNG `willdev-logotipo-*` (la imagen todavía dice WILLDEV) |
+| Lo que NO cambia de nombre | El correo **willdevgo@gmail.com**, el usuario de GitHub **willgo-dev**, el proyecto (Worker) de Cloudflare **`willdev-landing`** y el logotipo PNG `willdev-logotipo-*` (la imagen todavía dice WILLDEV) |
 | Idioma | **Bilingüe desde el inicio** (ver "Sistema bilingüe" abajo) |
 | Marca | La landing es **solo de WillNet**. En el portafolio también entran los proyectos y clientes de **Dopicos** (con la etiqueta "Con Dopicos") |
 | Precios | **No se muestran.** Todo va por cotización |
 | Contacto | **WhatsApp, SMS, llamada, correo y formulario.** Más adelante: agendar videollamadas |
-| Dominio | Publicada en Cloudflare en **https://willdev-landing.willdev-landing.workers.dev** (URL provisional en `canonical`, `hreflang` y `og:url`). Se mantiene hasta comprar dominio. `willnet.com` y `willnet.co` están a la venta en Afternic; `willnet.net` está ocupado; `willnet.dev`, `willnet.io`, `willnet.studio`, `willnetdev.com` y `willnetweb.com` no tenían DNS el 16-10-2026 (posiblemente libres) |
+| Dominio | **https://willnet.dev** (registrado en Cloudflare el 2026-10-16). Va en `canonical`, `hreflang`, `og:url` y `og:image`. También responden `www.willnet.dev` y la URL vieja `willdev-landing.willdev-landing.workers.dev` (se deja activa para no romper enlaces) |
 | Diseño | **Plantilla `../_plantilla-portfolio_landing`** y su estilo (negro, textos en degradado gris, tipografía Ubuntu, GSAP), pero con **azul `#2563eb` en lugar del morado** |
 | Carrusel | **Tecnologías** que usa Willder (no logos de clientes): frontend, backend, CMS/e-commerce y herramientas, **incluido Claude Code**. Sacadas de su CV, cursos y proyectos |
 | Capturas | Las webs del portafolio y del hero se muestran **desde su inicio (hero)**. El hero de la landing usa el inicio de **Pavlove** |
@@ -54,7 +54,7 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 ```
 
 ## Publicación (Cloudflare Workers, archivos estáticos)
-- Config en `wrangler.jsonc` (proyecto `willdev-landing`; **no renombrarlo**, porque cambiaría la URL). Se publica **solo `dist/`**, que genera `npm run dist` con `index.html`, `css/styles.css`, `js/` y `assets/` (sin `.md` ni `.DS_Store`). `dist/` es GENERADO: no editarlo.
+- Config en `wrangler.jsonc` (proyecto `willdev-landing`; **no renombrarlo**: cambiaría la URL workers.dev y habría que reconectar el dominio). El dominio se conecta en `routes` con `custom_domain: true` para `willnet.dev` y `www.willnet.dev`; `workers_dev: true` mantiene la URL vieja. Se publica **solo `dist/`**, que genera `npm run dist` con `index.html`, `css/styles.css`, `js/` y `assets/` (sin `.md` ni `.DS_Store`). `dist/` es GENERADO: no editarlo.
 - La sesión de Cloudflare la guarda wrangler en el equipo (`npx wrangler login`); no hay claves en el proyecto.
 - Para volver a una versión anterior: `npx wrangler rollback`.
 - Después de publicar, Cloudflare puede tardar un minuto en mostrar la versión nueva (caché).
@@ -88,13 +88,13 @@ docs/logos-clientes/     ← logos de clientes del carrusel viejo (no se publica
 
 ## Pendientes
 1. **Fotos** de Willder: él las va a mandar. Van en "Sobre mí" (hay un comentario en el HTML donde va). No usar las del portafolio de 2024.
-2. **Dominio definitivo** (ver opciones de WillNet arriba): conectarlo en Cloudflare (Workers → willdev-landing → Domains) y reemplazar la URL workers.dev en `index.html` (canonical, hreflang, og:url, og:image).
+2. Opcional: redirigir `www.willnet.dev` → `willnet.dev` con una *Redirect Rule* en el panel de Cloudflare (hoy las dos sirven la misma página y el `canonical` apunta a `willnet.dev`, que es suficiente para Google). Opcional: correo `@willnet.dev` con Cloudflare Email Routing.
 3. **Logotipo con la palabra WILLNET** (hoy el PNG dice WILLDEV; en la web solo se usa la W + texto HTML, así que no afecta a la landing).
 4. Imagen OG propia de 1200×630 en `assets/img/og/` (hoy usa la captura de Pavlove).
 5. Testimonios de clientes: la sección de la plantilla se quitó hasta tener testimonios reales. **No inventar testimonios.**
 6. Agendar videollamadas (fase 2).
 7. La invitación de XV (`willgo-dev.github.io/invitacion-marcela`) carga su video desde `dopicos.com/video_hero.mp4`, que da **404** desde el 16-10-2026 o antes: en la web se ve un fondo gris. La captura del portafolio se hizo con el video local.
-- Hecho (2026-10-16): clave de Web3Forms (probada), carrusel de tecnologías, capturas desde el inicio, cambio a WillNet, repo en GitHub.
+- Hecho (2026-10-16): clave de Web3Forms (probada), carrusel de tecnologías, capturas desde el inicio, cambio a WillNet, repo en GitHub, **dominio willnet.dev** y QR nuevo (`../../03 QR/qr-willnet-dev-*`).
 
 ## Verificación de traducciones
 ```bash
@@ -104,5 +104,5 @@ node -e 'const fs=require("fs");const h=fs.readFileSync("index.html","utf8");glo
 ## Hoja de ruta tecnológica
 1. **Fase 1 (ahora):** landing HTML + JS + Tailwind, bilingüe, publicada en Cloudflare y con repo en GitHub. Contacto por WhatsApp, SMS, llamada, correo y formulario (Web3Forms).
 2. **Fase 2:** backend propio del formulario con **Node.js + Express + Nodemailer**, y agenda de videollamadas.
-3. **Fase 3:** despliegue automático desde GitHub a Cloudflare y dominio propio.
+3. **Fase 3:** despliegue automático desde GitHub a Cloudflare (el dominio propio ya está).
 4. **Fase 4 en adelante:** TypeScript, React o Astro (con rutas `/es` y `/en`), según avance su formación, hasta tener la web completa de WillNet.
