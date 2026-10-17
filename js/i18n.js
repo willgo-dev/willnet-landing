@@ -103,6 +103,8 @@ const translations = {
     "projects.tag.digitalInvite": "Digital invitation",
     "projects.tag.card": "Business card",
     "projects.tag.game": "Web game",
+    "projects.tag.website": "Website",
+    "projects.tag.form": "Form",
     "projects.pavlove":
       "Online store for handmade pavlovas in San Antonio, Texas: customizable products, payments and policies. WordPress + WooCommerce.",
     "projects.imola":
@@ -129,6 +131,9 @@ const translations = {
     "projects.drum": "A drum kit you play with your keyboard, mouse or finger. JavaScript.",
     "projects.tindog": "Landing page for a fictional dog app, built with Bootstrap.",
     "projects.dice": "Two-player dice game that rolls when you reload the page. JavaScript.",
+    "projects.movewithjoy": "Sample website for a moving company, mobile-friendly and built with Bootstrap.",
+    "projects.firstsite": "My first website: a Spanish page about learning to code, with responsive HTML and CSS.",
+    "projects.login": "Login form with a glass effect and a show-password button. HTML, CSS and JavaScript.",
 
     // Proceso
     "process.title": "How I work",
@@ -150,6 +155,10 @@ const translations = {
     "about.p2":
       "I handle the whole process, from design to launch, so you can focus on your business. I work in English and Spanish.",
     "about.techLabel": "Technologies",
+    "about.eduTitle": "Education",
+    "about.edu.1": "Full-Stack Web Development Bootcamp · Udemy (in progress)",
+    "about.edu.2": "Basic Programming, JavaScript Basics and Intro to Backend · Platzi (2024)",
+    "about.edu.3": "HTML Fundamentals · SoloLearn",
 
     // FAQ
     "faq.title": "Frequently asked questions",
