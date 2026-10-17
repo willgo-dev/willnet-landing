@@ -16,7 +16,7 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Diseño | **Plantilla `../_plantilla-portfolio_landing`** y su estilo (negro, textos en degradado gris, tipografía Ubuntu, GSAP), pero con **azul `#2563eb` en lugar del morado** |
 | Carrusel | **Tecnologías** que usa Willder (no logos de clientes): frontend, backend, CMS/e-commerce y herramientas, **incluido Claude Code**. Sacadas de su CV, cursos y proyectos |
 | Capturas | Las webs del portafolio y del hero se muestran **desde su inicio (hero)**. El hero de la landing usa el inicio de **Pavlove** |
-| Portafolio | Solo proyectos que estén en local (`Clientes/`) o en su GitHub (`willgo-dev`). **No usar** airseausa.com, cejasperfectasmedellin.com, jcpconsult.net ni tendaigroup.com |
+| Portafolio | Solo proyectos que estén en local (`Clientes/`) o en su GitHub (`willgo-dev`). Del portafolio de 2024 se trajeron Move With Joy, Aprendiendo a Programar, Login Form y la **formación** (en "Sobre mí"); **no** sus fotos (Willder mandará fotos nuevas). **No usar** airseausa.com, cejasperfectasmedellin.com, jcpconsult.net ni tendaigroup.com |
 | Foto | Va a poner una foto suya más adelante. Hoy hay un espacio listo en "Sobre mí" y un texto genérico |
 | Redes | LinkedIn **https://www.linkedin.com/in/willgo-dev/** y GitHub **https://github.com/willgo-dev** |
 | Servicios | Tiendas y e-commerce, webs para empresas y negocios, portafolios y webs personales, influencers, invitaciones y eventos (bodas, cumpleaños, XV, fiestas), logos y tarjetas de presentación |
@@ -64,6 +64,7 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 - `css/styles.css` sí se sube (así el repo funciona sin compilar).
 - La clave de Web3Forms de `js/contact.js` es **pública por diseño** (Web3Forms la pone en el HTML), por eso puede ir en el repo.
 - Flujo: editar → `npm run deploy` → `git add -A && git commit -m "..." && git push`.
+- Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willgo-dev/willgo-dev`, en `../../../Repositorios/willgo-dev/`) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
 
 Vista previa en Claude Code: el panel del navegador no puede lanzar el servidor dentro de `Documents` (permisos de macOS). Hay que levantar `python3 -m http.server 5500` desde Bash en segundo plano y abrir `http://localhost:5500/`. Las animaciones de GSAP tardan en arrancar si el panel no tiene el foco: no es un error.
 
@@ -86,7 +87,7 @@ docs/logos-clientes/     ← logos de clientes del carrusel viejo (no se publica
 ```
 
 ## Pendientes
-1. **Foto** de Willder en "Sobre mí" (hay un comentario en el HTML donde va).
+1. **Fotos** de Willder: él las va a mandar. Van en "Sobre mí" (hay un comentario en el HTML donde va). No usar las del portafolio de 2024.
 2. **Dominio definitivo** (ver opciones de WillNet arriba): conectarlo en Cloudflare (Workers → willdev-landing → Domains) y reemplazar la URL workers.dev en `index.html` (canonical, hreflang, og:url, og:image).
 3. **Logotipo con la palabra WILLNET** (hoy el PNG dice WILLDEV; en la web solo se usa la W + texto HTML, así que no afecta a la landing).
 4. Imagen OG propia de 1200×630 en `assets/img/og/` (hoy usa la captura de Pavlove).

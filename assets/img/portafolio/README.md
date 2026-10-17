@@ -14,6 +14,7 @@ Imágenes de la sección **Proyectos** (y del hero y los destacados). Las webs s
 | `tarjeta-dopicos.jpg` | `Clientes/dopicos/dp_business_card/dp_business_card_ES.pdf` |
 | `logo-alibel.png`, `logo-anto.jpg`, `logo-acl.jpg` | Logos en `Clientes/` |
 | `simon-game.jpg`, `drum-kit.jpg`, `tindog.jpg`, `dice-game.jpg` | Capturas del inicio en GitHub Pages (willgo-dev, 16-10-2026) |
+| `bootstrap-website.jpg`, `aprendiendo-a-programar.jpg`, `login-form.jpg` | Capturas del inicio de `boobstrap-website`, `website-structure` y `login-form` en GitHub Pages (16-10-2026). Venían del portafolio de 2024 |
 
 **Para agregar una imagen:** `.jpg` o `.webp`, 1200–1600 px de ancho y menos de 300 KB. Nombre en minúsculas y con guiones.
 Las capturas se pueden rehacer con Chrome en modo headless:
