@@ -1,0 +1,19 @@
+{
+  "name": "willnet-landing",
+  "version": "0.1.0",
+  "description": "Landing de WillNet: servicios de páginas web. HTML + JavaScript + Tailwind CSS.",
+  "private": true,
+  "author": "Willder Gomez (Willdev) <willdevgo@gmail.com>",
+  "scripts": {
+    "dev": "tailwindcss -i ./css/input.css -o ./css/styles.css --watch",
+    "build": "tailwindcss -i ./css/input.css -o ./css/styles.css --minify",
+    "serve": "python3 -m http.server 5500",
+    "deploy": "npm run build && npm run dist && wrangler deploy",
+    "dist": "rm -rf dist && mkdir -p dist/css && cp -R index.html js assets dist/ && cp css/styles.css dist/css/ && find dist \\( -name '*.md' -o -name '.DS_Store' \\) -delete"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3",
+    "wrangler": "^4.151.1"
+  }
+}

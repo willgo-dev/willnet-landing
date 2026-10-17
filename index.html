@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Textos traducibles: data-i18n cambia el texto y data-i18n-attr cambia atributos (ver js/i18n.js) -->
+    <title data-i18n="meta.title">WillNet | Diseño y desarrollo web</title>
+    <meta
+      name="description"
+      content="WillNet: diseño y desarrollo de páginas web, tiendas online, portafolios, invitaciones digitales y logos. West Palm Beach, FL. Español e inglés."
+      data-i18n-attr="content:meta.description"
+    />
+
+    <!-- URL PROVISIONAL de Cloudflare (workers.dev). Cambiarla cuando haya dominio propio -->
+    <link rel="canonical" href="https://willdev-landing.willdev-landing.workers.dev/" />
+    <link rel="alternate" hreflang="es" href="https://willdev-landing.willdev-landing.workers.dev/?lang=es" />
+    <link rel="alternate" hreflang="en" href="https://willdev-landing.willdev-landing.workers.dev/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://willdev-landing.willdev-landing.workers.dev/" />
+
+    <!-- Open Graph (vista previa al compartir en redes) -->
+    <meta property="og:title" content="WillNet | Diseño y desarrollo web" data-i18n-attr="content:meta.title" />
+    <meta
+      property="og:description"
+      content="Páginas web, tiendas online, invitaciones digitales y logos para negocios, marcas y personas."
+      data-i18n-attr="content:meta.ogDescription"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://willdev-landing.willdev-landing.workers.dev/" />
+    <meta property="og:image" content="https://willdev-landing.willdev-landing.workers.dev/assets/img/portafolio/pavlove.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/favicon/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png" />
+
+    <!-- Tipografía Ubuntu (la de la plantilla) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Íconos (Bootstrap Icons, igual que la plantilla) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS generado por Tailwind (no editar: se edita css/input.css) -->
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body class="flex min-h-svh flex-col">
+    <!-- ================= HEADER ================= -->
+    <header class="absolute top-0 z-40 flex h-[60px] w-full items-center px-[5%] max-xl:px-4 xl:justify-around">
+      <a href="#inicio" class="flex h-[50px] shrink-0 items-center gap-2 p-1" aria-label="WillNet">
+        <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="" class="h-6 w-auto" />
+        <span class="text-lg font-bold tracking-[0.2em] text-white">WILLNET</span>
+      </a>
+
+      <div class="collapsible-header max-xl:shadow-md" id="collapsed-header-items">
+        <nav
+          class="flex h-full w-max gap-5 text-base max-xl:mt-[30px] max-xl:flex-col max-xl:place-items-end xl:mx-auto xl:place-items-center"
+          aria-label="Principal"
+          data-i18n-attr="aria-label:nav.label"
+        >
+          <a class="header-links" href="#servicios" data-i18n="nav.services">Servicios</a>
+          <a class="header-links" href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+          <a class="header-links" href="#proceso" data-i18n="nav.process">Proceso</a>
+          <a class="header-links" href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+          <a class="header-links" href="#faq" data-i18n="nav.faq">Preguntas</a>
+        </nav>
+        <div class="mx-4 flex place-items-center gap-5 text-base max-xl:flex-col max-xl:place-items-end max-md:w-full">
+          <!-- Selector de idioma -->
+          <div class="flex items-center gap-1 rounded-full border border-outline p-1" role="group" aria-label="Idioma / Language">
+            <button type="button" class="lang-btn" data-lang-switch="es" aria-pressed="true">ES</button>
+            <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+          </div>
+          <a
+            href="#contacto"
+            class="flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2 text-black transition-transform duration-300 hover:translate-x-2"
+          >
+            <span data-i18n="nav.cta">Cotiza tu proyecto</span>
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <button
+        class="bi bi-list absolute right-3 top-3 z-50 text-3xl text-white xl:hidden"
+        id="collapse-btn"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="collapsed-header-items"
+        data-i18n-attr="aria-label:nav.menu"
+      ></button>
+    </header>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section
+        id="inicio"
+        class="hero-section relative flex min-h-svh w-full max-w-[100vw] flex-col overflow-hidden max-md:mt-[50px]"
+      >
+        <div class="flex min-h-svh w-full flex-col place-content-center gap-6 p-[5%] pt-28 max-lg:p-4 max-lg:pt-24 max-xl:place-items-center">
+          <div class="flex flex-col place-content-center items-center">
+            <p class="reveal-up mb-4 text-sm tracking-[0.3em] text-gray-400">&lt;WEB DEVELOPER&gt;</p>
+            <h1
+              class="reveal-up gradient-text text-center text-6xl font-semibold uppercase leading-[80px] max-lg:text-4xl max-md:leading-snug"
+            >
+              <span data-i18n="hero.title1">Hola, soy Willder</span>
+              <br />
+              <span data-i18n="hero.title2">Creo tu presencia web</span>
+            </h1>
+            <p class="reveal-up mt-10 max-w-[520px] p-2 text-center text-gray-300 max-lg:max-w-full" data-i18n="hero.subtitle">
+              Diseño y desarrollo páginas web, tiendas online, invitaciones digitales y logos para negocios, marcas y
+              personas. En español e inglés.
+            </p>
+            <div class="reveal-up mt-10 flex flex-wrap place-content-center place-items-center gap-4">
+              <a
+                class="btn bg-primary/60! shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]"
+                href="#contacto"
+                data-i18n="hero.cta"
+                >Cotiza tu proyecto</a
+              >
+              <a
+                class="btn bg-black! text-white! transition-colors duration-300 hover:bg-white! hover:text-black!"
+                href="#proyectos"
+              >
+                <i class="bi bi-grid-fill" aria-hidden="true"></i>
+                <span data-i18n="hero.secondary">Ver proyectos</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Imagen inclinada: GSAP la endereza al hacer scroll (js/main.js) -->
+          <div class="reveal-up relative mt-8 flex w-full place-content-center place-items-center" id="dashboard-container">
+            <div class="relative max-w-[80%] overflow-hidden rounded-xl bg-transparent max-md:max-w-full" id="dashboard">
+              <img
+                src="./assets/img/portafolio/pavlove.jpg"
+                alt="Tienda online de Pavlove, uno de mis proyectos"
+                data-i18n-attr="alt:hero.imageAlt"
+                class="h-full w-full object-cover opacity-90 max-lg:object-contain"
+              />
+            </div>
+            <div class="hero-img-bg-grad absolute left-[20%] top-5 h-[200px] w-[200px]"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TECNOLOGÍAS (carrusel infinito) =================
+           Íconos en assets/img/tecnologias/ (Simple Icons y Devicon, en blanco).
+           Para agregar una: copia su SVG a esa carpeta y añade un <li> en las DOS listas (la copia lleva aria-hidden para que el movimiento sea continuo). -->
+      <section class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-8">
+        <h2 class="reveal-up text-center text-3xl max-md:text-xl" data-i18n="tech.title">Tecnologías con las que trabajo</h2>
+        <div class="reveal-up carousel-container mt-8">
+          <div class="carousel">
+            <ul class="flex items-center" aria-label="Tecnologías" data-i18n-attr="aria-label:tech.label">
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /><span>HTML</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /><span>CSS</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /><span>JavaScript</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/tailwindcss.svg" alt="" class="h-7 w-auto" /><span>Tailwind CSS</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/bootstrap.svg" alt="" class="h-7 w-auto" /><span>Bootstrap</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/jquery.svg" alt="" class="h-7 w-auto" /><span>jQuery</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/gsap.svg" alt="" class="h-7 w-auto" /><span>GSAP</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/nodejs.svg" alt="" class="h-7 w-auto" /><span>Node.js</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/express.svg" alt="" class="h-7 w-auto" /><span>Express</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/npm.svg" alt="" class="h-7 w-auto" /><span>npm</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/postgresql.svg" alt="" class="h-7 w-auto" /><span>PostgreSQL</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/wordpress.svg" alt="" class="h-7 w-auto" /><span>WordPress</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/woocommerce.svg" alt="" class="h-7 w-auto" /><span>WooCommerce</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/elementor.svg" alt="" class="h-7 w-auto" /><span>Elementor</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/stripe.svg" alt="" class="h-7 w-auto" /><span>Stripe</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/git.svg" alt="" class="h-7 w-auto" /><span>Git</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/github.svg" alt="" class="h-7 w-auto" /><span>GitHub</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/vscode.svg" alt="" class="h-7 w-auto" /><span>VS Code</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/cloudflare.svg" alt="" class="h-7 w-auto" /><span>Cloudflare</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/figma.svg" alt="" class="h-7 w-auto" /><span>Figma</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/canva.svg" alt="" class="h-7 w-auto" /><span>Canva</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/chatgpt.svg" alt="" class="h-7 w-auto" /><span>ChatGPT</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/githubcopilot.svg" alt="" class="h-7 w-auto" /><span>GitHub Copilot</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/claude.svg" alt="" class="h-7 w-auto" /><span>Claude Code</span></li>
+            </ul>
+            <ul class="flex items-center" aria-hidden="true">
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /><span>HTML</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /><span>CSS</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /><span>JavaScript</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/tailwindcss.svg" alt="" class="h-7 w-auto" /><span>Tailwind CSS</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/bootstrap.svg" alt="" class="h-7 w-auto" /><span>Bootstrap</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/jquery.svg" alt="" class="h-7 w-auto" /><span>jQuery</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/gsap.svg" alt="" class="h-7 w-auto" /><span>GSAP</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/nodejs.svg" alt="" class="h-7 w-auto" /><span>Node.js</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/express.svg" alt="" class="h-7 w-auto" /><span>Express</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/npm.svg" alt="" class="h-7 w-auto" /><span>npm</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/postgresql.svg" alt="" class="h-7 w-auto" /><span>PostgreSQL</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/wordpress.svg" alt="" class="h-7 w-auto" /><span>WordPress</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/woocommerce.svg" alt="" class="h-7 w-auto" /><span>WooCommerce</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/elementor.svg" alt="" class="h-7 w-auto" /><span>Elementor</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/stripe.svg" alt="" class="h-7 w-auto" /><span>Stripe</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/git.svg" alt="" class="h-7 w-auto" /><span>Git</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/github.svg" alt="" class="h-7 w-auto" /><span>GitHub</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/vscode.svg" alt="" class="h-7 w-auto" /><span>VS Code</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/cloudflare.svg" alt="" class="h-7 w-auto" /><span>Cloudflare</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/figma.svg" alt="" class="h-7 w-auto" /><span>Figma</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/canva.svg" alt="" class="h-7 w-auto" /><span>Canva</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/chatgpt.svg" alt="" class="h-7 w-auto" /><span>ChatGPT</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/githubcopilot.svg" alt="" class="h-7 w-auto" /><span>GitHub Copilot</span></li>
+              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/claude.svg" alt="" class="h-7 w-auto" /><span>Claude Code</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= POR QUÉ WILLNET (tarjetas con ícono grande) ================= -->
+      <section class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
+        <div class="mt-8 flex flex-col place-items-center gap-5">
+          <h2 class="reveal-up mt-5 text-center text-4xl font-medium text-gray-200 max-md:text-3xl" data-i18n="why.title">¿Por qué WillNet?</h2>
+          <div class="mt-6 flex max-w-[80%] flex-wrap place-content-center gap-8 max-lg:max-w-full max-lg:flex-col max-lg:items-center">
+            <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
+              <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
+                <div class="flex h-full w-full place-content-center place-items-end p-2">
+                  <i class="bi bi-brush-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
+                </div>
+              </div>
+              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.1.title">Diseño para tu marca</h3>
+              <p class="text-gray-300" data-i18n="why.1.text">Colores, textos y estructura pensados para tu negocio y para tus clientes.</p>
+            </div>
+            <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
+              <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
+                <div class="flex h-full w-full place-content-center place-items-end p-2">
+                  <i class="bi bi-chat-dots-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
+                </div>
+              </div>
+              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.2.title">Trato directo y bilingüe</h3>
+              <p class="text-gray-300" data-i18n="why.2.text">Hablas directamente conmigo, en español o en inglés, desde la idea hasta el lanzamiento.</p>
+            </div>
+            <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
+              <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
+                <div class="flex h-full w-full place-content-center place-items-end p-2">
+                  <i class="bi bi-lightning-charge-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
+                </div>
+              </div>
+              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.3.title">Lista para vender</h3>
+              <p class="text-gray-300" data-i18n="why.3.text">Rápida, adaptada a celulares y conectada a WhatsApp, formularios, pagos o citas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SERVICIOS ================= -->
+      <section
+        id="servicios"
+        class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6 py-20"
+      >
+        <h2 class="reveal-up text-center text-4xl font-medium text-gray-200 max-md:text-2xl" data-i18n="services.title">Servicios</h2>
+        <p class="reveal-up mt-4 max-w-[560px] text-center text-gray-400" data-i18n="services.subtitle">
+          Desarrollo y diseño web para negocios, marcas, creadores y eventos.
+        </p>
+        <div class="mt-10 grid max-w-[1000px] gap-6 md:grid-cols-2">
+          <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
+            <i class="bi bi-bag-check-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.1.title">Tiendas y e-commerce</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.1.text">Tiendas online con catálogo, carrito, pagos con tarjeta y gestión de pedidos.</p>
+            </div>
+          </div>
+          <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
+            <i class="bi bi-building-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.2.title">Webs para empresas y negocios</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.2.text">Sitios y landing pages que presentan tu negocio y convierten visitas en clientes.</p>
+            </div>
+          </div>
+          <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
+            <i class="bi bi-person-badge-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.3.title">Portafolios y webs personales</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.3.text">Tu trabajo y tu historia en una web profesional que te ayude a destacar.</p>
+            </div>
+          </div>
+          <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
+            <i class="bi bi-stars text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.4.title">Influencers y creadores</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.4.text">Media kits, páginas de enlaces y webs para mostrar tus números y conseguir marcas.</p>
+            </div>
+          </div>
+          <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
+            <i class="bi bi-balloon-heart-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.5.title">Invitaciones y eventos</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.5.text">Invitaciones web para bodas, cumpleaños, XV años y fiestas, con confirmación de asistencia, QR y mesas.</p>
+            </div>
+          </div>
+          <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
+            <i class="bi bi-vector-pen text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.6.title">Logos y tarjetas de presentación</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.6.text">Identidad visual para marcas, empresas y negocios: logo, tarjetas y piezas para redes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DESTACADO 1: TIENDAS (imagen + lista) ================= -->
+      <section class="relative flex min-h-[70vh] w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
+        <div class="reveal-up flex min-h-[60vh] place-content-center place-items-center gap-[10%] max-lg:flex-col max-lg:gap-10">
+          <div class="flex">
+            <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
+              <img
+                src="./assets/img/portafolio/imola.jpg"
+                alt="Tienda online de Imola Gold Jewelry"
+                data-i18n-attr="alt:feature1.imageAlt"
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-6 flex max-w-[450px] flex-col gap-4">
+            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature1.title">Tiendas online que venden por ti</h3>
+            <div class="mt-4 flex flex-col gap-3">
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature1.1.title">Pagos seguros</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature1.1.text">Cobra con tarjeta y otros métodos directamente desde tu web.</p>
+            </div>
+            <div class="mt-4 flex flex-col gap-3">
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature1.2.title">Fácil de administrar</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature1.2.text">Agrega productos, precios y fotos tú mismo desde un panel sencillo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DESTACADO 2: LANDINGS (lista + imagen) ================= -->
+      <section class="relative flex min-h-[70vh] w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
+        <div class="reveal-up flex min-h-[60vh] place-content-center place-items-center gap-[10%] max-lg:flex-col-reverse max-lg:gap-10">
+          <div class="mt-6 flex max-w-[450px] flex-col gap-4">
+            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature2.title">Landing pages que consiguen clientes</h3>
+            <div class="mt-4 flex flex-col gap-3">
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature2.1.title">Citas y formularios</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature2.1.text">Tus clientes agendan una cita o te escriben sin salir de la página.</p>
+            </div>
+            <div class="mt-4 flex flex-col gap-3">
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature2.2.title">Listas para tus campañas</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature2.2.text">Bilingües y preparadas para medir resultados de tus anuncios (Meta Pixel).</p>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
+              <img
+                src="./assets/img/portafolio/mastermind.jpg"
+                alt="Landing page de Mastermind Hierarchy"
+                data-i18n-attr="alt:feature2.imageAlt"
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROYECTOS (portafolio con filtros) =================
+           Para agregar un proyecto: copia un <article>, cambia data-category (web, events, design, github),
+           la imagen (assets/img/portafolio/) y los textos, y agrega sus claves en inglés en js/i18n.js. -->
+      <section id="proyectos" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-3">
+        <h2 class="reveal-up text-center text-4xl font-medium max-md:text-2xl" data-i18n="projects.title">Proyectos ✨</h2>
+        <p class="reveal-up mt-4 max-w-[560px] text-center text-gray-400" data-i18n="projects.subtitle">
+          Webs, invitaciones y diseños para clientes reales, más proyectos de práctica en GitHub.
+        </p>
+
+        <div class="reveal-up mt-8 flex flex-wrap place-content-center gap-3" role="group" aria-label="Filtrar proyectos" data-i18n-attr="aria-label:projects.filterLabel">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true" data-i18n="projects.filter.all">Todos</button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false" data-i18n="projects.filter.web">Webs</button>
+          <button type="button" class="filter-btn" data-filter="events" aria-pressed="false" data-i18n="projects.filter.events">Eventos</button>
+          <button type="button" class="filter-btn" data-filter="design" aria-pressed="false" data-i18n="projects.filter.design">Diseño</button>
+          <button type="button" class="filter-btn" data-filter="github" aria-pressed="false">GitHub</button>
+        </div>
+
+        <div class="mt-10 grid w-full max-w-[1200px] gap-8 sm:grid-cols-2 lg:grid-cols-3" id="projects-grid">
+          <!-- WEB -->
+          <article data-category="web">
+            <a href="https://pavlovesat.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/pavlove.jpg" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Tienda online</span>
+                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">Con Dopicos</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">Pavlove</h3>
+              <p class="text-gray-400" data-i18n="projects.pavlove">Tienda de pavlovas artesanales en San Antonio, Texas: productos personalizables, pagos y políticas. WordPress + WooCommerce.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="web">
+            <a href="https://imolagoldjewelry.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/imola.jpg" alt="Imola Gold Jewelry" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Tienda online</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">Imola Gold Jewelry</h3>
+              <p class="text-gray-400" data-i18n="projects.imola">Tienda de joyería en oro de 18k en West Palm Beach: catálogo por categorías, carrito y pagos. WordPress + WooCommerce.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="web">
+            <a href="https://mastermind-team.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/mastermind.jpg" alt="Mastermind Hierarchy" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">Mastermind Hierarchy</h3>
+              <p class="text-gray-400" data-i18n="projects.mastermind">Landing bilingüe para una agencia de seguros en Doral, FL: videos, citas con Calendly, formularios y Meta Pixel. HTML, Tailwind y JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <!-- EVENTOS -->
+          <article data-category="events">
+            <a href="https://willgo-dev.github.io/invitacion-marcela/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/invitacion-xv.jpg" alt="Invitación de XV años" data-i18n-attr="alt:projects.xv.title" loading="lazy" class="h-full w-full object-cover object-[50%_30%] transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.invitation">Invitación web</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.xv.title">Invitación de XV años</h3>
+              <p class="text-gray-400" data-i18n="projects.xv">Invitación web con video, música, cuenta regresiva, confirmación por QR y pases digitales para cada familia.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="events">
+            <a href="https://willgo-dev.github.io/assignacion_mesas/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/mesas.jpg" alt="Buscador de mesas para eventos" data-i18n-attr="alt:projects.tables.title" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.webapp">App web</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.tables.title">Buscador de mesas</h3>
+              <p class="text-gray-400" data-i18n="projects.tables">Cada invitado escanea un QR, escribe su nombre y encuentra su mesa al instante. HTML, CSS y JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="events">
+            <div class="flex h-full flex-col gap-3 rounded-lg p-3">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/invitacion-primer-anito.jpg" alt="Invitación de primer cumpleaños" data-i18n-attr="alt:projects.birthday.title" loading="lazy" class="h-full w-full object-cover object-[50%_35%]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.digitalInvite">Invitación digital</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.birthday.title">Invitación de primer cumpleaños</h3>
+              <p class="text-gray-400" data-i18n="projects.birthday">Invitación temática de carreras con pase personalizado para cada familia.</p>
+            </div>
+          </article>
+
+          <!-- DISEÑO -->
+          <article data-category="design">
+            <div class="flex h-full flex-col gap-3 rounded-lg p-3">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/mediakit-nicole.jpg" alt="Media kit de Nicole Díaz" data-i18n-attr="alt:projects.mediakit.title" loading="lazy" class="h-full w-full object-cover object-top" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Media kit</span>
+                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">Con Dopicos</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.mediakit.title">Media kit de Nicole Díaz</h3>
+              <p class="text-gray-400" data-i18n="projects.mediakit">Media kit bilingüe para una influencer con millones de seguidores: audiencia, métricas y propuesta para marcas.</p>
+            </div>
+          </article>
+
+          <article data-category="design">
+            <div class="flex h-full flex-col gap-3 rounded-lg p-3">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/tarjeta-dopicos.jpg" alt="Tarjeta de presentación de Dopicos" data-i18n-attr="alt:projects.card.title" loading="lazy" class="h-full w-full object-cover" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.card">Tarjeta de presentación</span>
+                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">Con Dopicos</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.card.title">Tarjeta de Dopicos</h3>
+              <p class="text-gray-400" data-i18n="projects.card">Tarjeta bilingüe con QR e íconos de cada servicio para una agencia de software.</p>
+            </div>
+          </article>
+
+          <article data-category="design">
+            <div class="flex h-full flex-col gap-3 rounded-lg p-3">
+              <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-secondary p-6">
+                <img src="./assets/img/portafolio/logo-alibel.png" alt="Logo de Alibel Parra Insurance" data-i18n-attr="alt:projects.alibel.title" loading="lazy" class="h-full w-full object-contain" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.alibel.title">Logo de Alibel Parra Insurance</h3>
+              <p class="text-gray-400" data-i18n="projects.alibel">Identidad para una agente de seguros de salud, en versiones en español e inglés.</p>
+            </div>
+          </article>
+
+          <article data-category="design">
+            <div class="flex h-full flex-col gap-3 rounded-lg p-3">
+              <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-black p-4">
+                <img src="./assets/img/portafolio/logo-anto.jpg" alt="Logo de Anto Perfumes" data-i18n-attr="alt:projects.anto.title" loading="lazy" class="h-full w-full object-contain" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.anto.title">Logo de Anto Perfumes</h3>
+              <p class="text-gray-400" data-i18n="projects.anto">Logo elegante para una marca de perfumes.</p>
+            </div>
+          </article>
+
+          <article data-category="design">
+            <div class="flex h-full flex-col gap-3 rounded-lg p-3">
+              <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-white">
+                <img src="./assets/img/portafolio/logo-acl.jpg" alt="Logo de Ale Creative Lab" data-i18n-attr="alt:projects.acl.title" loading="lazy" class="h-full w-full object-contain" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.acl.title">Logo de Ale Creative Lab</h3>
+              <p class="text-gray-400" data-i18n="projects.acl">Identidad con ilustración propia para una creadora de contenido y agencia de marketing.</p>
+            </div>
+          </article>
+
+          <!-- GITHUB -->
+          <article data-category="github">
+            <a href="https://willgo-dev.github.io/simon-game/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/simon-game.jpg" alt="Simon Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Juego web</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">Simon Game</h3>
+              <p class="text-gray-400" data-i18n="projects.simon">El clásico juego de memoria Simon. JavaScript y jQuery.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Probar</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="github">
+            <a href="https://willgo-dev.github.io/drum-kit/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/drum-kit.jpg" alt="Drum Kit" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Juego web</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">Drum Kit</h3>
+              <p class="text-gray-400" data-i18n="projects.drum">Batería que suena con el teclado, el mouse o el dedo. JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Probar</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="github">
+            <a href="https://willgo-dev.github.io/tindog-project/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/tindog.jpg" alt="TinDog" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">TinDog</h3>
+              <p class="text-gray-400" data-i18n="projects.tindog">Landing de una app ficticia para perros, hecha con Bootstrap.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-category="github">
+            <a href="https://willgo-dev.github.io/dice-game/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
+              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+                <img src="./assets/img/portafolio/dice-game.jpg" alt="Dice Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+              </div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Juego web</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl">Dice Game</h3>
+              <p class="text-gray-400" data-i18n="projects.dice">Juego de dados para dos jugadores que se lanza al recargar la página. JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Probar</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+        </div>
+
+        <a
+          href="https://github.com/willgo-dev"
+          target="_blank"
+          rel="noopener"
+          class="reveal-up btn mt-10 rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!"
+        >
+          <i class="bi bi-github" aria-hidden="true"></i>
+          <span data-i18n="projects.github">Ver todo en GitHub</span>
+        </a>
+      </section>
+
+      <!-- ================= PROCESO (reemplaza la sección de precios: todo va por cotización) ================= -->
+      <section id="proceso" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-4">
+        <h2 class="reveal-up text-center text-3xl font-medium text-gray-300 max-md:text-2xl" data-i18n="process.title">Cómo trabajo</h2>
+        <div class="mt-10 grid max-w-[1200px] gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
+            <span class="text-5xl font-semibold text-gray-500">01</span>
+            <h3 class="text-2xl" data-i18n="process.1.title">Conversamos</h3>
+            <p class="text-gray-300" data-i18n="process.1.text">Me cuentas tu idea por WhatsApp, mensaje, llamada o el formulario.</p>
+          </div>
+          <div class="reveal-up flex flex-col gap-3 rounded-lg border-2 border-primary bg-secondary p-8 shadow-xl">
+            <span class="text-5xl font-semibold text-gray-500">02</span>
+            <h3 class="text-2xl" data-i18n="process.2.title">Cotización</h3>
+            <p class="text-gray-300" data-i18n="process.2.text">Recibes una propuesta con lo que incluye, el precio y la fecha de entrega.</p>
+          </div>
+          <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
+            <span class="text-5xl font-semibold text-gray-500">03</span>
+            <h3 class="text-2xl" data-i18n="process.3.title">Diseño y desarrollo</h3>
+            <p class="text-gray-300" data-i18n="process.3.text">Construyo tu proyecto y lo revisas antes de publicarlo.</p>
+          </div>
+          <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
+            <span class="text-5xl font-semibold text-gray-500">04</span>
+            <h3 class="text-2xl" data-i18n="process.4.title">Lanzamiento</h3>
+            <p class="text-gray-300" data-i18n="process.4.text">Lo publicamos en tu dominio y te enseño a usarlo.</p>
+          </div>
+        </div>
+        <p class="reveal-up mt-10 max-w-[560px] text-center text-gray-400" data-i18n="process.note">
+          Cada proyecto es diferente, por eso todo va por cotización, sin compromiso.
+        </p>
+        <a href="#contacto" class="reveal-up btn mt-6 shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]" data-i18n="process.cta">Pide tu cotización</a>
+      </section>
+
+      <!-- ================= SOBRE MÍ ================= -->
+      <section id="sobre-mi" class="flex w-full flex-col place-items-center p-6 py-20">
+        <div class="reveal-up flex max-w-[1100px] place-items-center gap-16 max-lg:flex-col max-lg:gap-10">
+          <!-- FOTO: reemplazar este bloque por <img src="./assets/img/willder.jpg" alt="Willder Gómez" class="h-full w-full object-cover"> -->
+          <div class="border-gradient h-[380px] w-[320px] shrink-0 max-md:h-[320px] max-md:w-[270px]">
+            <div class="flex h-full w-full flex-col place-content-center place-items-center gap-4">
+              <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="" class="w-1/3 opacity-80" />
+              <span class="text-sm tracking-[0.3em] text-gray-500">WILLNET</span>
+            </div>
+          </div>
+          <div class="flex max-w-[560px] flex-col gap-5">
+            <h2 class="text-4xl font-medium max-md:text-3xl" data-i18n="about.title">Sobre mí</h2>
+            <p class="text-lg text-gray-300" data-i18n="about.p1">
+              Soy Willder Gómez, desarrollador web en West Palm Beach, Florida. Ayudo a negocios, marcas y personas a
+              tener una presencia profesional en internet: desde tiendas online hasta invitaciones para eventos.
+            </p>
+            <p class="text-lg text-gray-300" data-i18n="about.p2">
+              Me encargo de todo el proceso, del diseño a la publicación, para que tú solo te preocupes por tu negocio.
+              Trabajo en español e inglés.
+            </p>
+            <ul class="flex flex-wrap gap-2 text-sm text-gray-300" aria-label="Tecnologías" data-i18n-attr="aria-label:about.techLabel">
+              <li class="rounded-full border border-outline px-3 py-1">HTML</li>
+              <li class="rounded-full border border-outline px-3 py-1">CSS</li>
+              <li class="rounded-full border border-outline px-3 py-1">JavaScript</li>
+              <li class="rounded-full border border-outline px-3 py-1">Tailwind CSS</li>
+              <li class="rounded-full border border-outline px-3 py-1">Node.js</li>
+              <li class="rounded-full border border-outline px-3 py-1">WordPress</li>
+              <li class="rounded-full border border-outline px-3 py-1">WooCommerce</li>
+              <li class="rounded-full border border-outline px-3 py-1">SQL</li>
+            </ul>
+            <div class="mt-2 flex flex-wrap gap-4">
+              <a href="https://www.linkedin.com/in/willgo-dev/" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
+                <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+              <a href="https://github.com/willgo-dev" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
+                <i class="bi bi-github" aria-hidden="true"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREGUNTAS FRECUENTES ================= -->
+      <section id="faq" class="flex w-full flex-col place-content-center place-items-center gap-[10%] p-[5%] px-[10%] max-md:px-4">
+        <h2 class="reveal-up text-4xl font-medium text-gray-300 max-md:text-2xl" data-i18n="faq.title">Preguntas frecuentes</h2>
+        <div class="mt-8 flex w-full max-w-[850px] flex-col gap-4">
+          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+            <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
+              <span data-i18n="faq.1.q">¿Cuánto cuesta una página web?</span>
+              <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
+            </button>
+            <div class="content"><p data-i18n="faq.1.a">Depende de lo que necesites: cantidad de páginas, funciones y contenido. Cuéntame tu idea y te envío una cotización sin compromiso.</p></div>
+          </div>
+          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+            <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
+              <span data-i18n="faq.2.q">¿Cuánto tiempo tarda?</span>
+              <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
+            </button>
+            <div class="content"><p data-i18n="faq.2.a">Depende del proyecto y de qué tan listo esté tu contenido (textos, fotos y logo). En la cotización te doy una fecha de entrega.</p></div>
+          </div>
+          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+            <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
+              <span data-i18n="faq.3.q">¿Me ayudas con el dominio y el hosting?</span>
+              <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
+            </button>
+            <div class="content"><p data-i18n="faq.3.a">Sí. Te asesoro para elegirlos y dejo tu web publicada y funcionando en tu dominio.</p></div>
+          </div>
+          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+            <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
+              <span data-i18n="faq.4.q">¿Puedo pedir cambios después?</span>
+              <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
+            </button>
+            <div class="content"><p data-i18n="faq.4.a">Sí. Antes de publicar revisamos todo juntos, y después puedo encargarme del mantenimiento y las actualizaciones.</p></div>
+          </div>
+          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+            <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
+              <span data-i18n="faq.5.q">¿Trabajas con clientes fuera de Florida?</span>
+              <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
+            </button>
+            <div class="content"><p data-i18n="faq.5.a">Sí. Trabajo a distancia con clientes de todo Estados Unidos y Latinoamérica, en español o en inglés.</p></div>
+          </div>
+        </div>
+
+        <div class="mt-16 flex flex-col place-items-center gap-4">
+          <p class="text-3xl max-md:text-2xl" data-i18n="faq.more">¿Tienes más preguntas?</p>
+          <a href="#contacto" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!" data-i18n="faq.cta">Escríbeme</a>
+        </div>
+      </section>
+
+      <!-- ================= CONTACTO =================
+           Métodos: WhatsApp, SMS, llamada, correo y formulario (js/contact.js).
+           Próximamente: agendar videollamadas. -->
+      <section id="contacto" class="flex w-full flex-col place-content-center place-items-center p-[5%] px-[10%] max-md:px-4">
+        <div class="reveal-up grid w-full max-w-[1100px] gap-10 rounded-lg border border-outline bg-secondary p-8 max-md:p-5 lg:grid-cols-[2fr_3fr]">
+          <div class="flex flex-col gap-4">
+            <h2 class="text-3xl text-gray-200 max-md:text-2xl" data-i18n="contact.title">Hablemos de tu proyecto</h2>
+            <p class="text-gray-400" data-i18n="contact.subtitle">Elige cómo prefieres contactarme o déjame un mensaje con el formulario.</p>
+            <div class="mt-2 grid grid-cols-2 gap-3">
+              <a
+                href="https://wa.me/17865575568?text=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto."
+                data-i18n-attr="href:contact.whatsappHref"
+                target="_blank"
+                rel="noopener"
+                class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary"
+              >
+                <i class="bi bi-whatsapp text-2xl text-green-400" aria-hidden="true"></i>
+                <span class="text-sm">WhatsApp</span>
+              </a>
+              <a
+                href="sms:+17865575568?&body=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto."
+                data-i18n-attr="href:contact.smsHref"
+                class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary"
+              >
+                <i class="bi bi-chat-text-fill text-2xl text-sky-400" aria-hidden="true"></i>
+                <span class="text-sm" data-i18n="contact.sms">Mensaje (SMS)</span>
+              </a>
+              <a href="tel:+17865575568" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
+                <i class="bi bi-telephone-fill text-2xl text-gray-200" aria-hidden="true"></i>
+                <span class="text-sm" data-i18n="contact.call">Llamada</span>
+              </a>
+              <a href="mailto:willdevgo@gmail.com" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
+                <i class="bi bi-envelope-fill text-2xl text-gray-200" aria-hidden="true"></i>
+                <span class="text-sm" data-i18n="contact.email">Correo</span>
+              </a>
+            </div>
+            <p class="mt-2 text-sm text-gray-500">(786) 557-5568 · willdevgo@gmail.com</p>
+          </div>
+
+          <!-- Formulario: ver js/contact.js para conectarlo a Web3Forms -->
+          <form id="contact-form" class="flex flex-col gap-4" novalidate>
+            <!-- Trampa anti-spam (honeypot): los humanos no la ven -->
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="flex flex-col gap-2 text-sm">
+                <span data-i18n="form.name">Nombre</span>
+                <input class="input" type="text" name="name" required autocomplete="name" />
+              </label>
+              <label class="flex flex-col gap-2 text-sm">
+                <span data-i18n="form.email">Correo electrónico</span>
+                <input class="input" type="email" name="email" required autocomplete="email" />
+              </label>
+              <label class="flex flex-col gap-2 text-sm">
+                <span data-i18n="form.phone">Teléfono (opcional)</span>
+                <input class="input" type="tel" name="phone" autocomplete="tel" />
+              </label>
+              <label class="flex flex-col gap-2 text-sm">
+                <span data-i18n="form.service">¿Qué necesitas?</span>
+                <select class="input" name="service">
+                  <option value="Tienda / e-commerce" data-i18n="form.opt.store">Tienda / e-commerce</option>
+                  <option value="Web para negocio" data-i18n="form.opt.business">Web para negocio</option>
+                  <option value="Portafolio / web personal" data-i18n="form.opt.portfolio">Portafolio / web personal</option>
+                  <option value="Influencer / creador" data-i18n="form.opt.influencer">Influencer / creador</option>
+                  <option value="Invitación / evento" data-i18n="form.opt.event">Invitación / evento</option>
+                  <option value="Logo / tarjetas" data-i18n="form.opt.logo">Logo / tarjetas</option>
+                  <option value="Otro" data-i18n="form.opt.other">Otro</option>
+                </select>
+              </label>
+            </div>
+            <label class="flex flex-col gap-2 text-sm">
+              <span data-i18n="form.message">Cuéntame sobre tu proyecto</span>
+              <textarea class="input min-h-[130px]" name="message" required></textarea>
+            </label>
+            <button type="submit" class="btn w-full! shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.02]">
+              <i class="bi bi-send-fill" aria-hidden="true"></i>
+              <span data-i18n="form.submit">Enviar mensaje</span>
+            </button>
+            <!-- Mensajes de estado (js/contact.js muestra uno a la vez) -->
+            <div aria-live="polite" class="text-sm">
+              <p class="form-status hidden text-red-400" data-status="invalid" data-i18n="form.invalid">Completa tu nombre, un correo válido y tu mensaje.</p>
+              <p class="form-status hidden text-gray-300" data-status="sending" data-i18n="form.sending">Enviando…</p>
+              <p class="form-status hidden text-green-400" data-status="success" data-i18n="form.success">¡Gracias! Recibí tu mensaje y te responderé pronto.</p>
+              <p class="form-status hidden text-red-400" data-status="error" data-i18n="form.error">No se pudo enviar. Escríbeme por WhatsApp o al correo.</p>
+              <p class="form-status hidden text-gray-300" data-status="mailto" data-i18n="form.mailto">Se abrirá tu app de correo con el mensaje listo para enviar.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a
+      href="https://wa.me/17865575568?text=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto."
+      data-i18n-attr="href:contact.whatsappHref"
+      target="_blank"
+      rel="noopener"
+      class="fixed bottom-5 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-3xl text-white shadow-lg transition-transform hover:scale-110"
+      aria-label="WhatsApp"
+    >
+      <i class="bi bi-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="mt-auto flex w-full place-content-around gap-8 p-[5%] px-[10%] text-white max-md:flex-col max-md:px-6">
+      <div class="flex w-[250px] flex-col place-items-center gap-5 max-md:w-full">
+        <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="WillNet" class="w-[90px]" />
+        <p class="text-center text-gray-400">West Palm Beach, FL<br /><span data-i18n="footer.remote">Atención remota en EE. UU. y Latinoamérica</span></p>
+        <p class="text-lg font-semibold" data-i18n="footer.follow">Sígueme</p>
+        <div class="flex gap-4 text-2xl">
+          <a href="https://www.linkedin.com/in/willgo-dev/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/willgo-dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://wa.me/17865575568" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="flex w-[250px] flex-col gap-4 max-md:w-full">
+        <h2 class="text-2xl max-md:text-xl" data-i18n="footer.services">Servicios</h2>
+        <div class="flex flex-col gap-3 max-md:text-sm">
+          <a href="#servicios" class="footer-link" data-i18n="services.1.title">Tiendas y e-commerce</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.2.title">Webs para empresas y negocios</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.5.title">Invitaciones y eventos</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.6.title">Logos y tarjetas de presentación</a>
+        </div>
+      </div>
+
+      <div class="flex w-[250px] flex-col gap-4 max-md:w-full">
+        <h2 class="text-2xl max-md:text-xl" data-i18n="footer.explore">Explora</h2>
+        <div class="flex flex-col gap-3 max-md:text-sm">
+          <a href="#proyectos" class="footer-link" data-i18n="nav.projects">Proyectos</a>
+          <a href="#proceso" class="footer-link" data-i18n="nav.process">Proceso</a>
+          <a href="#sobre-mi" class="footer-link" data-i18n="nav.about">Sobre mí</a>
+          <a href="#faq" class="footer-link" data-i18n="nav.faq">Preguntas</a>
+          <a href="#contacto" class="footer-link" data-i18n="footer.contact">Contacto</a>
+        </div>
+      </div>
+    </footer>
+    <p class="pb-6 text-center text-sm text-gray-500">
+      © <span id="year">2026</span> WillNet · <span data-i18n="footer.rights">Todos los derechos reservados</span>
+    </p>
+
+    <!-- GSAP (animaciones de la plantilla) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
+      integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
+      integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Scripts propios: i18n primero (los otros lo usan) -->
+    <script src="./js/i18n.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/contact.js"></script>
+  </body>
+</html>

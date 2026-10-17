@@ -1,0 +1,13 @@
+// Configuración de Cloudflare (Workers con archivos estáticos).
+// La landing es solo HTML/CSS/JS, así que no hay código de servidor:
+// Cloudflare sirve los archivos de esta carpeta tal cual.
+// Publicar: npm run deploy  (compila el CSS y sube la web)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "willdev-landing",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    // Carpeta que se publica. Se genera con: npm run dist (solo index.html, css/styles.css, js/ y assets/)
+    "directory": "./dist"
+  }
+}
