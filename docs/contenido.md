@@ -29,7 +29,7 @@
 **Webs:** Pavlove (con Dopicos), Imola Gold Jewelry, Mastermind Hierarchy.
 **Eventos:** invitación de XV años (Marcela), buscador de mesas, invitación de primer cumpleaños (Hernán Matheo).
 **Diseño:** media kit de Nicole Díaz (con Dopicos), tarjeta de Dopicos, logos de Alibel Parra Insurance, Anto Perfumes y Ale Creative Lab.
-**GitHub:** Simon Game, Drum Kit, TinDog, Dice Game, y un botón a github.com/willgo-dev.
+**GitHub:** Simon Game, Drum Kit, TinDog, Dice Game, y un botón a github.com/willnet-dev.
 **En el carrusel de clientes:** Pavlove, Imola, Mastermind, Dopicos, Marmic Creations, Alibel Parra, Anto Perfumes, ACL y Nicole Díaz.
 
 Origen de las imágenes: capturas de los sitios en línea (15-10-2026) y archivos de `Clientes/` y `Repositorios/`.

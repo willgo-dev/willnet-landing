@@ -7,7 +7,8 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Tema | Decisión |
 |---|---|
 | Nombre | **WillNet** en los textos y **WILLNET** en mayúsculas junto a la W del menú (2026-10-16). No se explica su significado en la web. El logo (la W) y los colores no cambian por ahora |
-| Lo que NO cambia de nombre | El correo **willdevgo@gmail.com**, el usuario de GitHub **willgo-dev**, el proyecto (Worker) de Cloudflare **`willdev-landing`** y el logotipo PNG `willdev-logotipo-*` (la imagen todavía dice WILLDEV) |
+| Usuario de GitHub | **willnet-dev** desde el 2026-10-17 (antes willgo-dev y, en 2024, willgomez22). GitHub redirige los enlaces viejos a repos mientras nadie registre `willgo-dev`, pero **no** redirige el perfil ni GitHub Pages (`willgo-dev.github.io` ya no funciona). Willder decidió no reservar el nombre viejo |
+| Lo que NO cambia de nombre | El correo **willdevgo@gmail.com**, el proyecto (Worker) de Cloudflare **`willdev-landing`** y el logotipo PNG `willdev-logotipo-*` (la imagen todavía dice WILLDEV) |
 | Idioma | **Bilingüe**, con el **inglés como idioma principal** desde el 2026-10-16 y sin detección del navegador (ver "Sistema bilingüe" abajo) |
 | Marca | La landing es **solo de WillNet**. En el portafolio también entran los proyectos y clientes de **Dopicos** (con la etiqueta "Con Dopicos") |
 | Precios | **No se muestran.** Todo va por cotización |
@@ -19,9 +20,9 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Imagen del hero | **"Muro de proyectos"** (2026-10-16): collage en perspectiva de las capturas del portafolio con la W y WILLNET al centro, en `assets/img/hero/willnet-proyectos.jpg` (1920×1080). Willder eligió esta entre 6 propuestas; la fuente HTML está en `docs/hero-muro.html` (se convierte en imagen con puppeteer). La misma imagen recortada es la **imagen OG** (`assets/img/og/willnet-og.jpg`, 1200×630). A Willder no le gustó la captura sola de Pavlove en el hero |
 | Destacados | 3 secciones que alternan imagen y lista: **1 · Pavlove** ("Tiendas online que venden por ti", `feature1`), **2 · Imola** ("Webs que reflejan tu marca", `feature2`) y **3 · Mastermind** ("Landing pages que consiguen clientes", `feature3`) |
 | Correos | Todo llega a la bandeja de **will.gomez@willnet.dev** (alias de Google Workspace) y Willder responde siempre desde will.gomez@. En la landing: **contact@willnet.dev** en Contacto, el botón de correo y el formulario (Web3Forms entrega a contact@); **info@willnet.dev** y **support@willnet.dev** en el footer; **support@** también en la pregunta frecuente de cambios/soporte. En GitHub: contact@. En LinkedIn: will.gomez@ |
-| Portafolio | Solo proyectos que estén en local (`Clientes/`) o en su GitHub (`willgo-dev`). Del portafolio de 2024 se trajeron Move With Joy, Aprendiendo a Programar, Login Form y la **formación** (en "Sobre mí"); **no** sus fotos (Willder mandará fotos nuevas). **No usar** airseausa.com, cejasperfectasmedellin.com, jcpconsult.net ni tendaigroup.com |
+| Portafolio | Solo proyectos que estén en local (`Clientes/`) o en su GitHub (`willnet-dev`). Del portafolio de 2024 se trajeron Move With Joy, Aprendiendo a Programar, Login Form y la **formación** (en "Sobre mí"); **no** sus fotos (Willder mandará fotos nuevas). **No usar** airseausa.com, cejasperfectasmedellin.com, jcpconsult.net ni tendaigroup.com |
 | Foto | Va a poner una foto suya más adelante. Hoy hay un espacio listo en "Sobre mí" y un texto genérico |
-| Redes | LinkedIn **https://www.linkedin.com/in/will-net/** (Willder cambió la URL; la vieja `willgo-dev` redirige por ahora) y GitHub **https://github.com/willgo-dev** |
+| Redes | LinkedIn **https://www.linkedin.com/in/will-net/** (Willder cambió la URL; la vieja `willgo-dev` redirige por ahora) y GitHub **https://github.com/willnet-dev** |
 | Servicios | Tiendas y e-commerce, webs para empresas y negocios, portafolios y webs personales, influencers, invitaciones y eventos (bodas, cumpleaños, XV, fiestas), logos y tarjetas de presentación |
 
 ## Stack (fase actual)
@@ -66,12 +67,12 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 - Después de publicar, Cloudflare puede tardar un minuto en mostrar la versión nueva (caché).
 
 ## GitHub
-- Repo **público**: https://github.com/willgo-dev/willnet-landing (rama `main`). `.gitignore` deja fuera `node_modules/`, `dist/`, `.wrangler/` y `.env`.
+- Repo **público**: https://github.com/willnet-dev/willnet-landing (rama `main`). `.gitignore` deja fuera `node_modules/`, `dist/`, `.wrangler/` y `.env`.
 - `css/styles.css` sí se sube (así el repo funciona sin compilar).
 - Correo de los commits (`git config --global user.email`): **will.gomez@willnet.dev** desde el 2026-10-17. Es el correo principal de la cuenta de GitHub; willdevgo@gmail.com sigue agregado para que los commits viejos sigan contando como suyos y como respaldo para recuperar la cuenta. **No borrarlo.**
 - La clave de Web3Forms de `js/contact.js` es **pública por diseño** (Web3Forms la pone en el HTML), por eso puede ir en el repo.
 - Flujo: editar → `npm run deploy` → `git add -A && git commit -m "..." && git push`.
-- Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willgo-dev/willgo-dev`, en `../../../Repositorios/willgo-dev/`) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
+- Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willnet-dev/willnet-dev`, en `../../../Repositorios/willnet-dev/`; tiene que llamarse igual que el usuario) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
 
 Vista previa en Claude Code: el panel del navegador no puede lanzar el servidor dentro de `Documents` (permisos de macOS). Hay que levantar `python3 -m http.server 5500` desde Bash en segundo plano y abrir `http://localhost:5500/`. Las animaciones de GSAP tardan en arrancar si el panel no tiene el foco: no es un error.
 
@@ -103,7 +104,7 @@ docs/hero-muro.html      ← fuente de la imagen del hero (no se publica)
 4. ~~LinkedIn: correo will.gomez@willnet.dev~~ **Hecho (2026-10-16, por Willder):** su información de contacto muestra will.gomez@willnet.dev y el sitio willnet.dev.
 5. Testimonios de clientes: la sección de la plantilla se quitó hasta tener testimonios reales. **No inventar testimonios.**
 6. Agendar videollamadas (fase 2).
-7. La invitación de XV (`willgo-dev.github.io/invitacion-marcela`) carga su video desde `dopicos.com/video_hero.mp4`, que da **404** desde el 16-10-2026 o antes: en la web se ve un fondo gris. La captura del portafolio se hizo con el video local.
+7. La invitación de XV (`willnet-dev.github.io/invitacion-marcela`) carga su video desde `dopicos.com/video_hero.mp4`, que da **404** desde el 16-10-2026 o antes: en la web se ve un fondo gris. La captura del portafolio se hizo con el video local.
 - Hecho (2026-10-16): inglés como idioma principal, hero "Muro de proyectos" e imagen OG, 3 destacados, correos contact@/info@/support@ (formulario probado: llega a contact@), clave de Web3Forms (probada), carrusel de tecnologías, capturas desde el inicio, cambio a WillNet, repo en GitHub, **dominio willnet.dev** y QR nuevo (`../../03 QR/qr-willnet-dev-*`).
 
 ## Verificación de traducciones

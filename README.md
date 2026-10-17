@@ -4,7 +4,7 @@ Landing **bilingüe (ES/EN)** de **WillNet**: servicios de diseño y desarrollo 
 
 - Textos en inglés (idioma principal): `index.html`. Textos en español: `js/i18n.js` (`translations.es`). Para ver la versión en español, abre `http://localhost:5500/?lang=es` o usa el botón **ES**.
 - Formulario: `js/contact.js` (envía con Web3Forms a contact@willnet.dev; la clave es pública por diseño).
-- Publicada en Cloudflare: **https://willnet.dev** · Código: https://github.com/willgo-dev/willnet-landing
+- Publicada en Cloudflare: **https://willnet.dev** · Código: https://github.com/willnet-dev/willnet-landing
 
 ## Requisitos
 - Node.js 18 o superior (en esta Mac: v24 con nvm)

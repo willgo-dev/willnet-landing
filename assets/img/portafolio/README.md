@@ -7,8 +7,8 @@ Imágenes de la sección **Proyectos** (y del hero y los destacados). Las webs s
 | `pavlove.jpg` | Captura del inicio de https://pavlovesat.com (16-10-2026). Va también en el hero de la landing |
 | `imola.jpg` | Captura del inicio de https://imolagoldjewelry.com (16-10-2026) |
 | `mastermind.jpg` | Captura del inicio de https://mastermind-team.com (16-10-2026) |
-| `mesas.jpg` | Captura de https://willgo-dev.github.io/assignacion_mesas/ |
-| `invitacion-xv.jpg` | Captura del inicio de https://willgo-dev.github.io/invitacion-marcela/ en celular (16-10-2026). El video se sirvió desde `Repositorios/invitacion-marcela/video_hero.mp4` porque el enlace publicado (dopicos.com/video_hero.mp4) da 404 |
+| `mesas.jpg` | Captura de https://willnet-dev.github.io/assignacion_mesas/ |
+| `invitacion-xv.jpg` | Captura del inicio de https://willnet-dev.github.io/invitacion-marcela/ en celular (16-10-2026). El video se sirvió desde `Repositorios/invitacion-marcela/video_hero.mp4` porque el enlace publicado (dopicos.com/video_hero.mp4) da 404 |
 | `invitacion-primer-anito.jpg` | `Clientes/Hernan Mateo/Cumple Hernan Mateo.pdf` |
 | `mediakit-nicole.jpg` | `Clientes/nicole_diaz/Nicole-Media-KIT-ES.pdf` (portada) |
 | `tarjeta-dopicos.jpg` | `Clientes/dopicos/dp_business_card/dp_business_card_ES.pdf` |
