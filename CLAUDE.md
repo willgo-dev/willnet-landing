@@ -68,6 +68,7 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 ## GitHub
 - Repo **público**: https://github.com/willgo-dev/willnet-landing (rama `main`). `.gitignore` deja fuera `node_modules/`, `dist/`, `.wrangler/` y `.env`.
 - `css/styles.css` sí se sube (así el repo funciona sin compilar).
+- Correo de los commits (`git config --global user.email`): **will.gomez@willnet.dev** desde el 2026-10-17. Es el correo principal de la cuenta de GitHub; willdevgo@gmail.com sigue agregado para que los commits viejos sigan contando como suyos y como respaldo para recuperar la cuenta. **No borrarlo.**
 - La clave de Web3Forms de `js/contact.js` es **pública por diseño** (Web3Forms la pone en el HTML), por eso puede ir en el repo.
 - Flujo: editar → `npm run deploy` → `git add -A && git commit -m "..." && git push`.
 - Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willgo-dev/willgo-dev`, en `../../../Repositorios/willgo-dev/`) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
