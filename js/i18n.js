@@ -1,226 +1,237 @@
 // =====================================================================
-// Sistema bilingüe (español / inglés) de la landing de WillNet
+// Sistema bilingüe (inglés / español) de la landing de WillNet
 // =====================================================================
 // Cómo funciona:
-// 1. El ESPAÑOL está escrito directamente en index.html (es el idioma por defecto
-//    y el que ve Google o quien no tiene JavaScript).
+// 1. El INGLÉS está escrito directamente en index.html (es el idioma principal desde el
+//    2026-10-16, el que ve Google y quien no tiene JavaScript).
 // 2. Cada texto traducible tiene un atributo:
 //      data-i18n="clave"                  → cambia el texto del elemento
 //      data-i18n-attr="atributo:clave"    → cambia un atributo (alt, aria-label, href, content…)
 //                                           (varias separadas por coma: "alt:a.b, title:c.d")
-// 3. Aquí abajo, en `en`, está el INGLÉS de cada clave.
-// 4. Al cargar, se guarda el español original de cada elemento; así, al volver a ES,
+// 3. Aquí abajo, en `es`, está el ESPAÑOL de cada clave.
+// 4. Al cargar, se guarda el inglés original de cada elemento; así, al volver a EN,
 //    se restaura sin tener que escribirlo dos veces.
-// 5. El idioma se elige en este orden: ?lang=en en la URL → elección guardada → idioma del navegador → español.
+// 5. El idioma se elige en este orden: ?lang=es en la URL → elección guardada → inglés.
+//    (No se usa el idioma del navegador: Willder quiere que todos entren en inglés.)
 //
-// Para agregar un texto nuevo: ponle data-i18n="seccion.algo" en el HTML y agrega "seccion.algo" aquí en `en`.
+// Para agregar un texto nuevo: escríbelo en inglés en el HTML con data-i18n="seccion.algo"
+// y agrega "seccion.algo" aquí en `es` con su español.
 
 const translations = {
-  en: {
+  es: {
     // Meta
-    "meta.title": "WillNet | Web design & development",
+    "meta.title": "WillNet | Diseño y desarrollo web",
     "meta.description":
-      "WillNet: web design and development for websites, online stores, portfolios, digital invitations and logos. West Palm Beach, FL. English and Spanish.",
-    "meta.ogDescription": "Websites, online stores, digital invitations and logos for businesses, brands and people.",
+      "WillNet: diseño y desarrollo de páginas web, tiendas online, portafolios, invitaciones digitales y logos. West Palm Beach, FL. Español e inglés.",
+    "meta.ogDescription": "Páginas web, tiendas online, invitaciones digitales y logos para negocios, marcas y personas.",
 
     // Navegación
-    "nav.label": "Main",
-    "nav.services": "Services",
-    "nav.projects": "Projects",
-    "nav.process": "Process",
-    "nav.about": "About me",
-    "nav.faq": "FAQ",
-    "nav.cta": "Get a quote",
-    "nav.menu": "Open menu",
+    "nav.label": "Principal",
+    "nav.services": "Servicios",
+    "nav.projects": "Proyectos",
+    "nav.process": "Proceso",
+    "nav.about": "Sobre mí",
+    "nav.faq": "Preguntas",
+    "nav.cta": "Cotiza tu proyecto",
+    "nav.menu": "Abrir menú",
 
     // Hero
-    "hero.title1": "Hi, I'm Willder",
-    "hero.title2": "I build your web presence",
+    "hero.title1": "Hola, soy Willder",
+    "hero.title2": "Creo tu presencia web",
     "hero.subtitle":
-      "I design and develop websites, online stores, digital invitations and logos for businesses, brands and people. In English and Spanish.",
-    "hero.cta": "Get a quote",
-    "hero.secondary": "See projects",
-    "hero.imageAlt": "Pavlove online store, one of my projects",
+      "Diseño y desarrollo páginas web, tiendas online, invitaciones digitales y logos para negocios, marcas y personas. En español e inglés.",
+    "hero.cta": "Cotiza tu proyecto",
+    "hero.secondary": "Ver proyectos",
+    "hero.imageAlt": "Collage de webs y proyectos hechos por WillNet",
 
     // Clientes
-    "tech.title": "Technologies I work with",
-    "tech.label": "Technologies",
+    "tech.title": "Tecnologías con las que trabajo",
+    "tech.label": "Tecnologías",
 
     // Por qué WillNet
-    "why.title": "Why WillNet?",
-    "why.1.title": "Design for your brand",
-    "why.1.text": "Colors, copy and structure built around your business and your customers.",
-    "why.2.title": "Direct, bilingual service",
-    "why.2.text": "You talk directly with me, in English or Spanish, from the first idea to launch.",
-    "why.3.title": "Ready to sell",
-    "why.3.text": "Fast, mobile-friendly and connected to WhatsApp, forms, payments or bookings.",
+    "why.title": "¿Por qué WillNet?",
+    "why.1.title": "Diseño para tu marca",
+    "why.1.text": "Colores, textos y estructura pensados para tu negocio y para tus clientes.",
+    "why.2.title": "Trato directo y bilingüe",
+    "why.2.text": "Hablas directamente conmigo, en español o en inglés, desde la idea hasta el lanzamiento.",
+    "why.3.title": "Lista para vender",
+    "why.3.text": "Rápida, adaptada a celulares y conectada a WhatsApp, formularios, pagos o citas.",
 
     // Servicios
-    "services.title": "Services",
-    "services.subtitle": "Web development and design for businesses, brands, creators and events.",
-    "services.1.title": "Online stores & e-commerce",
-    "services.1.text": "Online stores with a catalog, cart, card payments and order management.",
-    "services.2.title": "Websites for companies & businesses",
-    "services.2.text": "Websites and landing pages that present your business and turn visitors into customers.",
-    "services.3.title": "Portfolios & personal websites",
-    "services.3.text": "Your work and your story on a professional website that helps you stand out.",
-    "services.4.title": "Influencers & creators",
-    "services.4.text": "Media kits, link pages and websites to show your numbers and land brand deals.",
-    "services.5.title": "Invitations & events",
-    "services.5.text": "Web invitations for weddings, birthdays, quinceañeras and parties, with RSVP, QR codes and seating.",
-    "services.6.title": "Logos & business cards",
-    "services.6.text": "Visual identity for brands, companies and businesses: logo, business cards and social media pieces.",
+    "services.title": "Servicios",
+    "services.subtitle": "Desarrollo y diseño web para negocios, marcas, creadores y eventos.",
+    "services.1.title": "Tiendas y e-commerce",
+    "services.1.text": "Tiendas online con catálogo, carrito, pagos con tarjeta y gestión de pedidos.",
+    "services.2.title": "Webs para empresas y negocios",
+    "services.2.text": "Sitios y landing pages que presentan tu negocio y convierten visitas en clientes.",
+    "services.3.title": "Portafolios y webs personales",
+    "services.3.text": "Tu trabajo y tu historia en una web profesional que te ayude a destacar.",
+    "services.4.title": "Influencers y creadores",
+    "services.4.text": "Media kits, páginas de enlaces y webs para mostrar tus números y conseguir marcas.",
+    "services.5.title": "Invitaciones y eventos",
+    "services.5.text": "Invitaciones web para bodas, cumpleaños, XV años y fiestas, con confirmación de asistencia, QR y mesas.",
+    "services.6.title": "Logos y tarjetas de presentación",
+    "services.6.text": "Identidad visual para marcas, empresas y negocios: logo, tarjetas y piezas para redes.",
 
     // Destacados
-    "feature1.title": "Online stores that sell for you",
-    "feature1.1.title": "Secure payments",
-    "feature1.1.text": "Accept cards and other payment methods right on your website.",
-    "feature1.2.title": "Easy to manage",
-    "feature1.2.text": "Add products, prices and photos yourself from a simple dashboard.",
-    "feature1.imageAlt": "Imola Gold Jewelry online store",
-    "feature2.title": "Landing pages that bring customers",
-    "feature2.1.title": "Bookings & forms",
-    "feature2.1.text": "Your customers book an appointment or message you without leaving the page.",
-    "feature2.2.title": "Ready for your campaigns",
-    "feature2.2.text": "Bilingual and set up to measure your ad results (Meta Pixel).",
-    "feature2.imageAlt": "Mastermind Hierarchy landing page",
+    "feature1.title": "Tiendas online que venden por ti",
+    "feature1.1.title": "Pagos seguros",
+    "feature1.1.text": "Cobra con tarjeta y otros métodos directamente desde tu web.",
+    "feature1.2.title": "Fácil de administrar",
+    "feature1.2.text": "Agrega productos, precios y fotos tú mismo desde un panel sencillo.",
+    "feature1.imageAlt": "Tienda online de Pavlove (con Dopicos)",
+    "feature2.title": "Webs que reflejan tu marca",
+    "feature2.1.title": "Diseño a tu medida",
+    "feature2.1.text": "Colores, fotos y estilo que hacen ver tu negocio profesional y confiable.",
+    "feature2.2.title": "Catálogo organizado",
+    "feature2.2.text": "Tus productos o servicios por categorías, fáciles de recorrer desde cualquier celular.",
+    "feature2.imageAlt": "Web de Imola Gold Jewelry",
+    "feature3.title": "Landing pages que consiguen clientes",
+    "feature3.1.title": "Citas y formularios",
+    "feature3.1.text": "Tus clientes agendan una cita o te escriben sin salir de la página.",
+    "feature3.2.title": "Listas para tus campañas",
+    "feature3.2.text": "Bilingües y preparadas para medir resultados de tus anuncios (Meta Pixel).",
+    "feature3.imageAlt": "Landing page de Mastermind Hierarchy",
 
     // Proyectos
-    "projects.title": "Projects ✨",
-    "projects.subtitle": "Websites, invitations and designs for real clients, plus practice projects on GitHub.",
-    "projects.filterLabel": "Filter projects",
-    "projects.filter.all": "All",
-    "projects.filter.web": "Websites",
-    "projects.filter.events": "Events",
-    "projects.filter.design": "Design",
-    "projects.view": "View project",
-    "projects.play": "Try it",
-    "projects.github": "See everything on GitHub",
-    "projects.tag.store": "Online store",
-    "projects.tag.dopicos": "With Dopicos",
-    "projects.tag.invitation": "Web invitation",
-    "projects.tag.webapp": "Web app",
-    "projects.tag.digitalInvite": "Digital invitation",
-    "projects.tag.card": "Business card",
-    "projects.tag.game": "Web game",
-    "projects.tag.website": "Website",
-    "projects.tag.form": "Form",
+    "projects.title": "Proyectos ✨",
+    "projects.subtitle": "Webs, invitaciones y diseños para clientes reales, más proyectos de práctica en GitHub.",
+    "projects.filterLabel": "Filtrar proyectos",
+    "projects.filter.all": "Todos",
+    "projects.filter.web": "Webs",
+    "projects.filter.events": "Eventos",
+    "projects.filter.design": "Diseño",
+    "projects.view": "Ver proyecto",
+    "projects.play": "Probar",
+    "projects.github": "Ver todo en GitHub",
+    "projects.tag.store": "Tienda online",
+    "projects.tag.dopicos": "Con Dopicos",
+    "projects.tag.invitation": "Invitación web",
+    "projects.tag.webapp": "App web",
+    "projects.tag.digitalInvite": "Invitación digital",
+    "projects.tag.card": "Tarjeta de presentación",
+    "projects.tag.game": "Juego web",
+    "projects.tag.website": "Sitio web",
+    "projects.tag.form": "Formulario",
     "projects.pavlove":
-      "Online store for handmade pavlovas in San Antonio, Texas: customizable products, payments and policies. WordPress + WooCommerce.",
+      "Tienda de pavlovas artesanales en San Antonio, Texas: productos personalizables, pagos y políticas. WordPress + WooCommerce.",
     "projects.imola":
-      "18k gold jewelry store in West Palm Beach: catalog by category, cart and payments. WordPress + WooCommerce.",
+      "Tienda de joyería en oro de 18k en West Palm Beach: catálogo por categorías, carrito y pagos. WordPress + WooCommerce.",
     "projects.mastermind":
-      "Bilingual landing page for an insurance agency in Doral, FL: videos, Calendly bookings, forms and Meta Pixel. HTML, Tailwind and JavaScript.",
-    "projects.xv.title": "Quinceañera invitation",
-    "projects.xv": "Web invitation with video, music, countdown, QR RSVP and digital passes for each family.",
-    "projects.tables.title": "Table finder",
-    "projects.tables": "Each guest scans a QR code, types their name and finds their table instantly. HTML, CSS and JavaScript.",
-    "projects.birthday.title": "First birthday invitation",
-    "projects.birthday": "Racing-themed invitation with a personalized pass for each family.",
-    "projects.mediakit.title": "Nicole Díaz media kit",
-    "projects.mediakit": "Bilingual media kit for an influencer with millions of followers: audience, metrics and brand pitch.",
-    "projects.card.title": "Dopicos business card",
-    "projects.card": "Bilingual business card with a QR code and an icon for each service, for a software agency.",
-    "projects.alibel.title": "Alibel Parra Insurance logo",
-    "projects.alibel": "Identity for a health insurance agent, in Spanish and English versions.",
-    "projects.anto.title": "Anto Perfumes logo",
-    "projects.anto": "Elegant logo for a perfume brand.",
-    "projects.acl.title": "Ale Creative Lab logo",
-    "projects.acl": "Identity with a custom illustration for a content creator and marketing agency.",
-    "projects.simon": "The classic Simon memory game. JavaScript and jQuery.",
-    "projects.drum": "A drum kit you play with your keyboard, mouse or finger. JavaScript.",
-    "projects.tindog": "Landing page for a fictional dog app, built with Bootstrap.",
-    "projects.dice": "Two-player dice game that rolls when you reload the page. JavaScript.",
-    "projects.movewithjoy": "Sample website for a moving company, mobile-friendly and built with Bootstrap.",
-    "projects.firstsite": "My first website: a Spanish page about learning to code, with responsive HTML and CSS.",
-    "projects.login": "Login form with a glass effect and a show-password button. HTML, CSS and JavaScript.",
+      "Landing bilingüe para una agencia de seguros en Doral, FL: videos, citas con Calendly, formularios y Meta Pixel. HTML, Tailwind y JavaScript.",
+    "projects.xv.title": "Invitación de XV años",
+    "projects.xv": "Invitación web con video, música, cuenta regresiva, confirmación por QR y pases digitales para cada familia.",
+    "projects.tables.title": "Buscador de mesas",
+    "projects.tables": "Cada invitado escanea un QR, escribe su nombre y encuentra su mesa al instante. HTML, CSS y JavaScript.",
+    "projects.birthday.title": "Invitación de primer cumpleaños",
+    "projects.birthday": "Invitación temática de carreras con pase personalizado para cada familia.",
+    "projects.mediakit.title": "Media kit de Nicole Díaz",
+    "projects.mediakit": "Media kit bilingüe para una influencer con millones de seguidores: audiencia, métricas y propuesta para marcas.",
+    "projects.card.title": "Tarjeta de Dopicos",
+    "projects.card": "Tarjeta bilingüe con QR e íconos de cada servicio para una agencia de software.",
+    "projects.alibel.title": "Logo de Alibel Parra Insurance",
+    "projects.alibel": "Identidad para una agente de seguros de salud, en versiones en español e inglés.",
+    "projects.anto.title": "Logo de Anto Perfumes",
+    "projects.anto": "Logo elegante para una marca de perfumes.",
+    "projects.acl.title": "Logo de Ale Creative Lab",
+    "projects.acl": "Identidad con ilustración propia para una creadora de contenido y agencia de marketing.",
+    "projects.simon": "El clásico juego de memoria Simon. JavaScript y jQuery.",
+    "projects.drum": "Batería que suena con el teclado, el mouse o el dedo. JavaScript.",
+    "projects.tindog": "Landing de una app ficticia para perros, hecha con Bootstrap.",
+    "projects.dice": "Juego de dados para dos jugadores que se lanza al recargar la página. JavaScript.",
+    "projects.movewithjoy": "Sitio de ejemplo para una empresa de mudanzas, adaptable a celulares y hecho con Bootstrap.",
+    "projects.firstsite": "Mi primera web: una página en español sobre aprender a programar, con HTML y CSS adaptable.",
+    "projects.login": "Formulario de inicio de sesión con efecto de vidrio y botón para ver la contraseña. HTML, CSS y JavaScript.",
 
     // Proceso
-    "process.title": "How I work",
-    "process.1.title": "Let's talk",
-    "process.1.text": "Tell me your idea by WhatsApp, text message, phone call or the form.",
-    "process.2.title": "Quote",
-    "process.2.text": "You get a proposal with what's included, the price and the delivery date.",
-    "process.3.title": "Design & development",
-    "process.3.text": "I build your project and you review it before it goes live.",
-    "process.4.title": "Launch",
-    "process.4.text": "We publish it on your domain and I show you how to use it.",
-    "process.note": "Every project is different, so everything is quoted individually, with no commitment.",
-    "process.cta": "Request a quote",
+    "process.title": "Cómo trabajo",
+    "process.1.title": "Conversamos",
+    "process.1.text": "Me cuentas tu idea por WhatsApp, mensaje, llamada o el formulario.",
+    "process.2.title": "Cotización",
+    "process.2.text": "Recibes una propuesta con lo que incluye, el precio y la fecha de entrega.",
+    "process.3.title": "Diseño y desarrollo",
+    "process.3.text": "Construyo tu proyecto y lo revisas antes de publicarlo.",
+    "process.4.title": "Lanzamiento",
+    "process.4.text": "Lo publicamos en tu dominio y te enseño a usarlo.",
+    "process.note": "Cada proyecto es diferente, por eso todo va por cotización, sin compromiso.",
+    "process.cta": "Pide tu cotización",
 
     // Sobre mí
-    "about.title": "About me",
+    "about.title": "Sobre mí",
     "about.p1":
-      "I'm Willder Gómez, a web developer in West Palm Beach, Florida. I help businesses, brands and people build a professional online presence, from online stores to event invitations.",
+      "Soy Willder Gómez, desarrollador web en West Palm Beach, Florida. Ayudo a negocios, marcas y personas a tener una presencia profesional en internet: desde tiendas online hasta invitaciones para eventos.",
     "about.p2":
-      "I handle the whole process, from design to launch, so you can focus on your business. I work in English and Spanish.",
-    "about.techLabel": "Technologies",
-    "about.eduTitle": "Education",
-    "about.edu.1": "Full-Stack Web Development Bootcamp · Udemy (in progress)",
-    "about.edu.2": "Basic Programming, JavaScript Basics and Intro to Backend · Platzi (2024)",
-    "about.edu.3": "HTML Fundamentals · SoloLearn",
+      "Me encargo de todo el proceso, del diseño a la publicación, para que tú solo te preocupes por tu negocio. Trabajo en español e inglés.",
+    "about.techLabel": "Tecnologías",
+    "about.eduTitle": "Formación",
+    "about.edu.1": "Bootcamp de Desarrollo Web Full-Stack · Udemy (en curso)",
+    "about.edu.2": "Programación Básica, JavaScript Básico e Introducción al Backend · Platzi (2024)",
+    "about.edu.3": "Fundamentos de HTML · SoloLearn",
 
     // FAQ
-    "faq.title": "Frequently asked questions",
-    "faq.1.q": "How much does a website cost?",
+    "faq.title": "Preguntas frecuentes",
+    "faq.1.q": "¿Cuánto cuesta una página web?",
     "faq.1.a":
-      "It depends on what you need: number of pages, features and content. Tell me your idea and I'll send you a free, no-commitment quote.",
-    "faq.2.q": "How long does it take?",
+      "Depende de lo que necesites: cantidad de páginas, funciones y contenido. Cuéntame tu idea y te envío una cotización sin compromiso.",
+    "faq.2.q": "¿Cuánto tiempo tarda?",
     "faq.2.a":
-      "It depends on the project and on how ready your content is (copy, photos and logo). You'll get a delivery date with your quote.",
-    "faq.3.q": "Can you help me with the domain and hosting?",
-    "faq.3.a": "Yes. I'll help you choose them and leave your website live and working on your domain.",
-    "faq.4.q": "Can I request changes later?",
-    "faq.4.a": "Yes. We review everything together before launch, and afterwards I can take care of maintenance and updates.",
-    "faq.5.q": "Do you work with clients outside Florida?",
-    "faq.5.a": "Yes. I work remotely with clients across the United States and Latin America, in English or Spanish.",
-    "faq.more": "Still have questions?",
-    "faq.cta": "Message me",
+      "Depende del proyecto y de qué tan listo esté tu contenido (textos, fotos y logo). En la cotización te doy una fecha de entrega.",
+    "faq.3.q": "¿Me ayudas con el dominio y el hosting?",
+    "faq.3.a": "Sí. Te asesoro para elegirlos y dejo tu web publicada y funcionando en tu dominio.",
+    "faq.4.q": "¿Puedo pedir cambios después?",
+    "faq.4.a": "Sí. Antes de publicar revisamos todo juntos, y después puedo encargarme del mantenimiento y las actualizaciones.",
+    "faq.4.support": "¿Ya eres cliente? Escribe a",
+    "faq.5.q": "¿Trabajas con clientes fuera de Florida?",
+    "faq.5.a": "Sí. Trabajo a distancia con clientes de todo Estados Unidos y Latinoamérica, en español o en inglés.",
+    "faq.more": "¿Tienes más preguntas?",
+    "faq.cta": "Escríbeme",
 
     // Contacto
-    "contact.title": "Let's talk about your project",
-    "contact.subtitle": "Choose how you'd like to reach me, or leave me a message with the form.",
-    "contact.whatsappHref": "https://wa.me/17865575568?text=Hi%20WillNet%2C%20I%27d%20like%20a%20quote%20for%20a%20project.",
-    "contact.smsHref": "sms:+17865575568?&body=Hi%20WillNet%2C%20I%27d%20like%20a%20quote%20for%20a%20project.",
-    "contact.sms": "Text (SMS)",
-    "contact.call": "Call",
-    "contact.email": "Email",
+    "contact.title": "Hablemos de tu proyecto",
+    "contact.subtitle": "Elige cómo prefieres contactarme o déjame un mensaje con el formulario.",
+    "contact.whatsappHref": "https://wa.me/17865575568?text=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto.",
+    "contact.smsHref": "sms:+17865575568?&body=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto.",
+    "contact.sms": "Mensaje (SMS)",
+    "contact.call": "Llamada",
+    "contact.email": "Correo",
 
     // Formulario
-    "form.name": "Name",
-    "form.email": "Email",
-    "form.phone": "Phone (optional)",
-    "form.service": "What do you need?",
-    "form.opt.store": "Store / e-commerce",
-    "form.opt.business": "Business website",
-    "form.opt.portfolio": "Portfolio / personal website",
-    "form.opt.influencer": "Influencer / creator",
-    "form.opt.event": "Invitation / event",
-    "form.opt.logo": "Logo / business cards",
-    "form.opt.other": "Other",
-    "form.message": "Tell me about your project",
-    "form.submit": "Send message",
-    "form.invalid": "Please enter your name, a valid email and your message.",
-    "form.sending": "Sending…",
-    "form.success": "Thank you! I got your message and will reply soon.",
-    "form.error": "The message couldn't be sent. Please reach me on WhatsApp or by email.",
-    "form.mailto": "Your email app will open with the message ready to send.",
+    "form.name": "Nombre",
+    "form.email": "Correo electrónico",
+    "form.phone": "Teléfono (opcional)",
+    "form.service": "¿Qué necesitas?",
+    "form.opt.store": "Tienda / e-commerce",
+    "form.opt.business": "Web para negocio",
+    "form.opt.portfolio": "Portafolio / web personal",
+    "form.opt.influencer": "Influencer / creador",
+    "form.opt.event": "Invitación / evento",
+    "form.opt.logo": "Logo / tarjetas",
+    "form.opt.other": "Otro",
+    "form.message": "Cuéntame sobre tu proyecto",
+    "form.submit": "Enviar mensaje",
+    "form.invalid": "Completa tu nombre, un correo válido y tu mensaje.",
+    "form.sending": "Enviando…",
+    "form.success": "¡Gracias! Recibí tu mensaje y te responderé pronto.",
+    "form.error": "No se pudo enviar. Escríbeme por WhatsApp o al correo.",
+    "form.mailto": "Se abrirá tu app de correo con el mensaje listo para enviar.",
 
     // Footer
-    "footer.remote": "Remote service across the US and Latin America",
-    "footer.follow": "Follow me",
-    "footer.services": "Services",
-    "footer.explore": "Explore",
-    "footer.contact": "Contact",
-    "footer.rights": "All rights reserved",
+    "footer.remote": "Atención remota en EE. UU. y Latinoamérica",
+    "footer.info": "Información general",
+    "footer.support": "Soporte a clientes",
+    "footer.follow": "Sígueme",
+    "footer.services": "Servicios",
+    "footer.explore": "Explora",
+    "footer.contact": "Contacto",
+    "footer.rights": "Todos los derechos reservados",
   },
 };
 
-const SUPPORTED_LANGS = ["es", "en"];
-const DEFAULT_LANG = "es";
+const SUPPORTED_LANGS = ["en", "es"];
+const DEFAULT_LANG = "en";
 const STORAGE_KEY = "willnet-lang";
 
-// Español original de cada elemento (se guarda una sola vez al cargar)
+// Inglés original de cada elemento (se guarda una sola vez al cargar)
 const originalTexts = new Map();
 const originalAttrs = new Map();
 
@@ -270,12 +281,12 @@ function setLanguage(lang) {
   // Idioma de la página (lectores de pantalla y Google)
   document.documentElement.lang = lang;
 
-  // Botones ES / EN
+  // Botones EN / ES
   document.querySelectorAll("[data-lang-switch]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.langSwitch === lang));
   });
 
-  // Recordar la elección y reflejarla en la URL (?lang=en se puede compartir)
+  // Recordar la elección y reflejarla en la URL (?lang=es se puede compartir)
   try {
     localStorage.setItem(STORAGE_KEY, lang);
   } catch (error) {
@@ -301,8 +312,7 @@ function getInitialLanguage() {
     // Sin acceso a localStorage
   }
 
-  const browserLang = (navigator.languages || [navigator.language]).find((code) => code);
-  if (browserLang && browserLang.toLowerCase().startsWith("en")) return "en";
+  // Sin elección previa: siempre inglés (no se mira el idioma del navegador)
   return DEFAULT_LANG;
 }
 

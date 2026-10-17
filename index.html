@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Textos traducibles: data-i18n cambia el texto y data-i18n-attr cambia atributos (ver js/i18n.js) -->
-    <title data-i18n="meta.title">WillNet | Diseño y desarrollo web</title>
+    <title data-i18n="meta.title">WillNet | Web design &amp; development</title>
     <meta
       name="description"
-      content="WillNet: diseño y desarrollo de páginas web, tiendas online, portafolios, invitaciones digitales y logos. West Palm Beach, FL. Español e inglés."
+      content="WillNet: web design and development for websites, online stores, portfolios, digital invitations and logos. West Palm Beach, FL. English and Spanish."
       data-i18n-attr="content:meta.description"
     />
 
     <!-- Dominio propio: willnet.dev (Cloudflare). La URL vieja workers.dev sigue funcionando -->
     <link rel="canonical" href="https://willnet.dev/" />
+    <link rel="alternate" hreflang="en" href="https://willnet.dev/" />
     <link rel="alternate" hreflang="es" href="https://willnet.dev/?lang=es" />
-    <link rel="alternate" hreflang="en" href="https://willnet.dev/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://willnet.dev/" />
 
     <!-- Open Graph (vista previa al compartir en redes) -->
-    <meta property="og:title" content="WillNet | Diseño y desarrollo web" data-i18n-attr="content:meta.title" />
+    <meta property="og:title" content="WillNet | Web design &amp; development" data-i18n-attr="content:meta.title" />
     <meta
       property="og:description"
-      content="Páginas web, tiendas online, invitaciones digitales y logos para negocios, marcas y personas."
+      content="Websites, online stores, digital invitations and logos for businesses, brands and people."
       data-i18n-attr="content:meta.ogDescription"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://willnet.dev/" />
-    <meta property="og:image" content="https://willnet.dev/assets/img/portafolio/pavlove.jpg" />
+    <meta property="og:image" content="https://willnet.dev/assets/img/og/willnet-og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Favicon -->
     <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml" />
@@ -63,26 +65,26 @@
       <div class="collapsible-header max-xl:shadow-md" id="collapsed-header-items">
         <nav
           class="flex h-full w-max gap-5 text-base max-xl:mt-[30px] max-xl:flex-col max-xl:place-items-end xl:mx-auto xl:place-items-center"
-          aria-label="Principal"
+          aria-label="Main"
           data-i18n-attr="aria-label:nav.label"
         >
-          <a class="header-links" href="#servicios" data-i18n="nav.services">Servicios</a>
-          <a class="header-links" href="#proyectos" data-i18n="nav.projects">Proyectos</a>
-          <a class="header-links" href="#proceso" data-i18n="nav.process">Proceso</a>
-          <a class="header-links" href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
-          <a class="header-links" href="#faq" data-i18n="nav.faq">Preguntas</a>
+          <a class="header-links" href="#servicios" data-i18n="nav.services">Services</a>
+          <a class="header-links" href="#proyectos" data-i18n="nav.projects">Projects</a>
+          <a class="header-links" href="#proceso" data-i18n="nav.process">Process</a>
+          <a class="header-links" href="#sobre-mi" data-i18n="nav.about">About me</a>
+          <a class="header-links" href="#faq" data-i18n="nav.faq">FAQ</a>
         </nav>
         <div class="mx-4 flex place-items-center gap-5 text-base max-xl:flex-col max-xl:place-items-end max-md:w-full">
           <!-- Selector de idioma -->
           <div class="flex items-center gap-1 rounded-full border border-outline p-1" role="group" aria-label="Idioma / Language">
-            <button type="button" class="lang-btn" data-lang-switch="es" aria-pressed="true">ES</button>
-            <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-btn" data-lang-switch="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-btn" data-lang-switch="es" aria-pressed="false">ES</button>
           </div>
           <a
             href="#contacto"
             class="flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2 text-black transition-transform duration-300 hover:translate-x-2"
           >
-            <span data-i18n="nav.cta">Cotiza tu proyecto</span>
+            <span data-i18n="nav.cta">Get a quote</span>
             <i class="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
@@ -92,7 +94,7 @@
         class="bi bi-list absolute right-3 top-3 z-50 text-3xl text-white xl:hidden"
         id="collapse-btn"
         type="button"
-        aria-label="Abrir menú"
+        aria-label="Open menu"
         aria-expanded="false"
         aria-controls="collapsed-header-items"
         data-i18n-attr="aria-label:nav.menu"
@@ -111,27 +113,26 @@
             <h1
               class="reveal-up gradient-text text-center text-6xl font-semibold uppercase leading-[80px] max-lg:text-4xl max-md:leading-snug"
             >
-              <span data-i18n="hero.title1">Hola, soy Willder</span>
+              <span data-i18n="hero.title1">Hi, I'm Willder</span>
               <br />
-              <span data-i18n="hero.title2">Creo tu presencia web</span>
+              <span data-i18n="hero.title2">I build your web presence</span>
             </h1>
             <p class="reveal-up mt-10 max-w-[520px] p-2 text-center text-gray-300 max-lg:max-w-full" data-i18n="hero.subtitle">
-              Diseño y desarrollo páginas web, tiendas online, invitaciones digitales y logos para negocios, marcas y
-              personas. En español e inglés.
+              I design and develop websites, online stores, digital invitations and logos for businesses, brands and people. In English and Spanish.
             </p>
             <div class="reveal-up mt-10 flex flex-wrap place-content-center place-items-center gap-4">
               <a
                 class="btn bg-primary/60! shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]"
                 href="#contacto"
                 data-i18n="hero.cta"
-                >Cotiza tu proyecto</a
+                >Get a quote</a
               >
               <a
                 class="btn bg-black! text-white! transition-colors duration-300 hover:bg-white! hover:text-black!"
                 href="#proyectos"
               >
                 <i class="bi bi-grid-fill" aria-hidden="true"></i>
-                <span data-i18n="hero.secondary">Ver proyectos</span>
+                <span data-i18n="hero.secondary">See projects</span>
               </a>
             </div>
           </div>
@@ -140,8 +141,8 @@
           <div class="reveal-up relative mt-8 flex w-full place-content-center place-items-center" id="dashboard-container">
             <div class="relative max-w-[80%] overflow-hidden rounded-xl bg-transparent max-md:max-w-full" id="dashboard">
               <img
-                src="./assets/img/portafolio/pavlove.jpg"
-                alt="Tienda online de Pavlove, uno de mis proyectos"
+                src="./assets/img/hero/willnet-proyectos.jpg"
+                alt="Collage of websites and projects built by WillNet"
                 data-i18n-attr="alt:hero.imageAlt"
                 class="h-full w-full object-cover opacity-90 max-lg:object-contain"
               />
@@ -155,10 +156,10 @@
            Íconos en assets/img/tecnologias/ (Simple Icons y Devicon, en blanco).
            Para agregar una: copia su SVG a esa carpeta y añade un <li> en las DOS listas (la copia lleva aria-hidden para que el movimiento sea continuo). -->
       <section class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-8">
-        <h2 class="reveal-up text-center text-3xl max-md:text-xl" data-i18n="tech.title">Tecnologías con las que trabajo</h2>
+        <h2 class="reveal-up text-center text-3xl max-md:text-xl" data-i18n="tech.title">Technologies I work with</h2>
         <div class="reveal-up carousel-container mt-8">
           <div class="carousel">
-            <ul class="flex items-center" aria-label="Tecnologías" data-i18n-attr="aria-label:tech.label">
+            <ul class="flex items-center" aria-label="Technologies" data-i18n-attr="aria-label:tech.label">
               <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /><span>HTML</span></li>
               <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /><span>CSS</span></li>
               <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /><span>JavaScript</span></li>
@@ -217,7 +218,7 @@
       <!-- ================= POR QUÉ WILLNET (tarjetas con ícono grande) ================= -->
       <section class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
         <div class="mt-8 flex flex-col place-items-center gap-5">
-          <h2 class="reveal-up mt-5 text-center text-4xl font-medium text-gray-200 max-md:text-3xl" data-i18n="why.title">¿Por qué WillNet?</h2>
+          <h2 class="reveal-up mt-5 text-center text-4xl font-medium text-gray-200 max-md:text-3xl" data-i18n="why.title">Why WillNet?</h2>
           <div class="mt-6 flex max-w-[80%] flex-wrap place-content-center gap-8 max-lg:max-w-full max-lg:flex-col max-lg:items-center">
             <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
               <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
@@ -225,8 +226,8 @@
                   <i class="bi bi-brush-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
                 </div>
               </div>
-              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.1.title">Diseño para tu marca</h3>
-              <p class="text-gray-300" data-i18n="why.1.text">Colores, textos y estructura pensados para tu negocio y para tus clientes.</p>
+              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.1.title">Design for your brand</h3>
+              <p class="text-gray-300" data-i18n="why.1.text">Colors, copy and structure built around your business and your customers.</p>
             </div>
             <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
               <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
@@ -234,8 +235,8 @@
                   <i class="bi bi-chat-dots-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
                 </div>
               </div>
-              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.2.title">Trato directo y bilingüe</h3>
-              <p class="text-gray-300" data-i18n="why.2.text">Hablas directamente conmigo, en español o en inglés, desde la idea hasta el lanzamiento.</p>
+              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.2.title">Direct, bilingual service</h3>
+              <p class="text-gray-300" data-i18n="why.2.text">You talk directly with me, in English or Spanish, from the first idea to launch.</p>
             </div>
             <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
               <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
@@ -243,8 +244,8 @@
                   <i class="bi bi-lightning-charge-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
                 </div>
               </div>
-              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.3.title">Lista para vender</h3>
-              <p class="text-gray-300" data-i18n="why.3.text">Rápida, adaptada a celulares y conectada a WhatsApp, formularios, pagos o citas.</p>
+              <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.3.title">Ready to sell</h3>
+              <p class="text-gray-300" data-i18n="why.3.text">Fast, mobile-friendly and connected to WhatsApp, forms, payments or bookings.</p>
             </div>
           </div>
         </div>
@@ -255,64 +256,64 @@
         id="servicios"
         class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6 py-20"
       >
-        <h2 class="reveal-up text-center text-4xl font-medium text-gray-200 max-md:text-2xl" data-i18n="services.title">Servicios</h2>
+        <h2 class="reveal-up text-center text-4xl font-medium text-gray-200 max-md:text-2xl" data-i18n="services.title">Services</h2>
         <p class="reveal-up mt-4 max-w-[560px] text-center text-gray-400" data-i18n="services.subtitle">
-          Desarrollo y diseño web para negocios, marcas, creadores y eventos.
+          Web development and design for businesses, brands, creators and events.
         </p>
         <div class="mt-10 grid max-w-[1000px] gap-6 md:grid-cols-2">
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
             <i class="bi bi-bag-check-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
             <div class="flex flex-col gap-3">
-              <h3 class="text-2xl max-md:text-xl" data-i18n="services.1.title">Tiendas y e-commerce</h3>
-              <p class="text-gray-300 max-md:text-sm" data-i18n="services.1.text">Tiendas online con catálogo, carrito, pagos con tarjeta y gestión de pedidos.</p>
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.1.title">Online stores &amp; e-commerce</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.1.text">Online stores with a catalog, cart, card payments and order management.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
             <i class="bi bi-building-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
             <div class="flex flex-col gap-3">
-              <h3 class="text-2xl max-md:text-xl" data-i18n="services.2.title">Webs para empresas y negocios</h3>
-              <p class="text-gray-300 max-md:text-sm" data-i18n="services.2.text">Sitios y landing pages que presentan tu negocio y convierten visitas en clientes.</p>
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.2.title">Websites for companies &amp; businesses</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.2.text">Websites and landing pages that present your business and turn visitors into customers.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
             <i class="bi bi-person-badge-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
             <div class="flex flex-col gap-3">
-              <h3 class="text-2xl max-md:text-xl" data-i18n="services.3.title">Portafolios y webs personales</h3>
-              <p class="text-gray-300 max-md:text-sm" data-i18n="services.3.text">Tu trabajo y tu historia en una web profesional que te ayude a destacar.</p>
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.3.title">Portfolios &amp; personal websites</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.3.text">Your work and your story on a professional website that helps you stand out.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
             <i class="bi bi-stars text-4xl max-md:text-2xl" aria-hidden="true"></i>
             <div class="flex flex-col gap-3">
-              <h3 class="text-2xl max-md:text-xl" data-i18n="services.4.title">Influencers y creadores</h3>
-              <p class="text-gray-300 max-md:text-sm" data-i18n="services.4.text">Media kits, páginas de enlaces y webs para mostrar tus números y conseguir marcas.</p>
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.4.title">Influencers &amp; creators</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.4.text">Media kits, link pages and websites to show your numbers and land brand deals.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
             <i class="bi bi-balloon-heart-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
             <div class="flex flex-col gap-3">
-              <h3 class="text-2xl max-md:text-xl" data-i18n="services.5.title">Invitaciones y eventos</h3>
-              <p class="text-gray-300 max-md:text-sm" data-i18n="services.5.text">Invitaciones web para bodas, cumpleaños, XV años y fiestas, con confirmación de asistencia, QR y mesas.</p>
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.5.title">Invitations &amp; events</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.5.text">Web invitations for weddings, birthdays, quinceañeras and parties, with RSVP, QR codes and seating.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
             <i class="bi bi-vector-pen text-4xl max-md:text-2xl" aria-hidden="true"></i>
             <div class="flex flex-col gap-3">
-              <h3 class="text-2xl max-md:text-xl" data-i18n="services.6.title">Logos y tarjetas de presentación</h3>
-              <p class="text-gray-300 max-md:text-sm" data-i18n="services.6.text">Identidad visual para marcas, empresas y negocios: logo, tarjetas y piezas para redes.</p>
+              <h3 class="text-2xl max-md:text-xl" data-i18n="services.6.title">Logos &amp; business cards</h3>
+              <p class="text-gray-300 max-md:text-sm" data-i18n="services.6.text">Visual identity for brands, companies and businesses: logo, business cards and social media pieces.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= DESTACADO 1: TIENDAS (imagen + lista) ================= -->
+      <!-- ================= DESTACADO 1: TIENDAS · Pavlove (imagen + lista) ================= -->
       <section class="relative flex min-h-[70vh] w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
         <div class="reveal-up flex min-h-[60vh] place-content-center place-items-center gap-[10%] max-lg:flex-col max-lg:gap-10">
           <div class="flex">
             <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
               <img
-                src="./assets/img/portafolio/imola.jpg"
-                alt="Tienda online de Imola Gold Jewelry"
+                src="./assets/img/portafolio/pavlove.jpg"
+                alt="Pavlove online store (with Dopicos)"
                 data-i18n-attr="alt:feature1.imageAlt"
                 loading="lazy"
                 class="h-full w-full object-cover"
@@ -320,38 +321,38 @@
             </div>
           </div>
           <div class="mt-6 flex max-w-[450px] flex-col gap-4">
-            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature1.title">Tiendas online que venden por ti</h3>
+            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature1.title">Online stores that sell for you</h3>
             <div class="mt-4 flex flex-col gap-3">
-              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature1.1.title">Pagos seguros</span></h4>
-              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature1.1.text">Cobra con tarjeta y otros métodos directamente desde tu web.</p>
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature1.1.title">Secure payments</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature1.1.text">Accept cards and other payment methods right on your website.</p>
             </div>
             <div class="mt-4 flex flex-col gap-3">
-              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature1.2.title">Fácil de administrar</span></h4>
-              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature1.2.text">Agrega productos, precios y fotos tú mismo desde un panel sencillo.</p>
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature1.2.title">Easy to manage</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature1.2.text">Add products, prices and photos yourself from a simple dashboard.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= DESTACADO 2: LANDINGS (lista + imagen) ================= -->
+      <!-- ================= DESTACADO 2: MARCA · Imola (lista + imagen) ================= -->
       <section class="relative flex min-h-[70vh] w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
         <div class="reveal-up flex min-h-[60vh] place-content-center place-items-center gap-[10%] max-lg:flex-col-reverse max-lg:gap-10">
           <div class="mt-6 flex max-w-[450px] flex-col gap-4">
-            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature2.title">Landing pages que consiguen clientes</h3>
+            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature2.title">Websites that reflect your brand</h3>
             <div class="mt-4 flex flex-col gap-3">
-              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature2.1.title">Citas y formularios</span></h4>
-              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature2.1.text">Tus clientes agendan una cita o te escriben sin salir de la página.</p>
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature2.1.title">Designed around you</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature2.1.text">Colors, photos and style that make your business look professional and trustworthy.</p>
             </div>
             <div class="mt-4 flex flex-col gap-3">
-              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature2.2.title">Listas para tus campañas</span></h4>
-              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature2.2.text">Bilingües y preparadas para medir resultados de tus anuncios (Meta Pixel).</p>
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature2.2.title">Organized catalog</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature2.2.text">Your products or services sorted by category and easy to browse from any phone.</p>
             </div>
           </div>
           <div class="flex">
             <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
               <img
-                src="./assets/img/portafolio/mastermind.jpg"
-                alt="Landing page de Mastermind Hierarchy"
+                src="./assets/img/portafolio/imola.jpg"
+                alt="Imola Gold Jewelry website"
                 data-i18n-attr="alt:feature2.imageAlt"
                 loading="lazy"
                 class="h-full w-full object-cover"
@@ -361,20 +362,48 @@
         </div>
       </section>
 
+      <!-- ================= DESTACADO 3: LANDINGS · Mastermind (imagen + lista) ================= -->
+      <section class="relative flex min-h-[70vh] w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
+        <div class="reveal-up flex min-h-[60vh] place-content-center place-items-center gap-[10%] max-lg:flex-col max-lg:gap-10">
+          <div class="flex">
+            <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
+              <img
+                src="./assets/img/portafolio/mastermind.jpg"
+                alt="Mastermind Hierarchy landing page"
+                data-i18n-attr="alt:feature3.imageAlt"
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-6 flex max-w-[450px] flex-col gap-4">
+            <h3 class="text-4xl font-medium max-md:text-2xl" data-i18n="feature3.title">Landing pages that bring customers</h3>
+            <div class="mt-4 flex flex-col gap-3">
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature3.1.title">Bookings &amp; forms</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature3.1.text">Your customers book an appointment or message you without leaving the page.</p>
+            </div>
+            <div class="mt-4 flex flex-col gap-3">
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature3.2.title">Ready for your campaigns</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature3.2.text">Bilingual and set up to measure your ad results (Meta Pixel).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ================= PROYECTOS (portafolio con filtros) =================
            Para agregar un proyecto: copia un <article>, cambia data-category (web, events, design, github),
            la imagen (assets/img/portafolio/) y los textos, y agrega sus claves en inglés en js/i18n.js. -->
       <section id="proyectos" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-3">
-        <h2 class="reveal-up text-center text-4xl font-medium max-md:text-2xl" data-i18n="projects.title">Proyectos ✨</h2>
+        <h2 class="reveal-up text-center text-4xl font-medium max-md:text-2xl" data-i18n="projects.title">Projects ✨</h2>
         <p class="reveal-up mt-4 max-w-[560px] text-center text-gray-400" data-i18n="projects.subtitle">
-          Webs, invitaciones y diseños para clientes reales, más proyectos de práctica en GitHub.
+          Websites, invitations and designs for real clients, plus practice projects on GitHub.
         </p>
 
-        <div class="reveal-up mt-8 flex flex-wrap place-content-center gap-3" role="group" aria-label="Filtrar proyectos" data-i18n-attr="aria-label:projects.filterLabel">
-          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true" data-i18n="projects.filter.all">Todos</button>
-          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false" data-i18n="projects.filter.web">Webs</button>
-          <button type="button" class="filter-btn" data-filter="events" aria-pressed="false" data-i18n="projects.filter.events">Eventos</button>
-          <button type="button" class="filter-btn" data-filter="design" aria-pressed="false" data-i18n="projects.filter.design">Diseño</button>
+        <div class="reveal-up mt-8 flex flex-wrap place-content-center gap-3" role="group" aria-label="Filter projects" data-i18n-attr="aria-label:projects.filterLabel">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true" data-i18n="projects.filter.all">All</button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false" data-i18n="projects.filter.web">Websites</button>
+          <button type="button" class="filter-btn" data-filter="events" aria-pressed="false" data-i18n="projects.filter.events">Events</button>
+          <button type="button" class="filter-btn" data-filter="design" aria-pressed="false" data-i18n="projects.filter.design">Design</button>
           <button type="button" class="filter-btn" data-filter="github" aria-pressed="false">GitHub</button>
         </div>
 
@@ -386,12 +415,12 @@
                 <img src="./assets/img/portafolio/pavlove.jpg" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Tienda online</span>
-                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">Con Dopicos</span>
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Online store</span>
+                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">With Dopicos</span>
               </div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Pavlove</h3>
-              <p class="text-gray-400" data-i18n="projects.pavlove">Tienda de pavlovas artesanales en San Antonio, Texas: productos personalizables, pagos y políticas. WordPress + WooCommerce.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.pavlove">Online store for handmade pavlovas in San Antonio, Texas: customizable products, payments and policies. WordPress + WooCommerce.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
@@ -401,11 +430,11 @@
                 <img src="./assets/img/portafolio/imola.jpg" alt="Imola Gold Jewelry" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Tienda online</span>
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Online store</span>
               </div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Imola Gold Jewelry</h3>
-              <p class="text-gray-400" data-i18n="projects.imola">Tienda de joyería en oro de 18k en West Palm Beach: catálogo por categorías, carrito y pagos. WordPress + WooCommerce.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.imola">18k gold jewelry store in West Palm Beach: catalog by category, cart and payments. WordPress + WooCommerce.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
@@ -418,8 +447,8 @@
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span>
               </div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Mastermind Hierarchy</h3>
-              <p class="text-gray-400" data-i18n="projects.mastermind">Landing bilingüe para una agencia de seguros en Doral, FL: videos, citas con Calendly, formularios y Meta Pixel. HTML, Tailwind y JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.mastermind">Bilingual landing page for an insurance agency in Doral, FL: videos, Calendly bookings, forms and Meta Pixel. HTML, Tailwind and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
@@ -427,41 +456,41 @@
           <article data-category="events">
             <a href="https://willgo-dev.github.io/invitacion-marcela/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/invitacion-xv.jpg" alt="Invitación de XV años" data-i18n-attr="alt:projects.xv.title" loading="lazy" class="h-full w-full object-cover object-[50%_30%] transition-transform duration-300 group-hover:scale-[1.04]" />
+                <img src="./assets/img/portafolio/invitacion-xv.jpg" alt="Quinceañera invitation" data-i18n-attr="alt:projects.xv.title" loading="lazy" class="h-full w-full object-cover object-[50%_30%] transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.invitation">Invitación web</span>
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.invitation">Web invitation</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.xv.title">Invitación de XV años</h3>
-              <p class="text-gray-400" data-i18n="projects.xv">Invitación web con video, música, cuenta regresiva, confirmación por QR y pases digitales para cada familia.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.xv.title">Quinceañera invitation</h3>
+              <p class="text-gray-400" data-i18n="projects.xv">Web invitation with video, music, countdown, QR RSVP and digital passes for each family.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="events">
             <a href="https://willgo-dev.github.io/assignacion_mesas/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/mesas.jpg" alt="Buscador de mesas para eventos" data-i18n-attr="alt:projects.tables.title" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+                <img src="./assets/img/portafolio/mesas.jpg" alt="Table finder" data-i18n-attr="alt:projects.tables.title" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.webapp">App web</span>
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.webapp">Web app</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.tables.title">Buscador de mesas</h3>
-              <p class="text-gray-400" data-i18n="projects.tables">Cada invitado escanea un QR, escribe su nombre y encuentra su mesa al instante. HTML, CSS y JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.tables.title">Table finder</h3>
+              <p class="text-gray-400" data-i18n="projects.tables">Each guest scans a QR code, types their name and finds their table instantly. HTML, CSS and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="events">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/invitacion-primer-anito.jpg" alt="Invitación de primer cumpleaños" data-i18n-attr="alt:projects.birthday.title" loading="lazy" class="h-full w-full object-cover object-[50%_35%]" />
+                <img src="./assets/img/portafolio/invitacion-primer-anito.jpg" alt="First birthday invitation" data-i18n-attr="alt:projects.birthday.title" loading="lazy" class="h-full w-full object-cover object-[50%_35%]" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.digitalInvite">Invitación digital</span>
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.digitalInvite">Digital invitation</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.birthday.title">Invitación de primer cumpleaños</h3>
-              <p class="text-gray-400" data-i18n="projects.birthday">Invitación temática de carreras con pase personalizado para cada familia.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.birthday.title">First birthday invitation</h3>
+              <p class="text-gray-400" data-i18n="projects.birthday">Racing-themed invitation with a personalized pass for each family.</p>
             </div>
           </article>
 
@@ -469,61 +498,61 @@
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/mediakit-nicole.jpg" alt="Media kit de Nicole Díaz" data-i18n-attr="alt:projects.mediakit.title" loading="lazy" class="h-full w-full object-cover object-top" />
+                <img src="./assets/img/portafolio/mediakit-nicole.jpg" alt="Nicole Díaz media kit" data-i18n-attr="alt:projects.mediakit.title" loading="lazy" class="h-full w-full object-cover object-top" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Media kit</span>
-                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">Con Dopicos</span>
+                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">With Dopicos</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.mediakit.title">Media kit de Nicole Díaz</h3>
-              <p class="text-gray-400" data-i18n="projects.mediakit">Media kit bilingüe para una influencer con millones de seguidores: audiencia, métricas y propuesta para marcas.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.mediakit.title">Nicole Díaz media kit</h3>
+              <p class="text-gray-400" data-i18n="projects.mediakit">Bilingual media kit for an influencer with millions of followers: audience, metrics and brand pitch.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/tarjeta-dopicos.jpg" alt="Tarjeta de presentación de Dopicos" data-i18n-attr="alt:projects.card.title" loading="lazy" class="h-full w-full object-cover" />
+                <img src="./assets/img/portafolio/tarjeta-dopicos.jpg" alt="Dopicos business card" data-i18n-attr="alt:projects.card.title" loading="lazy" class="h-full w-full object-cover" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.card">Tarjeta de presentación</span>
-                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">Con Dopicos</span>
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.card">Business card</span>
+                <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">With Dopicos</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.card.title">Tarjeta de Dopicos</h3>
-              <p class="text-gray-400" data-i18n="projects.card">Tarjeta bilingüe con QR e íconos de cada servicio para una agencia de software.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.card.title">Dopicos business card</h3>
+              <p class="text-gray-400" data-i18n="projects.card">Bilingual business card with a QR code and an icon for each service, for a software agency.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
               <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-secondary p-6">
-                <img src="./assets/img/portafolio/logo-alibel.png" alt="Logo de Alibel Parra Insurance" data-i18n-attr="alt:projects.alibel.title" loading="lazy" class="h-full w-full object-contain" />
+                <img src="./assets/img/portafolio/logo-alibel.png" alt="Alibel Parra Insurance logo" data-i18n-attr="alt:projects.alibel.title" loading="lazy" class="h-full w-full object-contain" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.alibel.title">Logo de Alibel Parra Insurance</h3>
-              <p class="text-gray-400" data-i18n="projects.alibel">Identidad para una agente de seguros de salud, en versiones en español e inglés.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.alibel.title">Alibel Parra Insurance logo</h3>
+              <p class="text-gray-400" data-i18n="projects.alibel">Identity for a health insurance agent, in Spanish and English versions.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
               <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-black p-4">
-                <img src="./assets/img/portafolio/logo-anto.jpg" alt="Logo de Anto Perfumes" data-i18n-attr="alt:projects.anto.title" loading="lazy" class="h-full w-full object-contain" />
+                <img src="./assets/img/portafolio/logo-anto.jpg" alt="Anto Perfumes logo" data-i18n-attr="alt:projects.anto.title" loading="lazy" class="h-full w-full object-contain" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.anto.title">Logo de Anto Perfumes</h3>
-              <p class="text-gray-400" data-i18n="projects.anto">Logo elegante para una marca de perfumes.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.anto.title">Anto Perfumes logo</h3>
+              <p class="text-gray-400" data-i18n="projects.anto">Elegant logo for a perfume brand.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
               <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-white">
-                <img src="./assets/img/portafolio/logo-acl.jpg" alt="Logo de Ale Creative Lab" data-i18n-attr="alt:projects.acl.title" loading="lazy" class="h-full w-full object-contain" />
+                <img src="./assets/img/portafolio/logo-acl.jpg" alt="Ale Creative Lab logo" data-i18n-attr="alt:projects.acl.title" loading="lazy" class="h-full w-full object-contain" />
               </div>
               <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.acl.title">Logo de Ale Creative Lab</h3>
-              <p class="text-gray-400" data-i18n="projects.acl">Identidad con ilustración propia para una creadora de contenido y agencia de marketing.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.acl.title">Ale Creative Lab logo</h3>
+              <p class="text-gray-400" data-i18n="projects.acl">Identity with a custom illustration for a content creator and marketing agency.</p>
             </div>
           </article>
 
@@ -533,10 +562,10 @@
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/simon-game.jpg" alt="Simon Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Juego web</span></div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Simon Game</h3>
-              <p class="text-gray-400" data-i18n="projects.simon">El clásico juego de memoria Simon. JavaScript y jQuery.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Probar</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.simon">The classic Simon memory game. JavaScript and jQuery.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
@@ -545,10 +574,10 @@
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/drum-kit.jpg" alt="Drum Kit" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Juego web</span></div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Drum Kit</h3>
-              <p class="text-gray-400" data-i18n="projects.drum">Batería que suena con el teclado, el mouse o el dedo. JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Probar</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.drum">A drum kit you play with your keyboard, mouse or finger. JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
@@ -559,8 +588,8 @@
               </div>
               <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">TinDog</h3>
-              <p class="text-gray-400" data-i18n="projects.tindog">Landing de una app ficticia para perros, hecha con Bootstrap.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.tindog">Landing page for a fictional dog app, built with Bootstrap.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
@@ -569,10 +598,10 @@
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/dice-game.jpg" alt="Dice Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Juego web</span></div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Dice Game</h3>
-              <p class="text-gray-400" data-i18n="projects.dice">Juego de dados para dos jugadores que se lanza al recargar la página. JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Probar</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.dice">Two-player dice game that rolls when you reload the page. JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
           <article data-category="github">
@@ -580,10 +609,10 @@
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/bootstrap-website.jpg" alt="Move With Joy" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Sitio web</span></div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Website</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Move With Joy</h3>
-              <p class="text-gray-400" data-i18n="projects.movewithjoy">Sitio de ejemplo para una empresa de mudanzas, adaptable a celulares y hecho con Bootstrap.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.movewithjoy">Sample website for a moving company, mobile-friendly and built with Bootstrap.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
           <article data-category="github">
@@ -591,10 +620,10 @@
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/aprendiendo-a-programar.jpg" alt="Aprendiendo a Programar" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Sitio web</span></div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Website</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Aprendiendo a Programar</h3>
-              <p class="text-gray-400" data-i18n="projects.firstsite">Mi primera web: una página en español sobre aprender a programar, con HTML y CSS adaptable.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.firstsite">My first website: a Spanish page about learning to code, with responsive HTML and CSS.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
           <article data-category="github">
@@ -602,10 +631,10 @@
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/login-form.jpg" alt="Login Form" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.form">Formulario</span></div>
+              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.form">Form</span></div>
               <h3 class="text-2xl font-semibold max-md:text-xl">Login Form</h3>
-              <p class="text-gray-400" data-i18n="projects.login">Formulario de inicio de sesión con efecto de vidrio y botón para ver la contraseña. HTML, CSS y JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">Ver proyecto</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <p class="text-gray-400" data-i18n="projects.login">Login form with a glass effect and a show-password button. HTML, CSS and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
         </div>
@@ -617,39 +646,39 @@
           class="reveal-up btn mt-10 rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!"
         >
           <i class="bi bi-github" aria-hidden="true"></i>
-          <span data-i18n="projects.github">Ver todo en GitHub</span>
+          <span data-i18n="projects.github">See everything on GitHub</span>
         </a>
       </section>
 
       <!-- ================= PROCESO (reemplaza la sección de precios: todo va por cotización) ================= -->
       <section id="proceso" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-4">
-        <h2 class="reveal-up text-center text-3xl font-medium text-gray-300 max-md:text-2xl" data-i18n="process.title">Cómo trabajo</h2>
+        <h2 class="reveal-up text-center text-3xl font-medium text-gray-300 max-md:text-2xl" data-i18n="process.title">How I work</h2>
         <div class="mt-10 grid max-w-[1200px] gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
             <span class="text-5xl font-semibold text-gray-500">01</span>
-            <h3 class="text-2xl" data-i18n="process.1.title">Conversamos</h3>
-            <p class="text-gray-300" data-i18n="process.1.text">Me cuentas tu idea por WhatsApp, mensaje, llamada o el formulario.</p>
+            <h3 class="text-2xl" data-i18n="process.1.title">Let's talk</h3>
+            <p class="text-gray-300" data-i18n="process.1.text">Tell me your idea by WhatsApp, text message, phone call or the form.</p>
           </div>
           <div class="reveal-up flex flex-col gap-3 rounded-lg border-2 border-primary bg-secondary p-8 shadow-xl">
             <span class="text-5xl font-semibold text-gray-500">02</span>
-            <h3 class="text-2xl" data-i18n="process.2.title">Cotización</h3>
-            <p class="text-gray-300" data-i18n="process.2.text">Recibes una propuesta con lo que incluye, el precio y la fecha de entrega.</p>
+            <h3 class="text-2xl" data-i18n="process.2.title">Quote</h3>
+            <p class="text-gray-300" data-i18n="process.2.text">You get a proposal with what's included, the price and the delivery date.</p>
           </div>
           <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
             <span class="text-5xl font-semibold text-gray-500">03</span>
-            <h3 class="text-2xl" data-i18n="process.3.title">Diseño y desarrollo</h3>
-            <p class="text-gray-300" data-i18n="process.3.text">Construyo tu proyecto y lo revisas antes de publicarlo.</p>
+            <h3 class="text-2xl" data-i18n="process.3.title">Design &amp; development</h3>
+            <p class="text-gray-300" data-i18n="process.3.text">I build your project and you review it before it goes live.</p>
           </div>
           <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
             <span class="text-5xl font-semibold text-gray-500">04</span>
-            <h3 class="text-2xl" data-i18n="process.4.title">Lanzamiento</h3>
-            <p class="text-gray-300" data-i18n="process.4.text">Lo publicamos en tu dominio y te enseño a usarlo.</p>
+            <h3 class="text-2xl" data-i18n="process.4.title">Launch</h3>
+            <p class="text-gray-300" data-i18n="process.4.text">We publish it on your domain and I show you how to use it.</p>
           </div>
         </div>
         <p class="reveal-up mt-10 max-w-[560px] text-center text-gray-400" data-i18n="process.note">
-          Cada proyecto es diferente, por eso todo va por cotización, sin compromiso.
+          Every project is different, so everything is quoted individually, with no commitment.
         </p>
-        <a href="#contacto" class="reveal-up btn mt-6 shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]" data-i18n="process.cta">Pide tu cotización</a>
+        <a href="#contacto" class="reveal-up btn mt-6 shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]" data-i18n="process.cta">Request a quote</a>
       </section>
 
       <!-- ================= SOBRE MÍ ================= -->
@@ -663,16 +692,14 @@
             </div>
           </div>
           <div class="flex max-w-[560px] flex-col gap-5">
-            <h2 class="text-4xl font-medium max-md:text-3xl" data-i18n="about.title">Sobre mí</h2>
+            <h2 class="text-4xl font-medium max-md:text-3xl" data-i18n="about.title">About me</h2>
             <p class="text-lg text-gray-300" data-i18n="about.p1">
-              Soy Willder Gómez, desarrollador web en West Palm Beach, Florida. Ayudo a negocios, marcas y personas a
-              tener una presencia profesional en internet: desde tiendas online hasta invitaciones para eventos.
+              I'm Willder Gómez, a web developer in West Palm Beach, Florida. I help businesses, brands and people build a professional online presence, from online stores to event invitations.
             </p>
             <p class="text-lg text-gray-300" data-i18n="about.p2">
-              Me encargo de todo el proceso, del diseño a la publicación, para que tú solo te preocupes por tu negocio.
-              Trabajo en español e inglés.
+              I handle the whole process, from design to launch, so you can focus on your business. I work in English and Spanish.
             </p>
-            <ul class="flex flex-wrap gap-2 text-sm text-gray-300" aria-label="Tecnologías" data-i18n-attr="aria-label:about.techLabel">
+            <ul class="flex flex-wrap gap-2 text-sm text-gray-300" aria-label="Technologies" data-i18n-attr="aria-label:about.techLabel">
               <li class="rounded-full border border-outline px-3 py-1">HTML</li>
               <li class="rounded-full border border-outline px-3 py-1">CSS</li>
               <li class="rounded-full border border-outline px-3 py-1">JavaScript</li>
@@ -683,15 +710,15 @@
               <li class="rounded-full border border-outline px-3 py-1">SQL</li>
             </ul>
             <div class="flex flex-col gap-2">
-              <h3 class="text-lg font-medium text-gray-200" data-i18n="about.eduTitle">Formación</h3>
+              <h3 class="text-lg font-medium text-gray-200" data-i18n="about.eduTitle">Education</h3>
               <ul class="flex flex-col gap-1 text-sm text-gray-400">
-                <li><i class="bi bi-mortarboard-fill mr-2" aria-hidden="true"></i><span data-i18n="about.edu.1">Bootcamp de Desarrollo Web Full-Stack · Udemy (en curso)</span></li>
-                <li><i class="bi bi-patch-check-fill mr-2" aria-hidden="true"></i><span data-i18n="about.edu.2">Programación Básica, JavaScript Básico e Introducción al Backend · Platzi (2024)</span></li>
-                <li><i class="bi bi-patch-check-fill mr-2" aria-hidden="true"></i><span data-i18n="about.edu.3">Fundamentos de HTML · SoloLearn</span></li>
+                <li><i class="bi bi-mortarboard-fill mr-2" aria-hidden="true"></i><span data-i18n="about.edu.1">Full-Stack Web Development Bootcamp · Udemy (in progress)</span></li>
+                <li><i class="bi bi-patch-check-fill mr-2" aria-hidden="true"></i><span data-i18n="about.edu.2">Basic Programming, JavaScript Basics and Intro to Backend · Platzi (2024)</span></li>
+                <li><i class="bi bi-patch-check-fill mr-2" aria-hidden="true"></i><span data-i18n="about.edu.3">HTML Fundamentals · SoloLearn</span></li>
               </ul>
             </div>
             <div class="mt-2 flex flex-wrap gap-4">
-              <a href="https://www.linkedin.com/in/willgo-dev/" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
+              <a href="https://www.linkedin.com/in/will-net/" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
                 <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
               </a>
               <a href="https://github.com/willgo-dev" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
@@ -704,48 +731,49 @@
 
       <!-- ================= PREGUNTAS FRECUENTES ================= -->
       <section id="faq" class="flex w-full flex-col place-content-center place-items-center gap-[10%] p-[5%] px-[10%] max-md:px-4">
-        <h2 class="reveal-up text-4xl font-medium text-gray-300 max-md:text-2xl" data-i18n="faq.title">Preguntas frecuentes</h2>
+        <h2 class="reveal-up text-4xl font-medium text-gray-300 max-md:text-2xl" data-i18n="faq.title">Frequently asked questions</h2>
         <div class="mt-8 flex w-full max-w-[850px] flex-col gap-4">
           <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
-              <span data-i18n="faq.1.q">¿Cuánto cuesta una página web?</span>
+              <span data-i18n="faq.1.q">How much does a website cost?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
-            <div class="content"><p data-i18n="faq.1.a">Depende de lo que necesites: cantidad de páginas, funciones y contenido. Cuéntame tu idea y te envío una cotización sin compromiso.</p></div>
+            <div class="content"><p data-i18n="faq.1.a">It depends on what you need: number of pages, features and content. Tell me your idea and I'll send you a free, no-commitment quote.</p></div>
           </div>
           <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
-              <span data-i18n="faq.2.q">¿Cuánto tiempo tarda?</span>
+              <span data-i18n="faq.2.q">How long does it take?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
-            <div class="content"><p data-i18n="faq.2.a">Depende del proyecto y de qué tan listo esté tu contenido (textos, fotos y logo). En la cotización te doy una fecha de entrega.</p></div>
+            <div class="content"><p data-i18n="faq.2.a">It depends on the project and on how ready your content is (copy, photos and logo). You'll get a delivery date with your quote.</p></div>
           </div>
           <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
-              <span data-i18n="faq.3.q">¿Me ayudas con el dominio y el hosting?</span>
+              <span data-i18n="faq.3.q">Can you help me with the domain and hosting?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
-            <div class="content"><p data-i18n="faq.3.a">Sí. Te asesoro para elegirlos y dejo tu web publicada y funcionando en tu dominio.</p></div>
+            <div class="content"><p data-i18n="faq.3.a">Yes. I'll help you choose them and leave your website live and working on your domain.</p></div>
           </div>
           <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
-              <span data-i18n="faq.4.q">¿Puedo pedir cambios después?</span>
+              <span data-i18n="faq.4.q">Can I request changes later?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
-            <div class="content"><p data-i18n="faq.4.a">Sí. Antes de publicar revisamos todo juntos, y después puedo encargarme del mantenimiento y las actualizaciones.</p></div>
+            <div class="content"><p data-i18n="faq.4.a">Yes. We review everything together before launch, and afterwards I can take care of maintenance and updates.</p>
+              <p class="mt-2"><span data-i18n="faq.4.support">Already a client? Write to</span> <a href="mailto:support@willnet.dev" class="text-primary underline">support@willnet.dev</a></p></div>
           </div>
           <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
-              <span data-i18n="faq.5.q">¿Trabajas con clientes fuera de Florida?</span>
+              <span data-i18n="faq.5.q">Do you work with clients outside Florida?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
-            <div class="content"><p data-i18n="faq.5.a">Sí. Trabajo a distancia con clientes de todo Estados Unidos y Latinoamérica, en español o en inglés.</p></div>
+            <div class="content"><p data-i18n="faq.5.a">Yes. I work remotely with clients across the United States and Latin America, in English or Spanish.</p></div>
           </div>
         </div>
 
         <div class="mt-16 flex flex-col place-items-center gap-4">
-          <p class="text-3xl max-md:text-2xl" data-i18n="faq.more">¿Tienes más preguntas?</p>
-          <a href="#contacto" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!" data-i18n="faq.cta">Escríbeme</a>
+          <p class="text-3xl max-md:text-2xl" data-i18n="faq.more">Still have questions?</p>
+          <a href="#contacto" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!" data-i18n="faq.cta">Message me</a>
         </div>
       </section>
 
@@ -755,11 +783,11 @@
       <section id="contacto" class="flex w-full flex-col place-content-center place-items-center p-[5%] px-[10%] max-md:px-4">
         <div class="reveal-up grid w-full max-w-[1100px] gap-10 rounded-lg border border-outline bg-secondary p-8 max-md:p-5 lg:grid-cols-[2fr_3fr]">
           <div class="flex flex-col gap-4">
-            <h2 class="text-3xl text-gray-200 max-md:text-2xl" data-i18n="contact.title">Hablemos de tu proyecto</h2>
-            <p class="text-gray-400" data-i18n="contact.subtitle">Elige cómo prefieres contactarme o déjame un mensaje con el formulario.</p>
+            <h2 class="text-3xl text-gray-200 max-md:text-2xl" data-i18n="contact.title">Let's talk about your project</h2>
+            <p class="text-gray-400" data-i18n="contact.subtitle">Choose how you'd like to reach me, or leave me a message with the form.</p>
             <div class="mt-2 grid grid-cols-2 gap-3">
               <a
-                href="https://wa.me/17865575568?text=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto."
+                href="https://wa.me/17865575568?text=Hi%20WillNet%2C%20I%27d%20like%20a%20quote%20for%20a%20project."
                 data-i18n-attr="href:contact.whatsappHref"
                 target="_blank"
                 rel="noopener"
@@ -769,23 +797,23 @@
                 <span class="text-sm">WhatsApp</span>
               </a>
               <a
-                href="sms:+17865575568?&body=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto."
+                href="sms:+17865575568?&amp;body=Hi%20WillNet%2C%20I%27d%20like%20a%20quote%20for%20a%20project."
                 data-i18n-attr="href:contact.smsHref"
                 class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary"
               >
                 <i class="bi bi-chat-text-fill text-2xl text-sky-400" aria-hidden="true"></i>
-                <span class="text-sm" data-i18n="contact.sms">Mensaje (SMS)</span>
+                <span class="text-sm" data-i18n="contact.sms">Text (SMS)</span>
               </a>
               <a href="tel:+17865575568" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
                 <i class="bi bi-telephone-fill text-2xl text-gray-200" aria-hidden="true"></i>
-                <span class="text-sm" data-i18n="contact.call">Llamada</span>
+                <span class="text-sm" data-i18n="contact.call">Call</span>
               </a>
-              <a href="mailto:willdevgo@gmail.com" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
+              <a href="mailto:contact@willnet.dev" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
                 <i class="bi bi-envelope-fill text-2xl text-gray-200" aria-hidden="true"></i>
-                <span class="text-sm" data-i18n="contact.email">Correo</span>
+                <span class="text-sm" data-i18n="contact.email">Email</span>
               </a>
             </div>
-            <p class="mt-2 text-sm text-gray-500">(786) 557-5568 · willdevgo@gmail.com</p>
+            <p class="mt-2 text-sm text-gray-500">(786) 557-5568 · <a href="mailto:contact@willnet.dev" class="hover:text-gray-300">contact@willnet.dev</a></p>
           </div>
 
           <!-- Formulario: ver js/contact.js para conectarlo a Web3Forms -->
@@ -794,45 +822,45 @@
             <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="flex flex-col gap-2 text-sm">
-                <span data-i18n="form.name">Nombre</span>
+                <span data-i18n="form.name">Name</span>
                 <input class="input" type="text" name="name" required autocomplete="name" />
               </label>
               <label class="flex flex-col gap-2 text-sm">
-                <span data-i18n="form.email">Correo electrónico</span>
+                <span data-i18n="form.email">Email</span>
                 <input class="input" type="email" name="email" required autocomplete="email" />
               </label>
               <label class="flex flex-col gap-2 text-sm">
-                <span data-i18n="form.phone">Teléfono (opcional)</span>
+                <span data-i18n="form.phone">Phone (optional)</span>
                 <input class="input" type="tel" name="phone" autocomplete="tel" />
               </label>
               <label class="flex flex-col gap-2 text-sm">
-                <span data-i18n="form.service">¿Qué necesitas?</span>
+                <span data-i18n="form.service">What do you need?</span>
                 <select class="input" name="service">
-                  <option value="Tienda / e-commerce" data-i18n="form.opt.store">Tienda / e-commerce</option>
-                  <option value="Web para negocio" data-i18n="form.opt.business">Web para negocio</option>
-                  <option value="Portafolio / web personal" data-i18n="form.opt.portfolio">Portafolio / web personal</option>
-                  <option value="Influencer / creador" data-i18n="form.opt.influencer">Influencer / creador</option>
-                  <option value="Invitación / evento" data-i18n="form.opt.event">Invitación / evento</option>
-                  <option value="Logo / tarjetas" data-i18n="form.opt.logo">Logo / tarjetas</option>
-                  <option value="Otro" data-i18n="form.opt.other">Otro</option>
+                  <option value="Tienda / e-commerce" data-i18n="form.opt.store">Store / e-commerce</option>
+                  <option value="Web para negocio" data-i18n="form.opt.business">Business website</option>
+                  <option value="Portafolio / web personal" data-i18n="form.opt.portfolio">Portfolio / personal website</option>
+                  <option value="Influencer / creador" data-i18n="form.opt.influencer">Influencer / creator</option>
+                  <option value="Invitación / evento" data-i18n="form.opt.event">Invitation / event</option>
+                  <option value="Logo / tarjetas" data-i18n="form.opt.logo">Logo / business cards</option>
+                  <option value="Otro" data-i18n="form.opt.other">Other</option>
                 </select>
               </label>
             </div>
             <label class="flex flex-col gap-2 text-sm">
-              <span data-i18n="form.message">Cuéntame sobre tu proyecto</span>
+              <span data-i18n="form.message">Tell me about your project</span>
               <textarea class="input min-h-[130px]" name="message" required></textarea>
             </label>
             <button type="submit" class="btn w-full! shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.02]">
               <i class="bi bi-send-fill" aria-hidden="true"></i>
-              <span data-i18n="form.submit">Enviar mensaje</span>
+              <span data-i18n="form.submit">Send message</span>
             </button>
             <!-- Mensajes de estado (js/contact.js muestra uno a la vez) -->
             <div aria-live="polite" class="text-sm">
-              <p class="form-status hidden text-red-400" data-status="invalid" data-i18n="form.invalid">Completa tu nombre, un correo válido y tu mensaje.</p>
-              <p class="form-status hidden text-gray-300" data-status="sending" data-i18n="form.sending">Enviando…</p>
-              <p class="form-status hidden text-green-400" data-status="success" data-i18n="form.success">¡Gracias! Recibí tu mensaje y te responderé pronto.</p>
-              <p class="form-status hidden text-red-400" data-status="error" data-i18n="form.error">No se pudo enviar. Escríbeme por WhatsApp o al correo.</p>
-              <p class="form-status hidden text-gray-300" data-status="mailto" data-i18n="form.mailto">Se abrirá tu app de correo con el mensaje listo para enviar.</p>
+              <p class="form-status hidden text-red-400" data-status="invalid" data-i18n="form.invalid">Please enter your name, a valid email and your message.</p>
+              <p class="form-status hidden text-gray-300" data-status="sending" data-i18n="form.sending">Sending…</p>
+              <p class="form-status hidden text-green-400" data-status="success" data-i18n="form.success">Thank you! I got your message and will reply soon.</p>
+              <p class="form-status hidden text-red-400" data-status="error" data-i18n="form.error">The message couldn't be sent. Please reach me on WhatsApp or by email.</p>
+              <p class="form-status hidden text-gray-300" data-status="mailto" data-i18n="form.mailto">Your email app will open with the message ready to send.</p>
             </div>
           </form>
         </div>
@@ -841,7 +869,7 @@
 
     <!-- Botón flotante de WhatsApp -->
     <a
-      href="https://wa.me/17865575568?text=Hola%20WillNet%2C%20quiero%20cotizar%20un%20proyecto."
+      href="https://wa.me/17865575568?text=Hi%20WillNet%2C%20I%27d%20like%20a%20quote%20for%20a%20project."
       data-i18n-attr="href:contact.whatsappHref"
       target="_blank"
       rel="noopener"
@@ -855,38 +883,42 @@
     <footer class="mt-auto flex w-full place-content-around gap-8 p-[5%] px-[10%] text-white max-md:flex-col max-md:px-6">
       <div class="flex w-[250px] flex-col place-items-center gap-5 max-md:w-full">
         <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="WillNet" class="w-[90px]" />
-        <p class="text-center text-gray-400">West Palm Beach, FL<br /><span data-i18n="footer.remote">Atención remota en EE. UU. y Latinoamérica</span></p>
-        <p class="text-lg font-semibold" data-i18n="footer.follow">Sígueme</p>
+        <p class="text-center text-gray-400">West Palm Beach, FL<br /><span data-i18n="footer.remote">Remote service across the US and Latin America</span></p>
+        <div class="flex flex-col items-center gap-1 text-sm text-gray-400">
+          <p><span data-i18n="footer.info">General info</span>: <a href="mailto:info@willnet.dev" class="footer-link">info@willnet.dev</a></p>
+          <p><span data-i18n="footer.support">Client support</span>: <a href="mailto:support@willnet.dev" class="footer-link">support@willnet.dev</a></p>
+        </div>
+        <p class="text-lg font-semibold" data-i18n="footer.follow">Follow me</p>
         <div class="flex gap-4 text-2xl">
-          <a href="https://www.linkedin.com/in/willgo-dev/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/will-net/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
           <a href="https://github.com/willgo-dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
           <a href="https://wa.me/17865575568" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
 
       <div class="flex w-[250px] flex-col gap-4 max-md:w-full">
-        <h2 class="text-2xl max-md:text-xl" data-i18n="footer.services">Servicios</h2>
+        <h2 class="text-2xl max-md:text-xl" data-i18n="footer.services">Services</h2>
         <div class="flex flex-col gap-3 max-md:text-sm">
-          <a href="#servicios" class="footer-link" data-i18n="services.1.title">Tiendas y e-commerce</a>
-          <a href="#servicios" class="footer-link" data-i18n="services.2.title">Webs para empresas y negocios</a>
-          <a href="#servicios" class="footer-link" data-i18n="services.5.title">Invitaciones y eventos</a>
-          <a href="#servicios" class="footer-link" data-i18n="services.6.title">Logos y tarjetas de presentación</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.1.title">Online stores &amp; e-commerce</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.2.title">Websites for companies &amp; businesses</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.5.title">Invitations &amp; events</a>
+          <a href="#servicios" class="footer-link" data-i18n="services.6.title">Logos &amp; business cards</a>
         </div>
       </div>
 
       <div class="flex w-[250px] flex-col gap-4 max-md:w-full">
-        <h2 class="text-2xl max-md:text-xl" data-i18n="footer.explore">Explora</h2>
+        <h2 class="text-2xl max-md:text-xl" data-i18n="footer.explore">Explore</h2>
         <div class="flex flex-col gap-3 max-md:text-sm">
-          <a href="#proyectos" class="footer-link" data-i18n="nav.projects">Proyectos</a>
-          <a href="#proceso" class="footer-link" data-i18n="nav.process">Proceso</a>
-          <a href="#sobre-mi" class="footer-link" data-i18n="nav.about">Sobre mí</a>
-          <a href="#faq" class="footer-link" data-i18n="nav.faq">Preguntas</a>
-          <a href="#contacto" class="footer-link" data-i18n="footer.contact">Contacto</a>
+          <a href="#proyectos" class="footer-link" data-i18n="nav.projects">Projects</a>
+          <a href="#proceso" class="footer-link" data-i18n="nav.process">Process</a>
+          <a href="#sobre-mi" class="footer-link" data-i18n="nav.about">About me</a>
+          <a href="#faq" class="footer-link" data-i18n="nav.faq">FAQ</a>
+          <a href="#contacto" class="footer-link" data-i18n="footer.contact">Contact</a>
         </div>
       </div>
     </footer>
     <p class="pb-6 text-center text-sm text-gray-500">
-      © <span id="year">2026</span> WillNet · <span data-i18n="footer.rights">Todos los derechos reservados</span>
+      © <span id="year">2026</span> WillNet · <span data-i18n="footer.rights">All rights reserved</span>
     </p>
 
     <!-- GSAP (animaciones de la plantilla) -->

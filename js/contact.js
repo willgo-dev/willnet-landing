@@ -1,13 +1,13 @@
 // Formulario de contacto de la landing de WillNet.
 //
 // Fase 1 (ahora): si NO hay clave de Web3Forms, el formulario abre la app de correo del visitante
-//                 con el mensaje listo para enviar a willdevgo@gmail.com.
-// Fase 1b:        pega aquí tu clave de Web3Forms (gratis en https://web3forms.com, con willdevgo@gmail.com)
+//                 con el mensaje listo para enviar a contact@willnet.dev.
+// Fase 1b (hecho): con la clave de Web3Forms los mensajes llegan directo a contact@willnet.dev
 //                 y los mensajes te llegarán directo al correo, sin abrir nada.
 // Fase 2:         reemplazar Web3Forms por tu propio backend con Node.js + Express + Nodemailer.
 
-const WEB3FORMS_ACCESS_KEY = "f772dd78-9690-4ae3-bc1d-e362e4821bad"; // clave pública de Web3Forms (cuenta willdevgo@gmail.com)
-const CONTACT_EMAIL = "willdevgo@gmail.com";
+const WEB3FORMS_ACCESS_KEY = "f772dd78-9690-4ae3-bc1d-e362e4821bad"; // clave pública de Web3Forms (cuenta willdevgo@gmail.com; envía a contact@willnet.dev)
+const CONTACT_EMAIL = "contact@willnet.dev";
 
 const form = document.getElementById("contact-form");
 const statusMessages = form.querySelectorAll(".form-status");

@@ -2,8 +2,8 @@
 
 Landing **bilingüe (ES/EN)** de **WillNet**: servicios de diseño y desarrollo web. HTML + JavaScript + Tailwind CSS v4, sobre la plantilla `portfolio_landing` en azul.
 
-- Textos en español: `index.html`. Textos en inglés: `js/i18n.js`. Para ver la versión en inglés, abre `http://localhost:5500/?lang=en` o usa el botón **EN**.
-- Formulario: `js/contact.js` (envía con Web3Forms; la clave es pública por diseño).
+- Textos en inglés (idioma principal): `index.html`. Textos en español: `js/i18n.js` (`translations.es`). Para ver la versión en español, abre `http://localhost:5500/?lang=es` o usa el botón **ES**.
+- Formulario: `js/contact.js` (envía con Web3Forms a contact@willnet.dev; la clave es pública por diseño).
 - Publicada en Cloudflare: **https://willnet.dev** · Código: https://github.com/willgo-dev/willnet-landing
 
 ## Requisitos
