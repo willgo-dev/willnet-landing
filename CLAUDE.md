@@ -23,6 +23,14 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Portafolio | Solo proyectos que estén en local (`Clientes/`) o en su GitHub (`willnet-dev`). Del portafolio de 2024 se trajeron Move With Joy, Aprendiendo a Programar, Login Form y la **formación** (en "Sobre mí"); **no** sus fotos (Willder mandará fotos nuevas). **No usar** airseausa.com, cejasperfectasmedellin.com, jcpconsult.net ni tendaigroup.com |
 | Foto | Va a poner una foto suya más adelante. Hoy hay un espacio listo en "Sobre mí" y un texto genérico |
 | Redes | LinkedIn **https://www.linkedin.com/in/will-net/** (Willder cambió la URL; la vieja `willgo-dev` redirige por ahora) y GitHub **https://github.com/willnet-dev** |
+| Hero (2026-10-17) | Título **"Hi, I'm Will"** / "Hola, soy Will" (solo ahí; en About me sigue "Willder Gómez"). Sin texto debajo del título. Arriba, **máquina de escribir** que escribe y borra, con sus llaves, `<Web Developer>`, `<Web Designer>`, `<E-commerce Builder>` y `<Brand Designer>` (`TYPEWRITER_WORDS` en `js/main.js`) |
+| Botones | Todos los `.btn` (y el header) usan el estilo **"azul líquido"**: degradado azul translúcido, borde celeste y vidrio; al pasar el mouse, azul sólido `#3b82f6` con brillo. Se define una sola vez en `css/input.css` (`.btn, .projects-toggle`): **no ponerles colores con clases de Tailwind**. WhatsApp se queda **verde** |
+| Portafolio | Plegado al cargar: se ven los 3 proyectos con `data-preview` (Pavlove, Imola, Mastermind) y el botón **"See all 18 projects"** (el número se calcula solo) despliega el resto con animación. Elegir un filtro también lo despliega |
+| How I work | Los 4 pasos se iluminan solos en bucle (2,8 s cada uno) con una barra de progreso; si el visitante pone el mouse o toca un paso, se queda ahí. Solo corre mientras la sección está en pantalla |
+| About me | Sin lista de tecnologías (ya están en el carrusel). Muestra **habilidades** en 3 grupos (Web, Diseño y marca, Personales) y la formación |
+| FAQ | Hover con borde azul; la pregunta abierta lleva barra azul a la izquierda (clase `.is-open`) |
+| Header | **Fijo**: arriba se ve normal y al bajar se vuelve una **píldora flotante de vidrio líquido** (clase `.is-scrolled`). El vidrio va en `::before` para no encerrar el panel del menú móvil, que también es de vidrio |
+| Botones flotantes | **WhatsApp abajo a la izquierda**; **volver arriba abajo a la derecha**, con anillo de progreso de lectura; aparece al pasar el 60 % de la primera pantalla |
 | Servicios | Tiendas y e-commerce, webs para empresas y negocios, portafolios y webs personales, influencers, invitaciones y eventos (bodas, cumpleaños, XV, fiestas), logos y tarjetas de presentación |
 
 ## Stack (fase actual)
@@ -75,6 +83,11 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 - LinkedIn: el proyecto "Portfolio Website" enlaza a willnet.dev y a este repo (2026-10-17).
 - Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willnet-dev/willnet-dev`, en `../../../Repositorios/willnet-dev/`; tiene que llamarse igual que el usuario) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
 
+**Trampas de estilos (aprendidas el 2026-10-17):**
+- En Tailwind v4 las clases del HTML (capa *utilities*) le ganan a los estilos de `@layer components`. Si un componente necesita controlar un color, borde o medida, quitar la clase de Tailwind del HTML en vez de pelear con `!important`.
+- GSAP deja un `transform` en línea en los elementos `.reveal-up`. Para "levantar" algo al pasar el mouse se usa la propiedad CSS `translate` (no `transform`).
+- Con el panel del navegador oculto, `requestAnimationFrame` no corre: el header y el botón de subir no reaccionan al scroll en esas pruebas. Para revisar se usa Chrome sin ventana (puppeteer) o se llama `onScroll()` a mano.
+
 Vista previa en Claude Code: el panel del navegador no puede lanzar el servidor dentro de `Documents` (permisos de macOS). Hay que levantar `python3 -m http.server 5500` desde Bash en segundo plano y abrir `http://localhost:5500/`. Las animaciones de GSAP tardan en arrancar si el panel no tiene el foco: no es un error.
 
 ## Estructura
@@ -85,7 +98,7 @@ css/styles.css           ← GENERADO
 wrangler.jsonc           ← configuración de Cloudflare
 dist/                    ← GENERADO por npm run dist (lo que se publica)
 js/i18n.js               ← sistema bilingüe y traducciones al inglés
-js/main.js               ← menú móvil, acordeón FAQ, filtros del portafolio, año y animaciones GSAP
+js/main.js               ← menú móvil, FAQ, portafolio plegable y filtros, año, máquina de escribir, header de vidrio, botón de subir, recorrido de How I work y animaciones GSAP
 js/contact.js            ← formulario: envía con Web3Forms (si se quita la clave, abre el correo con mailto)
 assets/logo/             ← isotipo SVG de la W (willnet-isotipo-blanco/negro.svg)
 assets/favicon/          ← favicon.svg, 32, apple-touch (180) y 512
@@ -106,6 +119,7 @@ docs/hero-muro.html      ← fuente de la imagen del hero (no se publica)
 5. Testimonios de clientes: la sección de la plantilla se quitó hasta tener testimonios reales. **No inventar testimonios.**
 6. Agendar videollamadas (fase 2).
 7. La invitación de XV (`willnet-dev.github.io/invitacion-marcela`) carga su video desde `dopicos.com/video_hero.mp4`, que da **404** desde el 16-10-2026 o antes: en la web se ve un fondo gris. La captura del portafolio se hizo con el video local.
+- Hecho (2026-10-17): hero con "Will" y máquina de escribir, botones en azul líquido, portafolio plegable, How I work en bucle, habilidades en About me, FAQ con hover, header de vidrio, botón de subir y WhatsApp a la izquierda.
 - Hecho (2026-10-16): inglés como idioma principal, hero "Muro de proyectos" e imagen OG, 3 destacados, correos contact@/info@/support@ (formulario probado: llega a contact@), clave de Web3Forms (probada), carrusel de tecnologías, capturas desde el inicio, cambio a WillNet, repo en GitHub, **dominio willnet.dev** y QR nuevo (`../../03 QR/qr-willnet-dev-*`).
 
 ## Verificación de traducciones

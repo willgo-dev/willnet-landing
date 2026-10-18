@@ -12,6 +12,8 @@
 @theme {
   --color-primary: #2563eb;   /* azul principal (en la plantilla era morado #7e22ce): botones, bordes, sombras */
   --color-primary-light: #38bdf8; /* celeste para degradados y detalles */
+  --color-primary-hover: #3b82f6; /* azul más claro: hover de botones */
+  --color-primary-dark: #1d4ed8;  /* azul más oscuro: botón presionado */
   --color-secondary: #080808; /* fondo de tarjetas */
   --color-outline: #1f2123;   /* bordes de tarjetas */
 
@@ -28,9 +30,9 @@
     @apply bg-black font-sans text-white antialiased;
   }
 
-  /* Las anclas del menú no quedan pegadas al borde superior */
+  /* El header es fijo: las anclas del menú paran debajo de él */
   section[id] {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 88px;
   }
 }
 
@@ -59,7 +61,20 @@
     transition: color 0.5s;
   }
   .header-links:hover {
-    color: #ffffff;
+    color: #93c5fd;
+  }
+
+  /* Botón "Get a quote" del header: mismo azul líquido que el resto de botones */
+  .nav-cta {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.45), rgba(56, 189, 248, 0.22));
+    border: 1px solid rgba(96, 165, 250, 0.6);
+    transition: background 0.3s, box-shadow 0.3s, translate 0.3s;
+  }
+  .nav-cta:hover {
+    background: var(--color-primary-hover);
+    box-shadow: 0 6px 22px rgba(37, 99, 235, 0.55);
+    translate: 4px 0;
   }
 
   /* Texto con degradado gris del hero */
@@ -93,20 +108,43 @@
     border-radius: inherit;
   }
 
-  /* Botón base: morado con texto blanco */
+  /* Botón base: "azul líquido" (mismo estilo que el botón "See all projects").
+     Fondo azul translúcido en degradado, borde celeste y vidrio; al pasar el mouse se vuelve azul sólido con brillo.
+     Para que un botón se vea así basta con la clase .btn: no hace falta ponerle colores con Tailwind. */
+  .btn,
+  .projects-toggle {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.35), rgba(56, 189, 248, 0.18));
+    border: 1px solid rgba(96, 165, 250, 0.6);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, translate 0.3s ease;
+  }
   .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     width: max-content;
-    padding: 10px 18px;
-    border-radius: 5px;
-    color: #fdfdfd;
-    background-color: var(--color-primary);
-    cursor: pointer;
+    padding: 11px 24px;
+    border-radius: 9999px;
   }
-  .btn:focus-visible {
+  .btn:hover,
+  .projects-toggle:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    box-shadow: 0 0 0 1px rgba(147, 197, 253, 0.35), 0 8px 28px rgba(37, 99, 235, 0.55);
+    /* `translate` (y no `transform`) porque GSAP deja un transform en línea en los botones que anima */
+    translate: 0 -2px;
+  }
+  .btn:active,
+  .projects-toggle:active {
+    background: var(--color-primary-dark);
+    translate: 0 0;
+  }
+  .btn:focus-visible,
+  .projects-toggle:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 3px;
   }
@@ -197,10 +235,33 @@
     transition: max-height 0.4s, padding 0.4s;
   }
   .faq-accordion .bi-plus {
-    transition: transform 0.3s;
+    transition: transform 0.3s, color 0.3s;
   }
   .faq-accordion.active .bi-plus {
     transform: rotate(45deg);
+  }
+  .faq {
+    border: 1px solid var(--color-outline);
+    background-color: var(--color-secondary);
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+  .faq:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    background-color: #0b1220;
+  }
+  .faq-accordion:hover .bi-plus,
+  .faq.is-open .bi-plus {
+    color: #60a5fa;
+  }
+  .faq.is-open {
+    border-color: var(--color-primary);
+    background-color: #0b1220;
+    box-shadow: inset 4px 0 0 var(--color-primary), 0 8px 30px rgba(37, 99, 235, 0.15);
+  }
+  .faq-accordion:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: -2px;
+    border-radius: 6px;
   }
 
   /* Botones de idioma ES / EN */
@@ -214,6 +275,10 @@
     background-color: #fff;
     color: #000;
   }
+  .lang-btn[aria-pressed="false"]:hover {
+    background-color: rgba(37, 99, 235, 0.35);
+    color: #fff;
+  }
 
   /* Filtros del portafolio */
   .filter-btn {
@@ -225,11 +290,299 @@
   }
   .filter-btn:hover {
     color: #fff;
+    border-color: var(--color-primary-hover);
+    background-color: rgba(37, 99, 235, 0.15);
   }
   .filter-btn[aria-pressed="true"] {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
     color: #fff;
+  }
+
+  /* ---------- Máquina de escribir del hero ---------- */
+  .type-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 3px;
+    vertical-align: -2px;
+    background-color: #60a5fa;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* ---------- Header de vidrio líquido ----------
+     El vidrio va en ::before (y no en el header) porque un backdrop-filter en el header
+     encerraría dentro de él al panel del menú móvil, que es position: fixed. */
+  .site-header {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    padding-inline: 5%;
+    margin-inline: auto;
+    transition: top 0.4s ease, width 0.4s ease, height 0.4s ease, padding 0.4s ease, border-radius 0.4s ease;
+  }
+  .site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    background:
+      radial-gradient(120% 140% at 15% -20%, rgba(255, 255, 255, 0.18), transparent 55%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 60%, rgba(37, 99, 235, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(18px) saturate(170%);
+    backdrop-filter: blur(18px) saturate(170%);
+    transition: opacity 0.4s ease;
+  }
+  .site-header.is-scrolled {
+    top: 12px;
+    width: min(1180px, calc(100% - 24px));
+    height: 56px;
+    padding-inline: 1.25rem;
+    border-radius: 9999px;
+  }
+  @media not all and (min-width: 1280px) {
+    .site-header {
+      padding-inline: 1rem;
+    }
+  }
+  .site-header.is-scrolled::before {
+    opacity: 1;
+  }
+  .site-header.is-scrolled #collapse-btn {
+    top: 0.6rem;
+  }
+
+  /* ---------- Botón para volver arriba (esquina inferior derecha) ---------- */
+  .back-to-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    color: #fff;
+    font-size: 1.35rem;
+    background: rgba(10, 10, 14, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transform: translateY(16px) scale(0.9);
+    pointer-events: none;
+    cursor: pointer;
+    transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.3s, box-shadow 0.3s;
+  }
+  .back-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .back-to-top:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: 0 8px 28px rgba(37, 99, 235, 0.6);
+  }
+  .back-to-top:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+  .back-to-top__ring {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg); /* el anillo empieza a llenarse desde arriba */
+  }
+  .back-to-top__ring circle {
+    fill: none;
+    stroke-width: 3;
+  }
+  .back-to-top__track {
+    stroke: rgba(255, 255, 255, 0.12);
+  }
+  .back-to-top__progress {
+    stroke: #60a5fa;
+    stroke-linecap: round;
+    stroke-dasharray: 131.95; /* 2 × π × 21 (el radio del círculo) */
+    stroke-dashoffset: 131.95;
+    transition: stroke-dashoffset 0.15s linear;
+  }
+
+  /* ---------- Tarjetas de contacto (WhatsApp, SMS, llamada, correo) ---------- */
+  .contact-card {
+    border: 1px solid var(--color-outline);
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s, translate 0.3s;
+  }
+  .contact-card:hover {
+    border-color: var(--color-primary-hover);
+    background-color: rgba(37, 99, 235, 0.12);
+    box-shadow: 0 6px 24px rgba(37, 99, 235, 0.35);
+    translate: 0 -2px;
+  }
+  .contact-card--whatsapp:hover {
+    /* WhatsApp se queda verde: se reconoce al instante */
+    border-color: #22c55e;
+    background-color: rgba(34, 197, 94, 0.12);
+    box-shadow: 0 6px 24px rgba(34, 197, 94, 0.3);
+  }
+
+  /* ---------- Portafolio plegable ---------- */
+  #projects-grid.is-collapsed > article:not([data-preview]) {
+    display: none;
+  }
+  #projects-grid > article.card-enter {
+    animation: card-enter 0.5s ease both;
+  }
+  @keyframes card-enter {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .projects-more {
+    margin-top: 1.5rem;
+  }
+  .projects-fade {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to bottom, transparent, #000);
+    pointer-events: none;
+  }
+  .projects-more.is-expanded .projects-fade,
+  .projects-more.is-expanded .projects-hint {
+    display: none;
+  }
+  /* El color y el hover del botón vienen de .btn (azul líquido); aquí solo su tamaño y animaciones */
+  .projects-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    animation: toggle-glow 2.4s ease-in-out infinite; /* brillo que "respira" para llamar la atención */
+  }
+  .projects-toggle .bi-chevron-down {
+    transition: transform 0.3s;
+    animation: chevron-bounce 1.6s ease-in-out infinite;
+  }
+  .projects-toggle[aria-expanded="true"] {
+    animation: none;
+  }
+  .projects-toggle[aria-expanded="true"] .bi-chevron-down {
+    transform: rotate(180deg);
+    animation: none;
+  }
+  @keyframes toggle-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.45);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+  }
+  @keyframes chevron-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* ---------- How I work: pasos que se iluminan en bucle ---------- */
+  .process-progress {
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+  .process-progress span {
+    display: block;
+    width: 25%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    transition: width 0.7s ease;
+  }
+  .process-step {
+    border: 1px solid var(--color-outline);
+    background-color: var(--color-secondary);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease, translate 0.6s ease;
+    cursor: default;
+  }
+  .process-num {
+    color: #6b7280;
+    transition: color 0.6s ease;
+  }
+  .process-step:hover,
+  .process-step:focus-visible,
+  .process-step.is-active {
+    border-color: var(--color-primary);
+    background-color: #0b1220;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35), 0 18px 40px rgba(37, 99, 235, 0.3);
+    translate: 0 -8px; /* `translate` porque GSAP deja un transform en línea al revelar la tarjeta */
+    outline: none;
+  }
+  .process-step:hover .process-num,
+  .process-step:focus-visible .process-num,
+  .process-step.is-active .process-num {
+    color: #60a5fa;
+  }
+
+  /* ---------- Etiquetas (chips) de habilidades en About me ---------- */
+  .chip {
+    padding: 4px 12px;
+    border: 1px solid var(--color-outline);
+    border-radius: 9999px;
+    color: #d1d5db;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  .chip:hover {
+    border-color: var(--color-primary-hover);
+  }
+  .chip--skill {
+    border-color: rgba(59, 130, 246, 0.35);
+    background-color: rgba(37, 99, 235, 0.1);
+    color: #dbeafe;
+  }
+
+  /* Quien pidió menos movimiento en su sistema no ve animaciones decorativas */
+  @media (prefers-reduced-motion: reduce) {
+    .projects-toggle,
+    .projects-toggle .bi-chevron-down,
+    .type-cursor {
+      animation: none;
+    }
+    .process-step.is-active,
+    .process-step:hover,
+    .btn:hover,
+    .projects-toggle:hover {
+      translate: none;
+    }
   }
 
   /* Menú móvil: panel lateral que se abre con el botón ☰ */
@@ -247,9 +600,14 @@
       padding: 5% 5px;
       opacity: 0;
       overflow-y: auto;
-      background-color: #040404;
       color: #fff;
-      box-shadow: 3px 0 3px 2px #9f9f9f;
+      /* Vidrio esmerilado, igual que el header */
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(10, 10, 14, 0.75) 45%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      backdrop-filter: blur(22px) saturate(160%);
+      border-left: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px 0 0 24px;
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.55);
     }
     header .collapsible-header.is-open {
       opacity: 1;

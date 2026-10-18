@@ -50,6 +50,7 @@ document.querySelectorAll(".faq-accordion").forEach((button) => {
   button.addEventListener("click", () => {
     const content = button.nextElementSibling;
     const isOpen = button.classList.toggle("active");
+    button.closest(".faq").classList.toggle("is-open", isOpen); // borde azul y barra a la izquierda (css/input.css)
     button.setAttribute("aria-expanded", String(isOpen));
     content.style.maxHeight = isOpen ? content.scrollHeight + "px" : null;
     content.style.padding = isOpen ? "0 18px 20px" : "0 18px";
@@ -57,31 +58,203 @@ document.querySelectorAll(".faq-accordion").forEach((button) => {
 });
 
 // ---------------------------------------------------------------
-// 3) Filtros del portafolio
+// 3) Portafolio: plegable + filtros
+//    Al cargar se ven solo los proyectos con data-preview (los 3 primeros).
+//    El botón "See all 18 projects" despliega el resto; elegir un filtro también lo despliega.
 // ---------------------------------------------------------------
-const filterButtons = document.querySelectorAll("[data-filter]");
+const projectsGrid = document.getElementById("projects-grid");
 const projectCards = document.querySelectorAll("#projects-grid > article");
+const filterButtons = document.querySelectorAll("[data-filter]");
+const projectsToggle = document.getElementById("projects-toggle");
+const projectsMore = document.getElementById("projects-more");
+let isPortfolioCollapsed = true;
+let currentFilter = "all";
+
+document.getElementById("projects-count").textContent = projectCards.length;
+
+function renderProjects(animate) {
+  projectsGrid.classList.toggle("is-collapsed", isPortfolioCollapsed);
+  projectsMore.classList.toggle("is-expanded", !isPortfolioCollapsed);
+  projectsToggle.setAttribute("aria-expanded", String(!isPortfolioCollapsed));
+  projectsToggle.querySelector(".projects-toggle__open").hidden = !isPortfolioCollapsed;
+  projectsToggle.querySelector(".projects-toggle__close").hidden = isPortfolioCollapsed;
+
+  let delay = 0;
+  projectCards.forEach((card) => {
+    card.hidden = currentFilter !== "all" && card.dataset.category !== currentFilter;
+    // Animación de entrada en cascada para los proyectos que aparecen al desplegar
+    card.classList.remove("card-enter");
+    if (animate && !card.hidden && !card.hasAttribute("data-preview")) {
+      void card.offsetWidth; // reinicia la animación
+      card.style.animationDelay = `${delay}ms`;
+      card.classList.add("card-enter");
+      delay += 60;
+    }
+  });
+  if (window.ScrollTrigger) ScrollTrigger.refresh();
+}
+
+projectsToggle.addEventListener("click", () => {
+  isPortfolioCollapsed = !isPortfolioCollapsed;
+  renderProjects(!isPortfolioCollapsed);
+  // Al plegar, volver al inicio del portafolio para no quedar perdido más abajo
+  if (isPortfolioCollapsed) document.getElementById("proyectos").scrollIntoView({ behavior: "smooth" });
+});
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
+    currentFilter = button.dataset.filter;
     filterButtons.forEach((other) => other.setAttribute("aria-pressed", String(other === button)));
-    projectCards.forEach((card) => {
-      card.hidden = filter !== "all" && card.dataset.category !== filter;
-    });
-    if (window.ScrollTrigger) ScrollTrigger.refresh();
+    const wasCollapsed = isPortfolioCollapsed;
+    if (currentFilter !== "all") isPortfolioCollapsed = false; // un filtro muestra todos sus proyectos
+    renderProjects(wasCollapsed && !isPortfolioCollapsed);
   });
 });
+
+renderProjects(false);
 
 // ---------------------------------------------------------------
 // 4) Año actual en el footer
 // ---------------------------------------------------------------
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ---------------------------------------------------------------
-// 5) Animaciones con GSAP (si cargó y si el usuario no pidió menos movimiento)
-// ---------------------------------------------------------------
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ---------------------------------------------------------------
+// 5) Máquina de escribir del hero: escribe y borra cada título en bucle, con sus llaves < >
+// ---------------------------------------------------------------
+const TYPEWRITER_WORDS = ["Web Developer", "Web Designer", "E-commerce Builder", "Brand Designer"];
+const typewriter = document.getElementById("typewriter");
+
+if (typewriter && !prefersReducedMotion) {
+  let wordIndex = 0;
+  const withBrackets = (word) => `<${word}>`; // las llaves también se escriben y se borran
+  let charIndex = withBrackets(TYPEWRITER_WORDS[0]).length; // empieza con "<Web Developer>" ya escrito
+  let isDeleting = true;
+
+  function typeStep() {
+    const word = withBrackets(TYPEWRITER_WORDS[wordIndex]);
+    charIndex += isDeleting ? -1 : 1;
+    typewriter.textContent = word.slice(0, charIndex);
+
+    let wait = isDeleting ? 45 : 90; // borra más rápido de lo que escribe
+    if (!isDeleting && charIndex === word.length) {
+      wait = 1800; // pausa con la palabra completa
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % TYPEWRITER_WORDS.length;
+      wait = 350;
+    }
+    setTimeout(typeStep, wait);
+  }
+  setTimeout(typeStep, 2200); // deja ver "<Web Developer>" un momento antes de empezar
+}
+
+// ---------------------------------------------------------------
+// 6) Header de vidrio y botón para volver arriba (ambos dependen del scroll)
+// ---------------------------------------------------------------
+const siteHeader = document.getElementById("site-header");
+const backToTop = document.getElementById("back-to-top");
+const backToTopProgress = document.getElementById("back-to-top-progress");
+const RING_LENGTH = 131.95; // largo del círculo del anillo (2 × π × 21)
+let scrollTicking = false;
+
+function onScroll() {
+  const scrollY = window.scrollY;
+  siteHeader.classList.toggle("is-scrolled", scrollY > 24);
+
+  // El botón aparece cuando ya se pasó buena parte del hero
+  backToTop.classList.toggle("is-visible", scrollY > window.innerHeight * 0.6);
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
+  backToTopProgress.style.strokeDashoffset = String(RING_LENGTH * (1 - progress));
+  scrollTicking = false;
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    // requestAnimationFrame: como máximo un cálculo por cuadro, para que el scroll vaya fluido
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(onScroll);
+    }
+  },
+  { passive: true }
+);
+onScroll();
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+});
+
+// ---------------------------------------------------------------
+// 7) How I work: los pasos se iluminan solos, uno tras otro, en bucle.
+//    Si el visitante pone el mouse (o toca) un paso, se queda en ese paso hasta que se va.
+// ---------------------------------------------------------------
+const processSteps = Array.from(document.querySelectorAll(".process-step"));
+const processBar = document.getElementById("process-progress-bar");
+const STEP_TIME = 2800; // milisegundos en cada paso
+let activeStep = 0;
+let processTimer = null;
+let processVisible = false;
+
+function setActiveStep(index) {
+  activeStep = index;
+  processSteps.forEach((step, i) => step.classList.toggle("is-active", i === index));
+  processBar.style.width = `${((index + 1) / processSteps.length) * 100}%`;
+}
+
+function startProcessLoop() {
+  stopProcessLoop();
+  if (prefersReducedMotion || !processVisible) return;
+  processTimer = setInterval(() => setActiveStep((activeStep + 1) % processSteps.length), STEP_TIME);
+}
+
+function stopProcessLoop() {
+  clearInterval(processTimer);
+  processTimer = null;
+}
+
+processSteps.forEach((step, index) => {
+  step.addEventListener("mouseenter", () => {
+    stopProcessLoop();
+    setActiveStep(index);
+  });
+  step.addEventListener("mouseleave", startProcessLoop);
+  step.addEventListener("focus", () => {
+    stopProcessLoop();
+    setActiveStep(index);
+  });
+  step.addEventListener("blur", startProcessLoop);
+  // En celular: al tocar un paso se queda ahí unos segundos y luego sigue solo
+  step.addEventListener(
+    "touchstart",
+    () => {
+      stopProcessLoop();
+      setActiveStep(index);
+      setTimeout(startProcessLoop, STEP_TIME * 2);
+    },
+    { passive: true }
+  );
+});
+
+if (processSteps.length) {
+  setActiveStep(0);
+  // Solo corre mientras la sección está en pantalla (no gasta batería si nadie la ve)
+  new IntersectionObserver(
+    ([entry]) => {
+      processVisible = entry.isIntersecting;
+      processVisible ? startProcessLoop() : stopProcessLoop();
+    },
+    { threshold: 0.3 }
+  ).observe(document.getElementById("process-steps"));
+}
+
+// ---------------------------------------------------------------
+// 8) Animaciones con GSAP (si cargó y si el usuario no pidió menos movimiento)
+// ---------------------------------------------------------------
 
 if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
   gsap.registerPlugin(ScrollTrigger);

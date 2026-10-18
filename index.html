@@ -56,7 +56,8 @@
 
   <body class="flex min-h-svh flex-col">
     <!-- ================= HEADER ================= -->
-    <header class="absolute top-0 z-40 flex h-[60px] w-full items-center px-[5%] max-xl:px-4 xl:justify-around">
+    <!-- El header acompaña el scroll; al bajar, js/main.js le agrega .is-scrolled y se vuelve una píldora de vidrio -->
+    <header class="site-header fixed z-40 flex items-center xl:justify-around" id="site-header">
       <a href="#inicio" class="flex h-[50px] shrink-0 items-center gap-2 p-1" aria-label="WillNet">
         <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="" class="h-6 w-auto" />
         <span class="text-lg font-bold tracking-[0.2em] text-white">WILLNET</span>
@@ -82,7 +83,7 @@
           </div>
           <a
             href="#contacto"
-            class="flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2 text-black transition-transform duration-300 hover:translate-x-2"
+            class="nav-cta flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2"
           >
             <span data-i18n="nav.cta">Get a quote</span>
             <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -109,26 +110,27 @@
       >
         <div class="flex min-h-svh w-full flex-col place-content-center gap-6 p-[5%] pt-28 max-lg:p-4 max-lg:pt-24 max-xl:place-items-center">
           <div class="flex flex-col place-content-center items-center">
-            <p class="reveal-up mb-4 text-sm tracking-[0.3em] text-gray-400">&lt;WEB DEVELOPER&gt;</p>
+            <!-- Máquina de escribir: js/main.js escribe y borra los títulos de TYPEWRITER_WORDS -->
+            <p class="reveal-up mb-4 h-5 text-sm uppercase tracking-[0.3em] text-gray-400">
+              <span class="sr-only" data-i18n="hero.roles">Web developer, web designer, e-commerce builder and brand designer</span>
+              <span aria-hidden="true"><span id="typewriter">&lt;Web Developer&gt;</span><span class="type-cursor"></span></span>
+            </p>
             <h1
               class="reveal-up gradient-text text-center text-6xl font-semibold uppercase leading-[80px] max-lg:text-4xl max-md:leading-snug"
             >
-              <span data-i18n="hero.title1">Hi, I'm Willder</span>
+              <span data-i18n="hero.title1">Hi, I'm Will</span>
               <br />
               <span data-i18n="hero.title2">I build your web presence</span>
             </h1>
-            <p class="reveal-up mt-10 max-w-[520px] p-2 text-center text-gray-300 max-lg:max-w-full" data-i18n="hero.subtitle">
-              I design and develop websites, online stores, digital invitations and logos for businesses, brands and people. In English and Spanish.
-            </p>
-            <div class="reveal-up mt-10 flex flex-wrap place-content-center place-items-center gap-4">
+            <div class="reveal-up mt-12 flex flex-wrap place-content-center place-items-center gap-4">
               <a
-                class="btn bg-primary/60! shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]"
+                class="btn"
                 href="#contacto"
                 data-i18n="hero.cta"
                 >Get a quote</a
               >
               <a
-                class="btn bg-black! text-white! transition-colors duration-300 hover:bg-white! hover:text-black!"
+                class="btn"
                 href="#proyectos"
               >
                 <i class="bi bi-grid-fill" aria-hidden="true"></i>
@@ -407,9 +409,10 @@
           <button type="button" class="filter-btn" data-filter="github" aria-pressed="false">GitHub</button>
         </div>
 
+        <!-- Al cargar se ven solo los 3 primeros (data-preview); el botón de abajo despliega el resto (js/main.js) -->
         <div class="mt-10 grid w-full max-w-[1200px] gap-8 sm:grid-cols-2 lg:grid-cols-3" id="projects-grid">
           <!-- WEB -->
-          <article data-category="web">
+          <article data-preview data-category="web">
             <a href="https://pavlovesat.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/pavlove.jpg" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
@@ -424,7 +427,7 @@
             </a>
           </article>
 
-          <article data-category="web">
+          <article data-preview data-category="web">
             <a href="https://imolagoldjewelry.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/imola.jpg" alt="Imola Gold Jewelry" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
@@ -438,7 +441,7 @@
             </a>
           </article>
 
-          <article data-category="web">
+          <article data-preview data-category="web">
             <a href="https://mastermind-team.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
               <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
                 <img src="./assets/img/portafolio/mastermind.jpg" alt="Mastermind Hierarchy" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
@@ -639,11 +642,22 @@
           </article>
         </div>
 
+        <!-- Botón para desplegar el portafolio completo -->
+        <div class="projects-more relative flex w-full max-w-[1200px] flex-col items-center" id="projects-more">
+          <div class="projects-fade" aria-hidden="true"></div>
+          <button type="button" class="projects-toggle" id="projects-toggle" aria-expanded="false" aria-controls="projects-grid">
+            <span class="projects-toggle__open"><span data-i18n="projects.showAll">See all</span> <span id="projects-count">18</span> <span data-i18n="projects.projectsWord">projects</span></span>
+            <span class="projects-toggle__close" hidden data-i18n="projects.showLess">Show fewer projects</span>
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <p class="projects-hint mt-3 text-center text-sm text-gray-500" data-i18n="projects.moreHint">Online stores, invitations, logos and practice projects</p>
+        </div>
+
         <a
           href="https://github.com/willnet-dev"
           target="_blank"
           rel="noopener"
-          class="reveal-up btn mt-10 rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!"
+          class="reveal-up btn mt-10"
         >
           <i class="bi bi-github" aria-hidden="true"></i>
           <span data-i18n="projects.github">See everything on GitHub</span>
@@ -653,24 +667,26 @@
       <!-- ================= PROCESO (reemplaza la sección de precios: todo va por cotización) ================= -->
       <section id="proceso" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-4">
         <h2 class="reveal-up text-center text-3xl font-medium text-gray-300 max-md:text-2xl" data-i18n="process.title">How I work</h2>
-        <div class="mt-10 grid max-w-[1200px] gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
-            <span class="text-5xl font-semibold text-gray-500">01</span>
+        <!-- Barra de progreso: js/main.js recorre los pasos en bucle y se pausa cuando el visitante elige uno -->
+        <div class="process-progress reveal-up mt-10 w-full max-w-[1200px]" aria-hidden="true"><span id="process-progress-bar"></span></div>
+        <div class="mt-6 grid max-w-[1200px] gap-6 sm:grid-cols-2 lg:grid-cols-4" id="process-steps">
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
+            <span class="process-num text-5xl font-semibold">01</span>
             <h3 class="text-2xl" data-i18n="process.1.title">Let's talk</h3>
             <p class="text-gray-300" data-i18n="process.1.text">Tell me your idea by WhatsApp, text message, phone call or the form.</p>
           </div>
-          <div class="reveal-up flex flex-col gap-3 rounded-lg border-2 border-primary bg-secondary p-8 shadow-xl">
-            <span class="text-5xl font-semibold text-gray-500">02</span>
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
+            <span class="process-num text-5xl font-semibold">02</span>
             <h3 class="text-2xl" data-i18n="process.2.title">Quote</h3>
             <p class="text-gray-300" data-i18n="process.2.text">You get a proposal with what's included, the price and the delivery date.</p>
           </div>
-          <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
-            <span class="text-5xl font-semibold text-gray-500">03</span>
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
+            <span class="process-num text-5xl font-semibold">03</span>
             <h3 class="text-2xl" data-i18n="process.3.title">Design &amp; development</h3>
             <p class="text-gray-300" data-i18n="process.3.text">I build your project and you review it before it goes live.</p>
           </div>
-          <div class="reveal-up flex flex-col gap-3 rounded-lg border border-outline bg-secondary p-8 shadow-xl">
-            <span class="text-5xl font-semibold text-gray-500">04</span>
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
+            <span class="process-num text-5xl font-semibold">04</span>
             <h3 class="text-2xl" data-i18n="process.4.title">Launch</h3>
             <p class="text-gray-300" data-i18n="process.4.text">We publish it on your domain and I show you how to use it.</p>
           </div>
@@ -678,7 +694,7 @@
         <p class="reveal-up mt-10 max-w-[560px] text-center text-gray-400" data-i18n="process.note">
           Every project is different, so everything is quoted individually, with no commitment.
         </p>
-        <a href="#contacto" class="reveal-up btn mt-6 shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.03]" data-i18n="process.cta">Request a quote</a>
+        <a href="#contacto" class="reveal-up btn mt-6" data-i18n="process.cta">Request a quote</a>
       </section>
 
       <!-- ================= SOBRE MÍ ================= -->
@@ -699,16 +715,37 @@
             <p class="text-lg text-gray-300" data-i18n="about.p2">
               I handle the whole process, from design to launch, so you can focus on your business. I work in English and Spanish.
             </p>
-            <ul class="flex flex-wrap gap-2 text-sm text-gray-300" aria-label="Technologies" data-i18n-attr="aria-label:about.techLabel">
-              <li class="rounded-full border border-outline px-3 py-1">HTML</li>
-              <li class="rounded-full border border-outline px-3 py-1">CSS</li>
-              <li class="rounded-full border border-outline px-3 py-1">JavaScript</li>
-              <li class="rounded-full border border-outline px-3 py-1">Tailwind CSS</li>
-              <li class="rounded-full border border-outline px-3 py-1">Node.js</li>
-              <li class="rounded-full border border-outline px-3 py-1">WordPress</li>
-              <li class="rounded-full border border-outline px-3 py-1">WooCommerce</li>
-              <li class="rounded-full border border-outline px-3 py-1">SQL</li>
-            </ul>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-lg font-medium text-gray-200" data-i18n="about.skillsTitle">Skills</h3>
+              <div class="flex flex-col gap-2">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-500" data-i18n="about.skills.web">Web</p>
+                <ul class="flex flex-wrap gap-2 text-sm">
+                  <li class="chip chip--skill" data-i18n="about.skill.responsive">Responsive design</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.seo">Basic SEO</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.performance">Speed &amp; performance</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.hosting">Domains &amp; hosting</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.payments">Online payments</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.maintenance">Website maintenance</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-2">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-500" data-i18n="about.skills.design">Design &amp; brand</p>
+                <ul class="flex flex-wrap gap-2 text-sm">
+                  <li class="chip chip--skill" data-i18n="about.skill.uiux">UI/UX design</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.branding">Logos &amp; branding</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.print">Business cards &amp; invitations</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-2">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-500" data-i18n="about.skills.personal">Personal</p>
+                <ul class="flex flex-wrap gap-2 text-sm">
+                  <li class="chip chip--skill" data-i18n="about.skill.bilingual">Bilingual (EN/ES)</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.service">Customer service</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.pm">Project management</li>
+                  <li class="chip chip--skill" data-i18n="about.skill.learning">Continuous learning</li>
+                </ul>
+              </div>
+            </div>
             <div class="flex flex-col gap-2">
               <h3 class="text-lg font-medium text-gray-200" data-i18n="about.eduTitle">Education</h3>
               <ul class="flex flex-col gap-1 text-sm text-gray-400">
@@ -718,10 +755,10 @@
               </ul>
             </div>
             <div class="mt-2 flex flex-wrap gap-4">
-              <a href="https://www.linkedin.com/in/will-net/" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
+              <a href="https://www.linkedin.com/in/will-net/" target="_blank" rel="noopener" class="btn">
                 <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
               </a>
-              <a href="https://github.com/willnet-dev" target="_blank" rel="noopener" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!">
+              <a href="https://github.com/willnet-dev" target="_blank" rel="noopener" class="btn">
                 <i class="bi bi-github" aria-hidden="true"></i> GitHub
               </a>
             </div>
@@ -733,28 +770,28 @@
       <section id="faq" class="flex w-full flex-col place-content-center place-items-center gap-[10%] p-[5%] px-[10%] max-md:px-4">
         <h2 class="reveal-up text-4xl font-medium text-gray-300 max-md:text-2xl" data-i18n="faq.title">Frequently asked questions</h2>
         <div class="mt-8 flex w-full max-w-[850px] flex-col gap-4">
-          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+          <div class="reveal-up faq w-full rounded-md">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
               <span data-i18n="faq.1.q">How much does a website cost?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
             <div class="content"><p data-i18n="faq.1.a">It depends on what you need: number of pages, features and content. Tell me your idea and I'll send you a free, no-commitment quote.</p></div>
           </div>
-          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+          <div class="reveal-up faq w-full rounded-md">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
               <span data-i18n="faq.2.q">How long does it take?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
             <div class="content"><p data-i18n="faq.2.a">It depends on the project and on how ready your content is (copy, photos and logo). You'll get a delivery date with your quote.</p></div>
           </div>
-          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+          <div class="reveal-up faq w-full rounded-md">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
               <span data-i18n="faq.3.q">Can you help me with the domain and hosting?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
             </button>
             <div class="content"><p data-i18n="faq.3.a">Yes. I'll help you choose them and leave your website live and working on your domain.</p></div>
           </div>
-          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+          <div class="reveal-up faq w-full rounded-md">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
               <span data-i18n="faq.4.q">Can I request changes later?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
@@ -762,7 +799,7 @@
             <div class="content"><p data-i18n="faq.4.a">Yes. We review everything together before launch, and afterwards I can take care of maintenance and updates.</p>
               <p class="mt-2"><span data-i18n="faq.4.support">Already a client? Write to</span> <a href="mailto:support@willnet.dev" class="text-primary underline">support@willnet.dev</a></p></div>
           </div>
-          <div class="reveal-up faq w-full rounded-md border border-outline bg-secondary">
+          <div class="reveal-up faq w-full rounded-md">
             <button type="button" class="faq-accordion text-xl max-md:text-lg" aria-expanded="false">
               <span data-i18n="faq.5.q">Do you work with clients outside Florida?</span>
               <i class="bi bi-plus ml-auto font-semibold" aria-hidden="true"></i>
@@ -773,7 +810,7 @@
 
         <div class="mt-16 flex flex-col place-items-center gap-4">
           <p class="text-3xl max-md:text-2xl" data-i18n="faq.more">Still have questions?</p>
-          <a href="#contacto" class="btn rounded-full! border border-gray-300 bg-transparent! transition-colors duration-300 hover:bg-white! hover:text-black!" data-i18n="faq.cta">Message me</a>
+          <a href="#contacto" class="btn" data-i18n="faq.cta">Message me</a>
         </div>
       </section>
 
@@ -791,7 +828,7 @@
                 data-i18n-attr="href:contact.whatsappHref"
                 target="_blank"
                 rel="noopener"
-                class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary"
+                class="contact-card contact-card--whatsapp flex flex-col items-center gap-2 rounded-lg p-4"
               >
                 <i class="bi bi-whatsapp text-2xl text-green-400" aria-hidden="true"></i>
                 <span class="text-sm">WhatsApp</span>
@@ -799,16 +836,16 @@
               <a
                 href="sms:+17865575568?&amp;body=Hi%20WillNet%2C%20I%27d%20like%20a%20quote%20for%20a%20project."
                 data-i18n-attr="href:contact.smsHref"
-                class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary"
+                class="contact-card flex flex-col items-center gap-2 rounded-lg p-4"
               >
                 <i class="bi bi-chat-text-fill text-2xl text-sky-400" aria-hidden="true"></i>
                 <span class="text-sm" data-i18n="contact.sms">Text (SMS)</span>
               </a>
-              <a href="tel:+17865575568" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
+              <a href="tel:+17865575568" class="contact-card flex flex-col items-center gap-2 rounded-lg p-4">
                 <i class="bi bi-telephone-fill text-2xl text-gray-200" aria-hidden="true"></i>
                 <span class="text-sm" data-i18n="contact.call">Call</span>
               </a>
-              <a href="mailto:contact@willnet.dev" class="flex flex-col items-center gap-2 rounded-lg border border-outline p-4 transition-colors hover:border-primary">
+              <a href="mailto:contact@willnet.dev" class="contact-card flex flex-col items-center gap-2 rounded-lg p-4">
                 <i class="bi bi-envelope-fill text-2xl text-gray-200" aria-hidden="true"></i>
                 <span class="text-sm" data-i18n="contact.email">Email</span>
               </a>
@@ -850,7 +887,7 @@
               <span data-i18n="form.message">Tell me about your project</span>
               <textarea class="input min-h-[130px]" name="message" required></textarea>
             </label>
-            <button type="submit" class="btn w-full! shadow-lg shadow-primary transition-transform duration-300 hover:scale-x-[1.02]">
+            <button type="submit" class="btn w-full!">
               <i class="bi bi-send-fill" aria-hidden="true"></i>
               <span data-i18n="form.submit">Send message</span>
             </button>
@@ -873,11 +910,20 @@
       data-i18n-attr="href:contact.whatsappHref"
       target="_blank"
       rel="noopener"
-      class="fixed bottom-5 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-3xl text-white shadow-lg transition-transform hover:scale-110"
+      class="fixed bottom-5 left-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-3xl text-white shadow-lg transition-transform hover:scale-110"
       aria-label="WhatsApp"
     >
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
+
+    <!-- Botón para volver arriba: aparece al salir del hero; el anillo muestra cuánto se ha leído (js/main.js) -->
+    <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" data-i18n-attr="aria-label:nav.backToTop">
+      <svg class="back-to-top__ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="back-to-top__track" cx="24" cy="24" r="21" />
+        <circle class="back-to-top__progress" id="back-to-top-progress" cx="24" cy="24" r="21" />
+      </svg>
+      <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <!-- ================= FOOTER ================= -->
     <footer class="mt-auto flex w-full place-content-around gap-8 p-[5%] px-[10%] text-white max-md:flex-col max-md:px-6">
