@@ -58,9 +58,11 @@
     <!-- ================= HEADER ================= -->
     <!-- El header acompaña el scroll; al bajar, js/main.js le agrega .is-scrolled y se vuelve una píldora de vidrio -->
     <header class="site-header fixed z-40 flex items-center xl:justify-around" id="site-header">
-      <a href="#inicio" class="flex h-[50px] shrink-0 items-center gap-2 p-1" aria-label="WillNet">
-        <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="" class="h-6 w-auto" />
-        <span class="text-lg font-bold tracking-[0.2em] text-white">WILLNET</span>
+      <!-- Logotipo oficial en vectores (la W + WILLNET con las letras ya convertidas a trazos).
+           width/height dan la proporción para que el navegador reserve el espacio antes de cargarlo;
+           el tamaño real lo ponen las clases: 28 px de alto en celular y 32 px desde 640 px -->
+      <a href="#inicio" class="flex h-[50px] shrink-0 items-center p-1">
+        <img src="./assets/logo/willnet-logotipo-horizontal-blanco.svg" alt="WillNet" width="1165" height="290" class="h-7 w-auto sm:h-8" />
       </a>
 
       <div class="collapsible-header max-xl:shadow-md" id="collapsed-header-items">
@@ -938,7 +940,8 @@
     <!-- ================= FOOTER ================= -->
     <footer class="mt-auto flex w-full place-content-around gap-8 p-[5%] px-[10%] text-white max-md:flex-col max-md:px-6">
       <div class="flex w-[250px] flex-col place-items-center gap-5 max-md:w-full">
-        <img src="./assets/logo/willnet-isotipo-blanco.svg" alt="WillNet" class="w-[90px]" />
+        <!-- El mismo logotipo del header, un poco más grande (44 px de alto ≈ 177 px de ancho) -->
+        <img src="./assets/logo/willnet-logotipo-horizontal-blanco.svg" alt="WillNet" width="1165" height="290" class="h-11 w-auto" />
         <p class="text-center text-gray-400">West Palm Beach, FL<br /><span data-i18n="footer.remote">Remote service across the US and Latin America</span></p>
         <div class="flex flex-col items-center gap-1 text-sm text-gray-400">
           <p><span data-i18n="footer.info">General info</span>: <a href="mailto:info@willnet.dev" class="footer-link">info@willnet.dev</a></p>

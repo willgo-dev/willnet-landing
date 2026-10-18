@@ -6,7 +6,8 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 ## Decisiones de Willder
 | Tema | Decisión |
 |---|---|
-| Nombre | **WillNet** en los textos y **WILLNET** en mayúsculas junto a la W del menú (2026-10-16). No se explica su significado en la web. El logo (la W) y los colores no cambian por ahora |
+| Nombre | **WillNet** en los textos y **WILLNET** en mayúsculas junto a la W del menú (2026-10-16). No se explica su significado en la web. Los colores no cambian por ahora |
+| Logotipo (2026-10-18) | El header y el footer usan el **logotipo oficial en vectores** `assets/logo/willnet-logotipo-horizontal-blanco.svg` (la W + WILLNET en Nourd SemiBold, con las letras ya convertidas a trazos porque Nourd es de pago y solo está en Canva). Va como `<img alt="WillNet">` con `width="1165" height="290"` (la proporción del viewBox) y el alto lo ponen las clases: header `h-7 sm:h-8` (28 px en celular, 32 px desde 640 px) y footer `h-11` (44 px). El original está en `../../01 Logo/Logotipo/` |
 | Usuario de GitHub | **willnet-dev** desde el 2026-10-17 (antes willgo-dev y, en 2024, willgomez22). GitHub redirige los enlaces viejos a repos mientras nadie registre `willgo-dev`, pero **no** redirige el perfil ni GitHub Pages (`willgo-dev.github.io` ya no funciona). Willder decidió no reservar el nombre viejo |
 | Lo que NO cambia de nombre | El correo **willdevgo@gmail.com**, el proyecto (Worker) de Cloudflare **`willdev-landing`** y el logotipo PNG `willdev-logotipo-*` (la imagen todavía dice WILLDEV) |
 | Idioma | **Bilingüe**, con el **inglés como idioma principal** desde el 2026-10-16 y sin detección del navegador (ver "Sistema bilingüe" abajo) |
@@ -105,7 +106,7 @@ dist/                    ← GENERADO por npm run dist (lo que se publica)
 js/i18n.js               ← sistema bilingüe y traducciones al inglés
 js/main.js               ← menú móvil, FAQ, portafolio plegable y filtros, año, máquina de escribir, header de vidrio, botón de subir, recorrido de How I work y animaciones GSAP
 js/contact.js            ← formulario: envía con Web3Forms (si se quita la clave, abre el correo con mailto)
-assets/logo/             ← isotipo SVG de la W (willnet-isotipo-blanco/negro.svg)
+assets/logo/             ← isotipo SVG de la W (willnet-isotipo-blanco/negro.svg) y logotipo horizontal blanco del header y el footer
 assets/favicon/          ← favicon.svg, 32, apple-touch (180) y 512
 assets/img/tecnologias/  ← íconos blancos del carrusel
 assets/img/portafolio/   ← capturas y diseños del portafolio (ver su README)
@@ -119,7 +120,7 @@ docs/hero-muro.html      ← fuente de la imagen del hero (no se publica)
 ## Pendientes
 1. **Fotos** de Willder: él las va a mandar. Van en "Sobre mí" (hay un comentario en el HTML donde va). No usar las del portafolio de 2024.
 2. Opcional: redirigir `www.willnet.dev` → `willnet.dev` con una *Redirect Rule* en el panel de Cloudflare (hoy las dos sirven la misma página y el `canonical` apunta a `willnet.dev`, que es suficiente para Google). El correo `@willnet.dev` está en **Google Workspace** (MX, SPF, DKIM y DMARC en Cloudflare): **no activar Cloudflare Email Routing** y no borrar esos registros DNS. Cuando Willder confirme su dirección, se puede usar en la landing (hoy usa willdevgo@gmail.com).
-3. **Logotipo con la palabra WILLNET** (hoy el PNG dice WILLDEV; en la web solo se usa la W + texto HTML, así que no afecta a la landing).
+3. ~~Logotipo con la palabra WILLNET~~ **Hecho (2026-10-18):** logotipo en vectores en `../../01 Logo/Logotipo/`; la landing usa la versión horizontal blanca en el header y el footer. Siguen con la W + texto en Ubuntu el recuadro de la foto en "Sobre mí" (provisional) y la imagen del hero/OG (`docs/hero-muro.html`).
 4. ~~LinkedIn: correo will.gomez@willnet.dev~~ **Hecho (2026-10-16, por Willder):** su información de contacto muestra will.gomez@willnet.dev y el sitio willnet.dev.
 5. Testimonios de clientes: la sección de la plantilla se quitó hasta tener testimonios reales. **No inventar testimonios.**
 6. Agendar videollamadas (fase 2).
