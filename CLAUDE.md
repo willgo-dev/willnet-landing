@@ -72,6 +72,7 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 - Correo de los commits (`git config --global user.email`): **will.gomez@willnet.dev** desde el 2026-10-17. Es el correo principal de la cuenta de GitHub; willdevgo@gmail.com sigue agregado para que los commits viejos sigan contando como suyos y como respaldo para recuperar la cuenta. **No borrarlo.**
 - La clave de Web3Forms de `js/contact.js` es **pública por diseño** (Web3Forms la pone en el HTML), por eso puede ir en el repo.
 - Flujo: editar → `npm run deploy` → `git add -A && git commit -m "..." && git push`.
+- LinkedIn: el proyecto "Portfolio Website" enlaza a willnet.dev y a este repo (2026-10-17).
 - Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willnet-dev/willnet-dev`, en `../../../Repositorios/willnet-dev/`; tiene que llamarse igual que el usuario) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
 
 Vista previa en Claude Code: el panel del navegador no puede lanzar el servidor dentro de `Documents` (permisos de macOS). Hay que levantar `python3 -m http.server 5500` desde Bash en segundo plano y abrir `http://localhost:5500/`. Las animaciones de GSAP tardan en arrancar si el panel no tiene el foco: no es un error.
