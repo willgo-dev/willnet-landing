@@ -561,6 +561,17 @@
   .process-step.is-active .process-num {
     color: #60a5fa;
   }
+  /* En celular el bucle solo se mira: los pasos no responden al toque y el activo no se "levanta"
+     (en la lista compacta taparía al paso de al lado) */
+  @media (max-width: 639px) {
+    .process-step {
+      pointer-events: none;
+      box-shadow: none;
+    }
+    .process-step.is-active {
+      translate: 0 0;
+    }
+  }
 
   /* ---------- Etiquetas (chips) de habilidades en About me ---------- */
   .chip {

@@ -222,11 +222,13 @@ backToTop.addEventListener("click", () => {
 
 // ---------------------------------------------------------------
 // 7) How I work: los pasos se iluminan solos, uno tras otro, en bucle.
-//    Si el visitante pone el mouse (o toca) un paso, se queda en ese paso hasta que se va.
+//    En escritorio, si el visitante pone el mouse en un paso, se queda ahí hasta que se va.
+//    En celular no se puede interactuar: el bucle siempre sigue (pedido de Willder).
 // ---------------------------------------------------------------
 const processSteps = Array.from(document.querySelectorAll(".process-step"));
 const processBar = document.getElementById("process-progress-bar");
-const STEP_TIME = 2800; // milisegundos en cada paso
+const STEP_TIME = 1800; // milisegundos en cada paso
+const isPhone = window.matchMedia("(max-width: 639px)"); // mismo corte que el CSS
 let activeStep = 0;
 let processTimer = null;
 let processVisible = false;
@@ -249,26 +251,18 @@ function stopProcessLoop() {
 }
 
 processSteps.forEach((step, index) => {
-  step.addEventListener("mouseenter", () => {
+  const pauseOnStep = () => {
+    if (isPhone.matches) return; // en celular el bucle no se detiene
     stopProcessLoop();
     setActiveStep(index);
-  });
-  step.addEventListener("mouseleave", startProcessLoop);
-  step.addEventListener("focus", () => {
-    stopProcessLoop();
-    setActiveStep(index);
-  });
-  step.addEventListener("blur", startProcessLoop);
-  // En celular: al tocar un paso se queda ahí unos segundos y luego sigue solo
-  step.addEventListener(
-    "touchstart",
-    () => {
-      stopProcessLoop();
-      setActiveStep(index);
-      setTimeout(startProcessLoop, STEP_TIME * 2);
-    },
-    { passive: true }
-  );
+  };
+  const resumeLoop = () => {
+    if (!isPhone.matches) startProcessLoop();
+  };
+  step.addEventListener("mouseenter", pauseOnStep);
+  step.addEventListener("mouseleave", resumeLoop);
+  step.addEventListener("focus", pauseOnStep);
+  step.addEventListener("blur", resumeLoop);
 });
 
 if (processSteps.length) {

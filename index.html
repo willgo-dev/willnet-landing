@@ -669,27 +669,36 @@
       <section id="proceso" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-4">
         <h2 class="reveal-up text-center text-3xl font-medium text-gray-300 max-md:text-2xl" data-i18n="process.title">How I work</h2>
         <!-- Barra de progreso: js/main.js recorre los pasos en bucle y se pausa cuando el visitante elige uno -->
-        <div class="process-progress reveal-up mt-10 w-full max-w-[1200px]" aria-hidden="true"><span id="process-progress-bar"></span></div>
-        <div class="mt-6 grid max-w-[1200px] gap-6 sm:grid-cols-2 lg:grid-cols-4" id="process-steps">
-          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
-            <span class="process-num text-5xl font-semibold">01</span>
-            <h3 class="text-2xl" data-i18n="process.1.title">Let's talk</h3>
-            <p class="text-gray-300" data-i18n="process.1.text">Tell me your idea by WhatsApp, text message, phone call or the form.</p>
+        <div class="process-progress reveal-up mt-10 w-full max-w-[1200px] max-sm:mt-6" aria-hidden="true"><span id="process-progress-bar"></span></div>
+        <!-- En celular cada paso es una fila baja (número a la izquierda) para que los 4 quepan en una pantalla -->
+        <div class="mt-6 grid w-full max-w-[1200px] gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 max-sm:mt-4" id="process-steps">
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8 max-sm:flex-row max-sm:items-start max-sm:gap-4 max-sm:px-4 max-sm:py-3" tabindex="0">
+            <span class="process-num text-5xl font-semibold max-sm:w-11 max-sm:shrink-0 max-sm:text-3xl">01</span>
+            <div class="flex flex-col gap-3 max-sm:gap-1">
+              <h3 class="text-2xl max-sm:text-lg max-sm:leading-snug" data-i18n="process.1.title">Let's talk</h3>
+              <p class="text-gray-300 max-sm:text-sm" data-i18n="process.1.text">Tell me your idea by WhatsApp, text message, phone call or the form.</p>
+            </div>
           </div>
-          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
-            <span class="process-num text-5xl font-semibold">02</span>
-            <h3 class="text-2xl" data-i18n="process.2.title">Quote</h3>
-            <p class="text-gray-300" data-i18n="process.2.text">You get a proposal with what's included, the price and the delivery date.</p>
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8 max-sm:flex-row max-sm:items-start max-sm:gap-4 max-sm:px-4 max-sm:py-3" tabindex="0">
+            <span class="process-num text-5xl font-semibold max-sm:w-11 max-sm:shrink-0 max-sm:text-3xl">02</span>
+            <div class="flex flex-col gap-3 max-sm:gap-1">
+              <h3 class="text-2xl max-sm:text-lg max-sm:leading-snug" data-i18n="process.2.title">Quote</h3>
+              <p class="text-gray-300 max-sm:text-sm" data-i18n="process.2.text">You get a proposal with what's included, the price and the delivery date.</p>
+            </div>
           </div>
-          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
-            <span class="process-num text-5xl font-semibold">03</span>
-            <h3 class="text-2xl" data-i18n="process.3.title">Design &amp; development</h3>
-            <p class="text-gray-300" data-i18n="process.3.text">I build your project and you review it before it goes live.</p>
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8 max-sm:flex-row max-sm:items-start max-sm:gap-4 max-sm:px-4 max-sm:py-3" tabindex="0">
+            <span class="process-num text-5xl font-semibold max-sm:w-11 max-sm:shrink-0 max-sm:text-3xl">03</span>
+            <div class="flex flex-col gap-3 max-sm:gap-1">
+              <h3 class="text-2xl max-sm:text-lg max-sm:leading-snug" data-i18n="process.3.title">Design &amp; development</h3>
+              <p class="text-gray-300 max-sm:text-sm" data-i18n="process.3.text">I build your project and you review it before it goes live.</p>
+            </div>
           </div>
-          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8" tabindex="0">
-            <span class="process-num text-5xl font-semibold">04</span>
-            <h3 class="text-2xl" data-i18n="process.4.title">Launch</h3>
-            <p class="text-gray-300" data-i18n="process.4.text">We publish it on your domain and I show you how to use it.</p>
+          <div class="process-step reveal-up flex flex-col gap-3 rounded-lg p-8 max-sm:flex-row max-sm:items-start max-sm:gap-4 max-sm:px-4 max-sm:py-3" tabindex="0">
+            <span class="process-num text-5xl font-semibold max-sm:w-11 max-sm:shrink-0 max-sm:text-3xl">04</span>
+            <div class="flex flex-col gap-3 max-sm:gap-1">
+              <h3 class="text-2xl max-sm:text-lg max-sm:leading-snug" data-i18n="process.4.title">Launch</h3>
+              <p class="text-gray-300 max-sm:text-sm" data-i18n="process.4.text">We publish it on your domain and I show you how to use it.</p>
+            </div>
           </div>
         </div>
         <p class="reveal-up mt-10 max-w-[560px] text-center text-gray-400" data-i18n="process.note">
