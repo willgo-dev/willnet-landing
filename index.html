@@ -409,235 +409,236 @@
           <button type="button" class="filter-btn" data-filter="github" aria-pressed="false">GitHub</button>
         </div>
 
-        <!-- Al cargar se ven solo los 3 primeros (data-preview); el botón de abajo despliega el resto (js/main.js) -->
-        <div class="mt-10 grid w-full max-w-[1200px] gap-8 sm:grid-cols-2 lg:grid-cols-3" id="projects-grid">
+        <!-- Al cargar se ven solo los que tienen data-preview (3 en escritorio; en celular 2, porque data-preview="desktop" se oculta).
+             En celular cada tarjeta usa su captura móvil (<picture>, archivos *-movil.jpg). El botón de abajo despliega el resto (js/main.js) -->
+        <div class="mt-10 grid w-full max-w-[1200px] grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-3" id="projects-grid">
           <!-- WEB -->
           <article data-preview data-category="web">
-            <a href="https://pavlovesat.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/pavlove.jpg" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://pavlovesat.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/pavlove-movil.jpg" /><img src="./assets/img/portafolio/pavlove.jpg" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Online store</span>
                 <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">With Dopicos</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Pavlove</h3>
-              <p class="text-gray-400" data-i18n="projects.pavlove">Online store for handmade pavlovas in San Antonio, Texas: customizable products, payments and policies. WordPress + WooCommerce.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Pavlove</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.pavlove">Online store for handmade pavlovas in San Antonio, Texas: customizable products, payments and policies. WordPress + WooCommerce.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-preview data-category="web">
-            <a href="https://imolagoldjewelry.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/imola.jpg" alt="Imola Gold Jewelry" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://imolagoldjewelry.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/imola-movil.jpg" /><img src="./assets/img/portafolio/imola.jpg" alt="Imola Gold Jewelry" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Online store</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Imola Gold Jewelry</h3>
-              <p class="text-gray-400" data-i18n="projects.imola">18k gold jewelry store in West Palm Beach: catalog by category, cart and payments. WordPress + WooCommerce.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Imola Gold Jewelry</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.imola">18k gold jewelry store in West Palm Beach: catalog by category, cart and payments. WordPress + WooCommerce.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
-          <article data-preview data-category="web">
-            <a href="https://mastermind-team.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/mastermind.jpg" alt="Mastermind Hierarchy" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" />
+          <article data-preview="desktop" data-category="web">
+            <a href="https://mastermind-team.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/mastermind-movil.jpg" /><img src="./assets/img/portafolio/mastermind.jpg" alt="Mastermind Hierarchy" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Mastermind Hierarchy</h3>
-              <p class="text-gray-400" data-i18n="projects.mastermind">Bilingual landing page for an insurance agency in Doral, FL: videos, Calendly bookings, forms and Meta Pixel. HTML, Tailwind and JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Mastermind Hierarchy</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.mastermind">Bilingual landing page for an insurance agency in Doral, FL: videos, Calendly bookings, forms and Meta Pixel. HTML, Tailwind and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <!-- EVENTOS -->
           <article data-category="events">
-            <a href="https://willnet-dev.github.io/invitacion-marcela/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+            <a href="https://willnet-dev.github.io/invitacion-marcela/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/invitacion-xv.jpg" alt="Quinceañera invitation" data-i18n-attr="alt:projects.xv.title" loading="lazy" class="h-full w-full object-cover object-[50%_30%] transition-transform duration-300 group-hover:scale-[1.04]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.invitation">Web invitation</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.xv.title">Quinceañera invitation</h3>
-              <p class="text-gray-400" data-i18n="projects.xv">Web invitation with video, music, countdown, QR RSVP and digital passes for each family.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.xv.title">Quinceañera invitation</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.xv">Web invitation with video, music, countdown, QR RSVP and digital passes for each family.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="events">
-            <a href="https://willnet-dev.github.io/assignacion_mesas/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/mesas.jpg" alt="Table finder" data-i18n-attr="alt:projects.tables.title" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/assignacion_mesas/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/mesas-movil.jpg" /><img src="./assets/img/portafolio/mesas.jpg" alt="Table finder" data-i18n-attr="alt:projects.tables.title" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.webapp">Web app</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.tables.title">Table finder</h3>
-              <p class="text-gray-400" data-i18n="projects.tables">Each guest scans a QR code, types their name and finds their table instantly. HTML, CSS and JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.tables.title">Table finder</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.tables">Each guest scans a QR code, types their name and finds their table instantly. HTML, CSS and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="events">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/invitacion-primer-anito.jpg" alt="First birthday invitation" data-i18n-attr="alt:projects.birthday.title" loading="lazy" class="h-full w-full object-cover object-[50%_35%]" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.digitalInvite">Digital invitation</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.birthday.title">First birthday invitation</h3>
-              <p class="text-gray-400" data-i18n="projects.birthday">Racing-themed invitation with a personalized pass for each family.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.birthday.title">First birthday invitation</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.birthday">Racing-themed invitation with a personalized pass for each family.</p>
             </div>
           </article>
 
           <!-- DISEÑO -->
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/mediakit-nicole.jpg" alt="Nicole Díaz media kit" data-i18n-attr="alt:projects.mediakit.title" loading="lazy" class="h-full w-full object-cover object-top" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Media kit</span>
                 <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">With Dopicos</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.mediakit.title">Nicole Díaz media kit</h3>
-              <p class="text-gray-400" data-i18n="projects.mediakit">Bilingual media kit for an influencer with millions of followers: audience, metrics and brand pitch.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.mediakit.title">Nicole Díaz media kit</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.mediakit">Bilingual media kit for an influencer with millions of followers: audience, metrics and brand pitch.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/tarjeta-dopicos.jpg" alt="Dopicos business card" data-i18n-attr="alt:projects.card.title" loading="lazy" class="h-full w-full object-cover" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs">
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.card">Business card</span>
                 <span class="rounded-full border border-primary/60 px-2 py-0.5 text-sky-300" data-i18n="projects.tag.dopicos">With Dopicos</span>
               </div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.card.title">Dopicos business card</h3>
-              <p class="text-gray-400" data-i18n="projects.card">Bilingual business card with a QR code and an icon for each service, for a software agency.</p>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.card.title">Dopicos business card</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.card">Bilingual business card with a QR code and an icon for each service, for a software agency.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
-              <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-secondary p-6">
+              <div class="flex aspect-[9/16] w-full items-center justify-center overflow-hidden rounded-md bg-secondary p-6 sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/logo-alibel.png" alt="Alibel Parra Insurance logo" data-i18n-attr="alt:projects.alibel.title" loading="lazy" class="h-full w-full object-contain" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.alibel.title">Alibel Parra Insurance logo</h3>
-              <p class="text-gray-400" data-i18n="projects.alibel">Identity for a health insurance agent, in Spanish and English versions.</p>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.alibel.title">Alibel Parra Insurance logo</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.alibel">Identity for a health insurance agent, in Spanish and English versions.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
-              <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-black p-4">
+              <div class="flex aspect-[9/16] w-full items-center justify-center overflow-hidden rounded-md bg-black p-4 sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/logo-anto.jpg" alt="Anto Perfumes logo" data-i18n-attr="alt:projects.anto.title" loading="lazy" class="h-full w-full object-contain" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.anto.title">Anto Perfumes logo</h3>
-              <p class="text-gray-400" data-i18n="projects.anto">Elegant logo for a perfume brand.</p>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.anto.title">Anto Perfumes logo</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.anto">Elegant logo for a perfume brand.</p>
             </div>
           </article>
 
           <article data-category="design">
             <div class="flex h-full flex-col gap-3 rounded-lg p-3">
-              <div class="flex h-[220px] w-full items-center justify-center overflow-hidden rounded-md bg-white">
+              <div class="flex aspect-[9/16] w-full items-center justify-center overflow-hidden rounded-md bg-white sm:aspect-auto sm:h-[220px]">
                 <img src="./assets/img/portafolio/logo-acl.jpg" alt="Ale Creative Lab logo" data-i18n-attr="alt:projects.acl.title" loading="lazy" class="h-full w-full object-contain" />
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl" data-i18n="projects.acl.title">Ale Creative Lab logo</h3>
-              <p class="text-gray-400" data-i18n="projects.acl">Identity with a custom illustration for a content creator and marketing agency.</p>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Logo</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight" data-i18n="projects.acl.title">Ale Creative Lab logo</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.acl">Identity with a custom illustration for a content creator and marketing agency.</p>
             </div>
           </article>
 
           <!-- GITHUB -->
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/simon-game/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/simon-game.jpg" alt="Simon Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/simon-game/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/simon-game-movil.jpg" /><img src="./assets/img/portafolio/simon-game.jpg" alt="Simon Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Simon Game</h3>
-              <p class="text-gray-400" data-i18n="projects.simon">The classic Simon memory game. JavaScript and jQuery.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Simon Game</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.simon">The classic Simon memory game. JavaScript and jQuery.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/drum-kit/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/drum-kit.jpg" alt="Drum Kit" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/drum-kit/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/drum-kit-movil.jpg" /><img src="./assets/img/portafolio/drum-kit.jpg" alt="Drum Kit" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Drum Kit</h3>
-              <p class="text-gray-400" data-i18n="projects.drum">A drum kit you play with your keyboard, mouse or finger. JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Drum Kit</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.drum">A drum kit you play with your keyboard, mouse or finger. JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/tindog-project/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/tindog.jpg" alt="TinDog" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/tindog-project/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/tindog-movil.jpg" /><img src="./assets/img/portafolio/tindog.jpg" alt="TinDog" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">TinDog</h3>
-              <p class="text-gray-400" data-i18n="projects.tindog">Landing page for a fictional dog app, built with Bootstrap.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">TinDog</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.tindog">Landing page for a fictional dog app, built with Bootstrap.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
 
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/dice-game/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/dice-game.jpg" alt="Dice Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/dice-game/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/dice-game-movil.jpg" /><img src="./assets/img/portafolio/dice-game.jpg" alt="Dice Game" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Dice Game</h3>
-              <p class="text-gray-400" data-i18n="projects.dice">Two-player dice game that rolls when you reload the page. JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.game">Web game</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Dice Game</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.dice">Two-player dice game that rolls when you reload the page. JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.play">Try it</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/boobstrap-website/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/bootstrap-website.jpg" alt="Move With Joy" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/boobstrap-website/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/bootstrap-website-movil.jpg" /><img src="./assets/img/portafolio/bootstrap-website.jpg" alt="Move With Joy" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Website</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Move With Joy</h3>
-              <p class="text-gray-400" data-i18n="projects.movewithjoy">Sample website for a moving company, mobile-friendly and built with Bootstrap.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Website</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Move With Joy</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.movewithjoy">Sample website for a moving company, mobile-friendly and built with Bootstrap.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/website-structure/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/aprendiendo-a-programar.jpg" alt="Aprendiendo a Programar" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/website-structure/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/aprendiendo-a-programar-movil.jpg" /><img src="./assets/img/portafolio/aprendiendo-a-programar.jpg" alt="Aprendiendo a Programar" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Website</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Aprendiendo a Programar</h3>
-              <p class="text-gray-400" data-i18n="projects.firstsite">My first website: a Spanish page about learning to code, with responsive HTML and CSS.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.website">Website</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Aprendiendo a Programar</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.firstsite">My first website: a Spanish page about learning to code, with responsive HTML and CSS.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
           <article data-category="github">
-            <a href="https://willnet-dev.github.io/login-form/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary">
-              <div class="h-[220px] w-full overflow-hidden rounded-md bg-secondary">
-                <img src="./assets/img/portafolio/login-form.jpg" alt="Login Form" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+            <a href="https://willnet-dev.github.io/login-form/" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/login-form-movil.jpg" /><img src="./assets/img/portafolio/login-form.jpg" alt="Login Form" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
-              <div class="flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.form">Form</span></div>
-              <h3 class="text-2xl font-semibold max-md:text-xl">Login Form</h3>
-              <p class="text-gray-400" data-i18n="projects.login">Login form with a glass effect and a show-password button. HTML, CSS and JavaScript.</p>
-              <span class="mt-auto inline-flex items-center gap-2 text-sm"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs"><span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.form">Form</span></div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Login Form</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.login">Login form with a glass effect and a show-password button. HTML, CSS and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
             </a>
           </article>
         </div>

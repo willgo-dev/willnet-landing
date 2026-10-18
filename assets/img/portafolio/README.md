@@ -16,6 +16,8 @@ Imágenes de la sección **Proyectos** (y del hero y los destacados). Las webs s
 | `simon-game.jpg`, `drum-kit.jpg`, `tindog.jpg`, `dice-game.jpg` | Capturas del inicio en GitHub Pages (willgo-dev, 16-10-2026) |
 | `bootstrap-website.jpg`, `aprendiendo-a-programar.jpg`, `login-form.jpg` | Capturas del inicio de `boobstrap-website`, `website-structure` y `login-form` en GitHub Pages (16-10-2026). Venían del portafolio de 2024 |
 
+**Versión móvil:** cada web tiene además `<nombre>-movil.jpg` (captura del inicio a 390 px de ancho, 585×1266). En `index.html` va dentro de un `<picture>` con `<source media="(max-width: 639px)">`, así en el celular se carga la vertical. La invitación de XV ya es vertical y no tiene archivo aparte. `pavlove-movil.jpg` es una captura que tomó Willder desde su celular (17-10-2026), porque la animación del logo de Pavlove no salía bien en las capturas automáticas.
+
 **Para agregar una imagen:** `.jpg` o `.webp`, 1200–1600 px de ancho y menos de 300 KB. Nombre en minúsculas y con guiones.
 Las capturas se pueden rehacer con Chrome en modo headless:
 ```bash

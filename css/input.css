@@ -442,6 +442,15 @@
   #projects-grid.is-collapsed > article:not([data-preview]) {
     display: none;
   }
+  /* En celular (2 por fila) plegado se ven solo 2: Mastermind es vista previa solo en escritorio */
+  @media (max-width: 639px) {
+    #projects-grid.is-collapsed > article[data-preview="desktop"] {
+      display: none;
+    }
+    .projects-fade {
+      display: none; /* en celular el título queda al borde de la tarjeta y el degradado lo tapaba */
+    }
+  }
   #projects-grid > article.card-enter {
     animation: card-enter 0.5s ease both;
   }

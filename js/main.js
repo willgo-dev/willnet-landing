@@ -1,6 +1,7 @@
 // Landing de WillNet: interacciones (adaptado de la plantilla portfolio_landing).
 
 const RESPONSIVE_WIDTH = 1280; // por debajo de este ancho el menú es un panel lateral
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ---------------------------------------------------------------
 // 1) Menú móvil: panel lateral que se abre con el botón ☰
@@ -73,6 +74,8 @@ let currentFilter = "all";
 document.getElementById("projects-count").textContent = projectCards.length;
 
 function renderProjects(animate) {
+  // Qué tarjetas se veían antes del cambio (offsetParent es null cuando están ocultas)
+  const wasVisible = new Set([...projectCards].filter((card) => card.offsetParent !== null));
   projectsGrid.classList.toggle("is-collapsed", isPortfolioCollapsed);
   projectsMore.classList.toggle("is-expanded", !isPortfolioCollapsed);
   projectsToggle.setAttribute("aria-expanded", String(!isPortfolioCollapsed));
@@ -84,7 +87,7 @@ function renderProjects(animate) {
     card.hidden = currentFilter !== "all" && card.dataset.category !== currentFilter;
     // Animación de entrada en cascada para los proyectos que aparecen al desplegar
     card.classList.remove("card-enter");
-    if (animate && !card.hidden && !card.hasAttribute("data-preview")) {
+    if (animate && !card.hidden && !wasVisible.has(card)) {
       void card.offsetWidth; // reinicia la animación
       card.style.animationDelay = `${delay}ms`;
       card.classList.add("card-enter");
@@ -94,11 +97,41 @@ function renderProjects(animate) {
   if (window.ScrollTrigger) ScrollTrigger.refresh();
 }
 
+// Sube hasta el inicio de la sección Projects y, cuando llega, ejecuta `callback`.
+function scrollToProjectsThen(callback) {
+  const HEADER_OFFSET = 90; // alto del header fijo + un poco de aire
+  const section = document.getElementById("proyectos");
+  const target = section.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+  if (prefersReducedMotion || Math.abs(window.scrollY - target) < 40) {
+    window.scrollTo({ top: target, behavior: "instant" });
+    callback();
+    return;
+  }
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    callback();
+  };
+  window.addEventListener("scrollend", finish, { once: true }); // el scroll suave terminó
+  setTimeout(finish, 1100); // respaldo para navegadores sin el evento "scrollend"
+  window.scrollTo({ top: target, behavior: "smooth" });
+}
+
 projectsToggle.addEventListener("click", () => {
-  isPortfolioCollapsed = !isPortfolioCollapsed;
-  renderProjects(!isPortfolioCollapsed);
-  // Al plegar, volver al inicio del portafolio para no quedar perdido más abajo
-  if (isPortfolioCollapsed) document.getElementById("proyectos").scrollIntoView({ behavior: "smooth" });
+  if (isPortfolioCollapsed) {
+    isPortfolioCollapsed = false;
+    renderProjects(true);
+    return;
+  }
+  // Plegar: PRIMERO subir al inicio de la sección y recién ahí ocultar los proyectos.
+  // Si se ocultan antes, la página se acorta de golpe con el visitante más abajo
+  // y el navegador lo deja en el footer (pasaba en el celular).
+  scrollToProjectsThen(() => {
+    isPortfolioCollapsed = true;
+    renderProjects(false);
+  });
 });
 
 filterButtons.forEach((button) => {
@@ -117,8 +150,6 @@ renderProjects(false);
 // 4) Año actual en el footer
 // ---------------------------------------------------------------
 document.getElementById("year").textContent = new Date().getFullYear();
-
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ---------------------------------------------------------------
 // 5) Máquina de escribir del hero: escribe y borra cada título en bucle, con sus llaves < >
@@ -186,7 +217,7 @@ window.addEventListener(
 onScroll();
 
 backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
 });
 
 // ---------------------------------------------------------------

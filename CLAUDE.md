@@ -25,7 +25,8 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Redes | LinkedIn **https://www.linkedin.com/in/will-net/** (Willder cambió la URL; la vieja `willgo-dev` redirige por ahora) y GitHub **https://github.com/willnet-dev** |
 | Hero (2026-10-17) | Título **"Hi, I'm Will"** / "Hola, soy Will" (solo ahí; en About me sigue "Willder Gómez"). Sin texto debajo del título. Arriba, **máquina de escribir** que escribe y borra, con sus llaves, `<Web Developer>`, `<Web Designer>`, `<E-commerce Builder>` y `<Brand Designer>` (`TYPEWRITER_WORDS` en `js/main.js`) |
 | Botones | Todos los `.btn` (y el header) usan el estilo **"azul líquido"**: degradado azul translúcido, borde celeste y vidrio; al pasar el mouse, azul sólido `#3b82f6` con brillo. Se define una sola vez en `css/input.css` (`.btn, .projects-toggle`): **no ponerles colores con clases de Tailwind**. WhatsApp se queda **verde** |
-| Portafolio | Plegado al cargar: se ven los 3 proyectos con `data-preview` (Pavlove, Imola, Mastermind) y el botón **"See all 18 projects"** (el número se calcula solo) despliega el resto con animación. Elegir un filtro también lo despliega |
+| Portafolio | Plegado al cargar: en escritorio se ven los 3 proyectos con `data-preview` (Pavlove, Imola, Mastermind) y en celular solo 2 (Mastermind lleva `data-preview="desktop"`). El botón **"See all 18 projects"** (el número se calcula solo) despliega el resto con animación; elegir un filtro también lo despliega. Al plegar, **primero sube al inicio de la sección y después oculta** (si se oculta antes, la página se acorta con el visitante abajo y lo dejaba en el footer en el celular) |
+| Portafolio en celular (2026-10-17) | **2 tarjetas por fila**, con recuadro vertical 9:16, y cada web muestra su **captura móvil** (`<picture>` con `*-movil.jpg`, 390 px de ancho). Las tarjetas solo muestran captura, etiqueta y título (descripción y "View project" ocultas con `max-sm:hidden`). Los diseños sin versión móvil usan su misma imagen en vertical (los logos ajustados dentro del recuadro, para no cortarlos) |
 | How I work | Los 4 pasos se iluminan solos en bucle (2,8 s cada uno) con una barra de progreso; si el visitante pone el mouse o toca un paso, se queda ahí. Solo corre mientras la sección está en pantalla |
 | About me | Sin lista de tecnologías (ya están en el carrusel). Muestra **habilidades** en 3 grupos (Web, Diseño y marca, Personales) y la formación |
 | FAQ | Hover con borde azul; la pregunta abierta lleva barra azul a la izquierda (clase `.is-open`) |
@@ -79,9 +80,13 @@ npm run deploy     # build + copia a dist/ + sube a Cloudflare (wrangler deploy)
 - `css/styles.css` sí se sube (así el repo funciona sin compilar).
 - Correo de los commits (`git config --global user.email`): **will.gomez@willnet.dev** desde el 2026-10-17. Es el correo principal de la cuenta de GitHub; willdevgo@gmail.com sigue agregado para que los commits viejos sigan contando como suyos y como respaldo para recuperar la cuenta. **No borrarlo.**
 - La clave de Web3Forms de `js/contact.js` es **pública por diseño** (Web3Forms la pone en el HTML), por eso puede ir en el repo.
-- Flujo: editar → `npm run deploy` → `git add -A && git commit -m "..." && git push`.
+- Flujo: editar → **mostrarle a Willder el resultado en local** → con su visto bueno, `npm run deploy` → `git add -A && git commit -m "..." && git push`.
+- **Mensajes de commit en inglés** (pedido de Willder, 2026-10-17), en imperativo ("Fix…", "Add…"). Esta documentación sigue en español.
 - LinkedIn: el proyecto "Portfolio Website" enlaza a willnet.dev y a este repo (2026-10-17).
 - Es el **proyecto principal del perfil** de GitHub: lo presenta el README de perfil (repo `willnet-dev/willnet-dev`, en `../../../Repositorios/willnet-dev/`; tiene que llamarse igual que el usuario) y tiene la web como *homepage* y temas. Reemplaza al portafolio de 2024 (`personal-portfolio`), que está **archivado** y cuya página redirige aquí.
+
+- `npm audit` muestra una alerta en `braces` (dependencia del observador de archivos de Tailwind). Solo afecta a la herramienta de desarrollo, no a la web publicada. No hacer `npm audit fix --force` (bajaría Tailwind de versión).
+- README del repo: **bilingüe** (inglés primero, resumen en español), pedido de Willder el 2026-10-17.
 
 **Trampas de estilos (aprendidas el 2026-10-17):**
 - En Tailwind v4 las clases del HTML (capa *utilities*) le ganan a los estilos de `@layer components`. Si un componente necesita controlar un color, borde o medida, quitar la clase de Tailwind del HTML en vez de pelear con `!important`.
