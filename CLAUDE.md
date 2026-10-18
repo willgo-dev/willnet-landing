@@ -8,6 +8,7 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 |---|---|
 | Nombre | **WillNet** en los textos y **WILLNET** en mayúsculas junto a la W del menú (2026-10-16). No se explica su significado en la web. Los colores no cambian por ahora |
 | Logotipo (2026-10-18) | El header y el footer usan el **logotipo oficial en vectores** `assets/logo/willnet-logotipo-horizontal-blanco.svg` (la W + WILLNET en Nourd SemiBold, con las letras ya convertidas a trazos porque Nourd es de pago y solo está en Canva). Va como `<img alt="WillNet">` con `width="1165" height="290"` (la proporción del viewBox) y el alto lo ponen las clases: header `h-7 sm:h-8` (28 px en celular, 32 px desde 640 px) y footer `h-11` (44 px). El original está en `../../01 Logo/Logotipo/` |
+| Logo de la firma de Gmail (2026-10-18) | `assets/email/willnet-firma-correo.png` **no lo usa la web**: es el logo de la firma de Gmail de will.gomez@willnet.dev, que lo carga desde `https://willnet.dev/assets/email/willnet-firma-correo.png`. **No borrarlo ni moverlo**, o la firma queda con la imagen rota. Es el logotipo negro con un borde blanco fino y fondo transparente, porque Gmail no permite cambiar el logo según el tema claro u oscuro y así se lee en los dos. El original y su explicación están en `../../02 Correo/` |
 | Usuario de GitHub | **willnet-dev** desde el 2026-10-17 (antes willgo-dev y, en 2024, willgomez22). GitHub redirige los enlaces viejos a repos mientras nadie registre `willgo-dev`, pero **no** redirige el perfil ni GitHub Pages (`willgo-dev.github.io` ya no funciona). Willder decidió no reservar el nombre viejo |
 | Lo que NO cambia de nombre | El correo **willdevgo@gmail.com** y el proyecto (Worker) de Cloudflare **`willdev-landing`**. El logotipo PNG viejo de WILLDEV se borró el 2026-10-18 (no se usaba) |
 | Idioma | **Bilingüe**, con el **inglés como idioma principal** desde el 2026-10-16 y sin detección del navegador (ver "Sistema bilingüe" abajo) |
@@ -108,6 +109,7 @@ js/main.js               ← menú móvil, FAQ, portafolio plegable y filtros, a
 js/contact.js            ← formulario: envía con Web3Forms (si se quita la clave, abre el correo con mailto)
 assets/logo/             ← isotipo SVG de la W (willnet-isotipo-blanco/negro.svg) y logotipo horizontal blanco del header y el footer
 assets/favicon/          ← favicon.svg, 32, apple-touch (180) y 512
+assets/email/            ← logo de la firma de Gmail (no lo usa la web, pero no borrarlo: ver "Logo de la firma de Gmail")
 assets/img/tecnologias/  ← íconos blancos del carrusel
 assets/img/portafolio/   ← capturas y diseños del portafolio (ver su README)
 assets/img/hero/         ← imagen del hero (Muro de proyectos)
