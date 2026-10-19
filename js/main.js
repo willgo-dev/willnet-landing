@@ -183,6 +183,21 @@ if (typewriter && !prefersReducedMotion) {
 }
 
 // ---------------------------------------------------------------
+// 5b) Muro de proyectos del hero: las columnas solo se mueven mientras el muro está en pantalla
+// ---------------------------------------------------------------
+// El movimiento lo hace CSS (.wall-track en css/input.css). Aquí solo se enciende y se apaga
+// con la clase .is-playing, para no gastar batería cuando el visitante ya bajó por la página.
+// Con "reducir movimiento" nunca se enciende: el muro se queda quieto.
+
+const heroWall = document.getElementById("dashboard");
+
+if (heroWall && !prefersReducedMotion && "IntersectionObserver" in window) {
+  new IntersectionObserver(([entry]) => {
+    heroWall.classList.toggle("is-playing", entry.isIntersecting);
+  }).observe(heroWall);
+}
+
+// ---------------------------------------------------------------
 // 6) Header de vidrio y botón para volver arriba (ambos dependen del scroll)
 // ---------------------------------------------------------------
 const siteHeader = document.getElementById("site-header");

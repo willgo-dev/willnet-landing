@@ -42,7 +42,7 @@ const translations = {
     "hero.title2": "Creo tu presencia web",
     "hero.cta": "Cotiza tu proyecto",
     "hero.secondary": "Ver proyectos",
-    "hero.imageAlt": "Collage de webs y proyectos hechos por WillNet",
+    "hero.imageAlt": "Muro de webs y proyectos hechos por WillNet",
 
     // Clientes
     "tech.title": "Tecnologías con las que trabajo",
@@ -130,6 +130,13 @@ const translations = {
     "img.aclMovil": "./assets/img/portafolio/acl-movil.jpg",
     "img.mastermind": "./assets/img/portafolio/mastermind.jpg",
     "img.mastermindMovil": "./assets/img/portafolio/mastermind-movil.jpg",
+    // Miniaturas del muro animado del hero (docs/generar-muro.js)
+    "img.wall.pavlove": "./assets/img/hero/muro/pavlove.jpg",
+    "img.wall.pavloveMovil": "./assets/img/hero/muro/pavlove-movil.jpg",
+    "img.wall.acl": "./assets/img/hero/muro/acl.jpg",
+    "img.wall.aclMovil": "./assets/img/hero/muro/acl-movil.jpg",
+    "img.wall.mastermind": "./assets/img/hero/muro/mastermind.jpg",
+    "img.wall.mastermindMovil": "./assets/img/hero/muro/mastermind-movil.jpg",
     "projects.aclLanding":
       "Landing bilingüe para una creadora de contenido y marca de marketing digital en West Palm Beach: galería de TikToks, servicios, paquetes y formulario de contacto. HTML, Tailwind y JavaScript.",
     "projects.xv.title": "Invitación de XV años",

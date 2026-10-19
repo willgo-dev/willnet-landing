@@ -97,6 +97,170 @@
     transform: perspective(1200px) translateY(12px) scale(0.8) rotateX(70deg);
   }
 
+  /* ---------- Muro de proyectos del hero ----------
+     Columnas de capturas que suben en bucle sobre un plano inclinado, con la tarjeta WILLNET fija.
+     Todas las medidas van en "cqw" (1 cqw = 1 % del ancho del recuadro, gracias a container-type):
+     así el muro se ve igual en una pantalla de 1440 px que en una de 4K, solo más grande o más chico. */
+  .hero-wall {
+    container-type: inline-size;
+    width: min(80%, 1400px);
+    aspect-ratio: 16 / 9;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 110%, rgba(37, 99, 235, 0.45), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 85% 0%, rgba(37, 99, 235, 0.18), transparent 70%), #050505;
+    /* Medidas de escritorio: capturas horizontales */
+    --tile-w: 25cqw;
+    --tile-h: 15.6cqw;
+    --tile-gap: 1.5cqw;
+  }
+
+  /* Cuadrícula tenue del fondo (la misma del diseño original) */
+  .wall-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 3.5cqw 3.5cqw;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  }
+
+  /* El plano: se inclina hacia atrás (rotateX) y se gira (rotateZ), como el muro original.
+     overflow: hidden recorta las columnas para que no "se acerquen" demasiado a la cámara. */
+  .wall-plane {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    gap: var(--tile-gap);
+    height: 115cqw;
+    overflow: hidden;
+    transform: translate(-50%, -50%) perspective(110cqw) rotateX(48deg) rotateZ(-28deg);
+  }
+
+  /* Cada columna sube a su propia velocidad (--dur) y empieza en otro punto (--delay, negativo).
+     La lista de capturas va dos veces: al subir exactamente la mitad, la segunda copia queda
+     donde estaba la primera y la animación vuelve a empezar sin que se note el salto. */
+  .wall-track {
+    display: flex;
+    flex-direction: column;
+    animation: wall-up var(--dur) linear var(--delay) infinite;
+    /* Quieto por defecto (sin JavaScript o con "reducir movimiento" se ve completo pero sin moverse).
+       js/main.js le pone .is-playing al muro solo mientras está en pantalla. */
+    animation-play-state: paused;
+    will-change: transform;
+  }
+  .hero-wall.is-playing .wall-track {
+    animation-play-state: running;
+  }
+  /* Con mouse: la columna que se toca se detiene para poder hacer clic en una captura */
+  @media (hover: hover) {
+    .hero-wall.is-playing .wall-col:hover .wall-track {
+      animation-play-state: paused;
+    }
+  }
+  @keyframes wall-up {
+    to {
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Cada captura. Se usa margin-bottom (y no gap) para que las dos mitades midan exactamente lo mismo */
+  .wall-tile {
+    display: block;
+    flex-shrink: 0;
+    width: var(--tile-w);
+    height: var(--tile-h);
+    margin-bottom: var(--tile-gap);
+    overflow: hidden;
+    border-radius: 0.9cqw;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #0d0d0d;
+    box-shadow: 0 1.2cqw 3cqw rgba(0, 0, 0, 0.6);
+    transition: border-color 0.3s;
+  }
+  .wall-tile:hover {
+    border-color: rgba(96, 165, 250, 0.8);
+  }
+  .wall-tile picture,
+  .wall-tile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .wall-tile img {
+    object-fit: cover;
+    object-position: top;
+  }
+  /* Logos y tarjetas: completos, sin recortar */
+  .wall-tile--contain img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* Viñeta oscura en los bordes y brillo azul abajo. pointer-events: none deja pasar los clics */
+  .wall-shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(0deg, rgba(37, 99, 235, 0.28), transparent 45%),
+      radial-gradient(ellipse 60% 60% at 50% 50%, transparent 25%, rgba(5, 5, 5, 0.85) 80%);
+  }
+
+  /* Tarjeta de vidrio con la W y WILLNET, fija en el centro */
+  .wall-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    padding: 2.4cqw 3.4cqw;
+    border-radius: 1.4cqw;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(5, 5, 5, 0.72);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2cqw 5cqw rgba(0, 0, 0, 0.6);
+    color: #fff;
+  }
+  /* Logotipo oficial: se le da solo el ancho y el alto sale de su proporción (width/height del HTML) */
+  .wall-card__logo {
+    width: 26cqw;
+    height: auto;
+  }
+
+  /* Celular: recuadro más alto y capturas de celular (verticales) */
+  @media (max-width: 639px) {
+    .hero-wall {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      --tile-w: 25cqw;
+      --tile-h: 54cqw;
+      --tile-gap: 2.6cqw;
+    }
+    .wall-plane {
+      height: 185cqw;
+      transform: translate(-50%, -56%) perspective(150cqw) rotateX(36deg) rotateZ(-20deg);
+    }
+    .wall-tile {
+      border-radius: 2cqw;
+    }
+    .wall-card {
+      padding: 4.5cqw 6cqw;
+      border-radius: 3cqw;
+    }
+    .wall-card__logo {
+      width: 46cqw;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wall-track {
+      animation-play-state: paused !important;
+    }
+  }
+
   /* Marco con borde en degradado (tarjetas de beneficios y foto) */
   .border-gradient {
     background: linear-gradient(180deg, rgba(219, 215, 213, 1) 35%, rgba(214, 211, 233, 0) 71%);

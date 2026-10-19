@@ -22,7 +22,7 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Diseño | **Plantilla `../_plantilla-portfolio_landing`** y su estilo (negro, textos en degradado gris, tipografía Ubuntu, GSAP), pero con **azul `#2563eb` en lugar del morado** |
 | Carrusel | **Tecnologías** que usa Willder (no logos de clientes): frontend, backend, CMS/e-commerce y herramientas, **incluido Claude Code**. Sacadas de su CV, cursos y proyectos |
 | Capturas | Las webs del portafolio se muestran **desde su inicio (hero)** |
-| Imagen del hero | **"Muro de proyectos"** (2026-10-16): collage en perspectiva de las capturas del portafolio con la W y WILLNET al centro, en `assets/img/hero/willnet-proyectos.jpg` (1920×1080). Willder eligió esta entre 6 propuestas; la fuente HTML está en `docs/hero-muro.html` (se convierte en imagen con puppeteer). La misma imagen recortada es la **imagen OG** (`assets/img/og/willnet-og.jpg`, 1200×630). A Willder no le gustó la captura sola de Pavlove en el hero |
+| Imagen del hero | **"Muro de proyectos" animado** (2026-10-18; antes era una imagen fija elegida entre 6 propuestas el 2026-10-16): 5 columnas de capturas de los **19 proyectos** que suben en bucle sobre un plano inclinado en 3D, con la tarjeta de vidrio fija al centro, que lleva el **logotipo oficial** (`willnet-logotipo-horizontal-blanco.svg`, el mismo del header, desde el 2026-10-18). Es **HTML + CSS** (no video): pesa poco, se ve nítido en cualquier pantalla y cambia de idioma. Detalle en la sección "Muro de proyectos del hero" abajo. A Willder no le gustó la captura sola de Pavlove en el hero |
 | Destacados | 3 secciones que alternan imagen y lista: **1 · Pavlove** ("Tiendas online que venden por ti", `feature1`), **2 · Imola** ("Webs que reflejan tu marca", `feature2`) y **3 · Ale Creative Lab** ("Landing pages que consiguen clientes", `feature3`; reemplazó a Mastermind el 2026-10-18 a pedido de Willder) |
 | Correos | Todo llega a la bandeja de **will.gomez@willnet.dev** (alias de Google Workspace) y Willder responde siempre desde will.gomez@. En la landing: **contact@willnet.dev** en Contacto, el botón de correo y el formulario (Web3Forms entrega a contact@); **info@willnet.dev** y **support@willnet.dev** en el footer; **support@** también en la pregunta frecuente de cambios/soporte. En GitHub: contact@. En LinkedIn: will.gomez@ |
 | Portafolio | Solo proyectos que estén en local (`Clientes/`) o en su GitHub (`willnet-dev`). Del portafolio de 2024 se trajeron Move With Joy, Aprendiendo a Programar, Login Form y la **formación** (en "Sobre mí"); **no** sus fotos (Willder mandará fotos nuevas). **No usar** airseausa.com, cejasperfectasmedellin.com, jcpconsult.net ni tendaigroup.com |
@@ -38,6 +38,15 @@ Contexto general de la marca, los clientes y la formación: `../../../CONTEXTO_W
 | Header | **Fijo**: arriba se ve normal y al bajar se vuelve una **píldora flotante de vidrio líquido** (clase `.is-scrolled`). El vidrio va en `::before` para no encerrar el panel del menú móvil, que también es de vidrio |
 | Botones flotantes | **WhatsApp abajo a la izquierda**; **volver arriba abajo a la derecha**, con anillo de progreso de lectura; aparece al pasar el 60 % de la primera pantalla |
 | Servicios | Tiendas y e-commerce, webs para empresas y negocios, portafolios y webs personales, influencers, invitaciones y eventos (bodas, cumpleaños, XV, fiestas), logos y tarjetas de presentación |
+
+## Muro de proyectos del hero (2026-10-18)
+Decisiones de Willder: animación CSS (no MP4), columnas a distinta velocidad (~27–35 s por vuelta), muro inclinado como el diseño original, los 19 proyectos, tarjeta WILLNET fija, se mantiene el enderezado de GSAP al bajar, mismo efecto en celular con capturas móviles, clic abre el proyecto en otra pestaña y la imagen OG rehecha.
+- **HTML:** dentro de `#dashboard` (clase `.hero-wall`). Las columnas están entre `<!-- MURO:INICIO -->` y `<!-- MURO:FIN -->` y **las escribe `node docs/generar-muro.js`**: no editarlas a mano. Para agregar o quitar un proyecto se edita la lista del script (grupos A y B en columnas alternas, así un proyecto nunca queda al lado de sí mismo).
+- **CSS** (`css/input.css`, "Muro de proyectos del hero"): medidas en `cqw` (porcentaje del ancho del recuadro), cada `.wall-track` lleva su lista dos veces y sube el 50 % para que el bucle no tenga salto. Celular (< 640 px): recuadro 4:5 y capturas `*-movil`.
+- **JS** (`js/main.js`, 5b): solo pone `.is-playing` mientras el muro está en pantalla. Sin JavaScript o con "reducir movimiento" se ve quieto y completo.
+- **Clic:** cada captura abre su proyecto en otra pestaña; los diseños sin web (invitación del primer añito, media kit, tarjeta y logos) llevan a `#proyectos`. Con mouse, la columna se detiene al pasar por encima. Las capturas tienen `tabindex="-1"` (no entran al recorrido con Tab: el portafolio ya tiene esos enlaces) y el muro es `role="img"` con su descripción.
+- **Imágenes:** miniaturas en `assets/img/hero/muro/` con `fetchpriority="low"` (no `loading="lazy"`: con las columnas en movimiento quedaban recuadros en blanco). Pavlove, ACL y Mastermind cambian de idioma con las claves `img.wall.*` de `js/i18n.js`. Para crear una miniatura: `sips -s format jpeg -s formatOptions 70 --resampleWidth 560 assets/img/portafolio/X.jpg --out assets/img/hero/muro/X.jpg` (320 para `*-movil`, 360 logos, 420 invitaciones).
+- **Imagen OG:** `docs/og-muro.js` fotografía el muro quieto a 1200×630 (instrucciones en el archivo).
 
 ## Stack (fase actual)
 - **HTML + JavaScript vanilla + Tailwind CSS v4** (CLI).
@@ -115,17 +124,19 @@ assets/favicon/          ← favicon.svg, 32, apple-touch (180) y 512
 assets/email/            ← logo de la firma de Gmail (no lo usa la web, pero no borrarlo: ver "Logo de la firma de Gmail")
 assets/img/tecnologias/  ← íconos blancos del carrusel
 assets/img/portafolio/   ← capturas y diseños del portafolio (ver su README)
-assets/img/hero/         ← imagen del hero (Muro de proyectos)
+assets/img/hero/muro/    ← miniaturas livianas (~30 KB) del muro animado del hero
 assets/img/og/           ← imagen para compartir en redes (1200×630)
 docs/contenido.md        ← brief de contenido y pendientes
 docs/logos-clientes/     ← logos de clientes del carrusel viejo (no se publican)
-docs/hero-muro.html      ← fuente de la imagen del hero (no se publica)
+docs/hero-muro.html      ← diseño original del muro (referencia, no se publica)
+docs/generar-muro.js     ← genera las columnas del muro en index.html
+docs/og-muro.js          ← genera la imagen OG fotografiando el muro
 ```
 
 ## Pendientes
 1. **Fotos** de Willder: él las va a mandar. Van en "Sobre mí" (hay un comentario en el HTML donde va). No usar las del portafolio de 2024.
 2. Opcional: redirigir `www.willnet.dev` → `willnet.dev` con una *Redirect Rule* en el panel de Cloudflare (hoy las dos sirven la misma página y el `canonical` apunta a `willnet.dev`, que es suficiente para Google). El correo `@willnet.dev` está en **Google Workspace** (MX, SPF, DKIM y DMARC en Cloudflare): **no activar Cloudflare Email Routing** y no borrar esos registros DNS. Cuando Willder confirme su dirección, se puede usar en la landing (hoy usa willdevgo@gmail.com).
-3. ~~Logotipo con la palabra WILLNET~~ **Hecho (2026-10-18):** logotipo en vectores en `../../01 Logo/Logotipo/`; la landing usa la versión horizontal blanca en el header y el footer. Siguen con la W + texto en Ubuntu el recuadro de la foto en "Sobre mí" (provisional) y la imagen del hero/OG (`docs/hero-muro.html`).
+3. ~~Logotipo con la palabra WILLNET~~ **Hecho (2026-10-18):** logotipo en vectores en `../../01 Logo/Logotipo/`; la landing usa la versión horizontal blanca en el header y el footer. Siguen con la W + texto en Ubuntu el recuadro de la foto en "Sobre mí" (provisional) Ya no: la tarjeta del muro del hero y la imagen OG usan el logotipo oficial desde el 2026-10-18.
 4. ~~LinkedIn: correo will.gomez@willnet.dev~~ **Hecho (2026-10-16, por Willder):** su información de contacto muestra will.gomez@willnet.dev y el sitio willnet.dev.
 5. Testimonios de clientes: la sección de la plantilla se quitó hasta tener testimonios reales. **No inventar testimonios.**
 6. Agendar videollamadas (fase 2).

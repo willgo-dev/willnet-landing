@@ -10,6 +10,7 @@ Bilingual (**English / Spanish**) landing page for **WillNet**, the web design &
 
 - **Bilingual EN/ES**: English by default and Spanish with one click (or `?lang=es`). The choice is remembered and also updates the page title, meta tags and WhatsApp/SMS messages.
 - **Liquid-glass header** that follows the scroll and turns into a floating pill. The mobile menu uses the same glass style.
+- **Animated project wall** in the hero: columns of portfolio screenshots scroll upward at different speeds on a tilted 3D plane (pure HTML + CSS, no video). Click a screenshot to open the project.
 - **Typewriter effect** in the hero that cycles through `<Web Developer>`, `<Web Designer>`, `<E-commerce Builder>` and `<Brand Designer>`.
 - **Collapsible portfolio** with 18 projects and filters. Three projects show on desktop (two on mobile) until you open the rest, and on phones every card uses a mobile screenshot of the project.
 - **"How I work" section** that highlights each step in a loop and pauses when you pick one.
@@ -52,7 +53,9 @@ js/i18n.js              language switcher and Spanish translations
 js/main.js              menu, portfolio, typewriter, header, back-to-top, process loop, GSAP
 js/contact.js           contact form (Web3Forms)
 assets/img/portafolio/  project screenshots (*-movil.jpg = mobile version)
+assets/img/hero/muro/   lightweight thumbnails for the hero wall
 assets/img/tecnologias/ white tech icons for the carousel
+docs/generar-muro.js    builds the hero wall columns (node docs/generar-muro.js)
 wrangler.jsonc          Cloudflare Workers configuration
 ```
 
@@ -73,6 +76,7 @@ Landing **bilingüe (inglés / español)** de **WillNet**, la marca de diseño y
 - **Hecha con:** HTML, JavaScript y Tailwind CSS v4, animada con GSAP y publicada en Cloudflare Workers.
 - **Incluye:**
   - inglés por defecto y español con un clic;
+  - muro de proyectos animado en el hero;
   - header de vidrio líquido;
   - efecto de máquina de escribir;
   - portafolio plegable con capturas móviles;
