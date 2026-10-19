@@ -327,3 +327,38 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
   const dashboard = document.getElementById("dashboard");
   if (dashboard) dashboard.style.transform = "none";
 }
+
+// ---------------------------------------------------------------
+// 9) Íconos animados de "Why WillNet?" y "Services" (estilos en css/input.css)
+// ---------------------------------------------------------------
+// .is-armed  → los trazos empiezan ocultos (sin JavaScript se ven completos)
+// .is-drawn  → se dibujan (una vez, al aparecer en pantalla)
+// .is-playing → movimiento en bucle solo mientras se ven (no gasta batería fuera de pantalla)
+
+const animIcons = document.querySelectorAll(".anim-icon");
+
+if (animIcons.length && !prefersReducedMotion && "IntersectionObserver" in window) {
+  const iconObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) target.classList.add("is-drawn");
+        target.classList.toggle("is-playing", isIntersecting);
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  animIcons.forEach((icon) => {
+    icon.classList.add("is-armed");
+    iconObserver.observe(icon);
+
+    // Al pasar el mouse por la tarjeta, el ícono se vuelve a dibujar
+    const card = icon.closest(".reveal-up");
+    if (!card) return;
+    card.addEventListener("mouseenter", () => {
+      icon.classList.remove("is-drawn", "is-playing");
+      void icon.getBoundingClientRect(); // obliga al navegador a aplicar el cambio antes de volver a dibujar
+      icon.classList.add("is-drawn", "is-playing");
+    });
+  });
+}

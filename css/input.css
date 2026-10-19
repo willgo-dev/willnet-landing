@@ -590,8 +590,193 @@
     color: #dbeafe;
   }
 
+  /* Íconos animados de "Why WillNet?" y "Services" (SVG en línea, sin librerías).
+     1) Al aparecer en pantalla se "dibujan": cada trazo .draw tiene pathLength="1", así que
+        stroke-dasharray/dashoffset de 1 lo ocultan y 0 lo muestra completo. --d es el retraso de cada trazo.
+     2) Mientras están en pantalla hacen un movimiento pequeño en bucle (clase .is-playing).
+     3) Al pasar el mouse por la tarjeta se vuelven a dibujar (js/main.js, sección 9).
+     JavaScript pone .is-armed antes de empezar: sin JavaScript los íconos se ven completos y quietos. */
+  .anim-icon {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+  .anim-icon--why {
+    width: 72px;
+    height: 72px;
+    color: #e5e7eb;
+  }
+  .anim-icon--service {
+    width: 36px;
+    height: 36px;
+  }
+  @media (max-width: 767px) {
+    .anim-icon--why {
+      width: 48px;
+      height: 48px;
+    }
+    .anim-icon--service {
+      width: 26px;
+      height: 26px;
+    }
+  }
+  .anim-icon .draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  .anim-icon.is-armed .draw {
+    stroke-dashoffset: 1;
+  }
+  .anim-icon.is-armed .fill-in {
+    opacity: 0;
+  }
+  .anim-icon.is-armed.is-drawn .draw {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.9s ease-in-out var(--d, 0s);
+  }
+  .anim-icon.is-armed.is-drawn .fill-in {
+    opacity: 1;
+    transition: opacity 0.35s ease var(--d, 0s);
+  }
+  /* Las partes que se mueven giran o escalan desde su propio centro */
+  .anim-icon g,
+  .anim-icon .ai-dot,
+  .anim-icon .ai-star,
+  .anim-icon .ai-bolt {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  /* Movimientos en bucle (empiezan cuando terminó el dibujo: 1.4 s) */
+  .anim-icon.is-playing .ai-brush {
+    transform-origin: 100% 0%;
+    animation: ai-brush 3s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-paint {
+    animation: ai-redraw 3s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-dot {
+    animation: ai-dot 1.4s ease-in-out calc(1.4s + var(--i, 0) * 0.18s) infinite;
+  }
+  .anim-icon.is-playing .ai-bolt {
+    animation: ai-bolt 2.4s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-spark {
+    animation: ai-redraw 2.4s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-check {
+    animation: ai-redraw 3s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-window {
+    animation: ai-window 3.2s ease-in-out calc(1.4s + var(--i, 0) * 0.25s) infinite;
+  }
+  .anim-icon.is-playing .ai-badge {
+    transform-origin: 50% 0%;
+    animation: ai-swing 2.6s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-star {
+    animation: ai-twinkle 2s ease-in-out calc(1.4s + var(--i, 0) * 0.35s) infinite;
+  }
+  .anim-icon.is-playing .ai-balloon {
+    transform-origin: 50% 100%;
+    animation: ai-float 3s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-pen {
+    transform-origin: 50% 100%;
+    animation: ai-pen 3s ease-in-out 1.4s infinite;
+  }
+  .anim-icon.is-playing .ai-stroke {
+    animation: ai-redraw 3s ease-in-out 1.4s infinite;
+  }
+  @keyframes ai-brush {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-10deg); }
+    60% { transform: rotate(6deg); }
+  }
+  /* Vuelve a trazar la línea: se borra, se dibuja y se queda */
+  @keyframes ai-redraw {
+    0% { stroke-dashoffset: 1; }
+    45%, 100% { stroke-dashoffset: 0; }
+  }
+  @keyframes ai-dot {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-1.6px); }
+  }
+  @keyframes ai-bolt {
+    0%, 70%, 100% { fill: transparent; transform: scale(1); }
+    78% { fill: currentColor; transform: scale(1.08); }
+    86% { fill: transparent; }
+    92% { fill: currentColor; }
+  }
+  @keyframes ai-window {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+  @keyframes ai-swing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+  }
+  @keyframes ai-twinkle {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.7); opacity: 0.55; }
+  }
+  @keyframes ai-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-1.5px) rotate(4deg); }
+  }
+  @keyframes ai-pen {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    40% { transform: translate(-1.5px, 1px) rotate(-8deg); }
+  }
+
+  /* Carrusel: en escritorio, al pasar el mouse el logo toma el color de su marca.
+     Encima del logo blanco hay una capa (::after) con la misma forma (mask-image con el mismo SVG)
+     pintada con --brand; aparece al hacer hover. En celular (sin mouse) no existe.
+     Ojo: la ruta de --logo empieza con "/" porque una url() dentro de una variable se resuelve
+     desde css/styles.css, no desde index.html ("./assets/..." apuntaría a css/assets/...). */
+  /* Todos los logos son cuadrados (viewBox 24×24 o 128×128): la caja mide 28×28 para que
+     el <img> no quede en 0 de ancho dentro del span */
+  .tech-logo {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  .tech-logo img {
+    width: 100%;
+    height: 100%;
+  }
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    .tech-logo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: var(--brand);
+      -webkit-mask: var(--logo) center / contain no-repeat;
+      mask: var(--logo) center / contain no-repeat;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tech-logo img {
+      transition: opacity 0.3s;
+    }
+    .tech-item:hover .tech-logo::after {
+      opacity: 1;
+    }
+    .tech-item:hover .tech-logo img {
+      opacity: 0;
+    }
+  }
+
   /* Quien pidió menos movimiento en su sistema no ve animaciones decorativas */
   @media (prefers-reduced-motion: reduce) {
+    .anim-icon *,
+    .anim-icon.is-armed.is-drawn .draw,
+    .anim-icon.is-armed.is-drawn .fill-in {
+      animation: none !important;
+      transition: none !important;
+    }
     .projects-toggle,
     .projects-toggle .bi-chevron-down,
     .type-cursor {

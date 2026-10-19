@@ -160,60 +160,62 @@
            Íconos en assets/img/tecnologias/ (Simple Icons y Devicon, en blanco).
            Para agregar una: copia su SVG a esa carpeta y añade un <li> en las DOS listas (la copia lleva aria-hidden para que el movimiento sea continuo). -->
       <section class="relative flex w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-8">
+        <!-- Cada logo lleva --brand (color oficial de la marca, de Simple Icons) para el hover en escritorio (css/input.css).
+             GitHub, Express y GitHub Copilot son negros: sobre el fondo negro se dejan en blanco -->
         <h2 class="reveal-up text-center text-3xl max-md:text-xl" data-i18n="tech.title">Technologies I work with</h2>
         <div class="reveal-up carousel-container mt-8">
           <div class="carousel">
             <ul class="flex items-center" aria-label="Technologies" data-i18n-attr="aria-label:tech.label">
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /><span>HTML</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /><span>CSS</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /><span>JavaScript</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/tailwindcss.svg" alt="" class="h-7 w-auto" /><span>Tailwind CSS</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/bootstrap.svg" alt="" class="h-7 w-auto" /><span>Bootstrap</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/jquery.svg" alt="" class="h-7 w-auto" /><span>jQuery</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/gsap.svg" alt="" class="h-7 w-auto" /><span>GSAP</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/nodejs.svg" alt="" class="h-7 w-auto" /><span>Node.js</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/express.svg" alt="" class="h-7 w-auto" /><span>Express</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/npm.svg" alt="" class="h-7 w-auto" /><span>npm</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/postgresql.svg" alt="" class="h-7 w-auto" /><span>PostgreSQL</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/wordpress.svg" alt="" class="h-7 w-auto" /><span>WordPress</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/woocommerce.svg" alt="" class="h-7 w-auto" /><span>WooCommerce</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/elementor.svg" alt="" class="h-7 w-auto" /><span>Elementor</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/stripe.svg" alt="" class="h-7 w-auto" /><span>Stripe</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/git.svg" alt="" class="h-7 w-auto" /><span>Git</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/github.svg" alt="" class="h-7 w-auto" /><span>GitHub</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/vscode.svg" alt="" class="h-7 w-auto" /><span>VS Code</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/cloudflare.svg" alt="" class="h-7 w-auto" /><span>Cloudflare</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/figma.svg" alt="" class="h-7 w-auto" /><span>Figma</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/canva.svg" alt="" class="h-7 w-auto" /><span>Canva</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/chatgpt.svg" alt="" class="h-7 w-auto" /><span>ChatGPT</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/githubcopilot.svg" alt="" class="h-7 w-auto" /><span>GitHub Copilot</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/claude.svg" alt="" class="h-7 w-auto" /><span>Claude Code</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/html.svg); --brand: #E34F26"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /></span><span>HTML</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/css.svg); --brand: #663399"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /></span><span>CSS</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/javascript.svg); --brand: #F7DF1E"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /></span><span>JavaScript</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/tailwindcss.svg); --brand: #06B6D4"><img src="./assets/img/tecnologias/tailwindcss.svg" alt="" class="h-7 w-auto" /></span><span>Tailwind CSS</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/bootstrap.svg); --brand: #7952B3"><img src="./assets/img/tecnologias/bootstrap.svg" alt="" class="h-7 w-auto" /></span><span>Bootstrap</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/jquery.svg); --brand: #0769AD"><img src="./assets/img/tecnologias/jquery.svg" alt="" class="h-7 w-auto" /></span><span>jQuery</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/gsap.svg); --brand: #88CE02"><img src="./assets/img/tecnologias/gsap.svg" alt="" class="h-7 w-auto" /></span><span>GSAP</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/nodejs.svg); --brand: #5FA04E"><img src="./assets/img/tecnologias/nodejs.svg" alt="" class="h-7 w-auto" /></span><span>Node.js</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/express.svg); --brand: #FFFFFF"><img src="./assets/img/tecnologias/express.svg" alt="" class="h-7 w-auto" /></span><span>Express</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/npm.svg); --brand: #CB3837"><img src="./assets/img/tecnologias/npm.svg" alt="" class="h-7 w-auto" /></span><span>npm</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/postgresql.svg); --brand: #4169E1"><img src="./assets/img/tecnologias/postgresql.svg" alt="" class="h-7 w-auto" /></span><span>PostgreSQL</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/wordpress.svg); --brand: #21759B"><img src="./assets/img/tecnologias/wordpress.svg" alt="" class="h-7 w-auto" /></span><span>WordPress</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/woocommerce.svg); --brand: #7F54B3"><img src="./assets/img/tecnologias/woocommerce.svg" alt="" class="h-7 w-auto" /></span><span>WooCommerce</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/elementor.svg); --brand: #92003B"><img src="./assets/img/tecnologias/elementor.svg" alt="" class="h-7 w-auto" /></span><span>Elementor</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/stripe.svg); --brand: #635BFF"><img src="./assets/img/tecnologias/stripe.svg" alt="" class="h-7 w-auto" /></span><span>Stripe</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/git.svg); --brand: #F05032"><img src="./assets/img/tecnologias/git.svg" alt="" class="h-7 w-auto" /></span><span>Git</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/github.svg); --brand: #FFFFFF"><img src="./assets/img/tecnologias/github.svg" alt="" class="h-7 w-auto" /></span><span>GitHub</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/vscode.svg); --brand: #007ACC"><img src="./assets/img/tecnologias/vscode.svg" alt="" class="h-7 w-auto" /></span><span>VS Code</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/cloudflare.svg); --brand: #F38020"><img src="./assets/img/tecnologias/cloudflare.svg" alt="" class="h-7 w-auto" /></span><span>Cloudflare</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/figma.svg); --brand: #F24E1E"><img src="./assets/img/tecnologias/figma.svg" alt="" class="h-7 w-auto" /></span><span>Figma</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/canva.svg); --brand: #00C4CC"><img src="./assets/img/tecnologias/canva.svg" alt="" class="h-7 w-auto" /></span><span>Canva</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/chatgpt.svg); --brand: #10A37F"><img src="./assets/img/tecnologias/chatgpt.svg" alt="" class="h-7 w-auto" /></span><span>ChatGPT</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/githubcopilot.svg); --brand: #FFFFFF"><img src="./assets/img/tecnologias/githubcopilot.svg" alt="" class="h-7 w-auto" /></span><span>GitHub Copilot</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/claude.svg); --brand: #D97757"><img src="./assets/img/tecnologias/claude.svg" alt="" class="h-7 w-auto" /></span><span>Claude Code</span></li>
             </ul>
             <ul class="flex items-center" aria-hidden="true">
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /><span>HTML</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /><span>CSS</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /><span>JavaScript</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/tailwindcss.svg" alt="" class="h-7 w-auto" /><span>Tailwind CSS</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/bootstrap.svg" alt="" class="h-7 w-auto" /><span>Bootstrap</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/jquery.svg" alt="" class="h-7 w-auto" /><span>jQuery</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/gsap.svg" alt="" class="h-7 w-auto" /><span>GSAP</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/nodejs.svg" alt="" class="h-7 w-auto" /><span>Node.js</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/express.svg" alt="" class="h-7 w-auto" /><span>Express</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/npm.svg" alt="" class="h-7 w-auto" /><span>npm</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/postgresql.svg" alt="" class="h-7 w-auto" /><span>PostgreSQL</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/wordpress.svg" alt="" class="h-7 w-auto" /><span>WordPress</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/woocommerce.svg" alt="" class="h-7 w-auto" /><span>WooCommerce</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/elementor.svg" alt="" class="h-7 w-auto" /><span>Elementor</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/stripe.svg" alt="" class="h-7 w-auto" /><span>Stripe</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/git.svg" alt="" class="h-7 w-auto" /><span>Git</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/github.svg" alt="" class="h-7 w-auto" /><span>GitHub</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/vscode.svg" alt="" class="h-7 w-auto" /><span>VS Code</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/cloudflare.svg" alt="" class="h-7 w-auto" /><span>Cloudflare</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/figma.svg" alt="" class="h-7 w-auto" /><span>Figma</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/canva.svg" alt="" class="h-7 w-auto" /><span>Canva</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/chatgpt.svg" alt="" class="h-7 w-auto" /><span>ChatGPT</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/githubcopilot.svg" alt="" class="h-7 w-auto" /><span>GitHub Copilot</span></li>
-              <li class="carousel-img tech-item"><img src="./assets/img/tecnologias/claude.svg" alt="" class="h-7 w-auto" /><span>Claude Code</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/html.svg); --brand: #E34F26"><img src="./assets/img/tecnologias/html.svg" alt="" class="h-7 w-auto" /></span><span>HTML</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/css.svg); --brand: #663399"><img src="./assets/img/tecnologias/css.svg" alt="" class="h-7 w-auto" /></span><span>CSS</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/javascript.svg); --brand: #F7DF1E"><img src="./assets/img/tecnologias/javascript.svg" alt="" class="h-7 w-auto" /></span><span>JavaScript</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/tailwindcss.svg); --brand: #06B6D4"><img src="./assets/img/tecnologias/tailwindcss.svg" alt="" class="h-7 w-auto" /></span><span>Tailwind CSS</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/bootstrap.svg); --brand: #7952B3"><img src="./assets/img/tecnologias/bootstrap.svg" alt="" class="h-7 w-auto" /></span><span>Bootstrap</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/jquery.svg); --brand: #0769AD"><img src="./assets/img/tecnologias/jquery.svg" alt="" class="h-7 w-auto" /></span><span>jQuery</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/gsap.svg); --brand: #88CE02"><img src="./assets/img/tecnologias/gsap.svg" alt="" class="h-7 w-auto" /></span><span>GSAP</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/nodejs.svg); --brand: #5FA04E"><img src="./assets/img/tecnologias/nodejs.svg" alt="" class="h-7 w-auto" /></span><span>Node.js</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/express.svg); --brand: #FFFFFF"><img src="./assets/img/tecnologias/express.svg" alt="" class="h-7 w-auto" /></span><span>Express</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/npm.svg); --brand: #CB3837"><img src="./assets/img/tecnologias/npm.svg" alt="" class="h-7 w-auto" /></span><span>npm</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/postgresql.svg); --brand: #4169E1"><img src="./assets/img/tecnologias/postgresql.svg" alt="" class="h-7 w-auto" /></span><span>PostgreSQL</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/wordpress.svg); --brand: #21759B"><img src="./assets/img/tecnologias/wordpress.svg" alt="" class="h-7 w-auto" /></span><span>WordPress</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/woocommerce.svg); --brand: #7F54B3"><img src="./assets/img/tecnologias/woocommerce.svg" alt="" class="h-7 w-auto" /></span><span>WooCommerce</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/elementor.svg); --brand: #92003B"><img src="./assets/img/tecnologias/elementor.svg" alt="" class="h-7 w-auto" /></span><span>Elementor</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/stripe.svg); --brand: #635BFF"><img src="./assets/img/tecnologias/stripe.svg" alt="" class="h-7 w-auto" /></span><span>Stripe</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/git.svg); --brand: #F05032"><img src="./assets/img/tecnologias/git.svg" alt="" class="h-7 w-auto" /></span><span>Git</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/github.svg); --brand: #FFFFFF"><img src="./assets/img/tecnologias/github.svg" alt="" class="h-7 w-auto" /></span><span>GitHub</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/vscode.svg); --brand: #007ACC"><img src="./assets/img/tecnologias/vscode.svg" alt="" class="h-7 w-auto" /></span><span>VS Code</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/cloudflare.svg); --brand: #F38020"><img src="./assets/img/tecnologias/cloudflare.svg" alt="" class="h-7 w-auto" /></span><span>Cloudflare</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/figma.svg); --brand: #F24E1E"><img src="./assets/img/tecnologias/figma.svg" alt="" class="h-7 w-auto" /></span><span>Figma</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/canva.svg); --brand: #00C4CC"><img src="./assets/img/tecnologias/canva.svg" alt="" class="h-7 w-auto" /></span><span>Canva</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/chatgpt.svg); --brand: #10A37F"><img src="./assets/img/tecnologias/chatgpt.svg" alt="" class="h-7 w-auto" /></span><span>ChatGPT</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/githubcopilot.svg); --brand: #FFFFFF"><img src="./assets/img/tecnologias/githubcopilot.svg" alt="" class="h-7 w-auto" /></span><span>GitHub Copilot</span></li>
+              <li class="carousel-img tech-item"><span class="tech-logo" style="--logo: url(/assets/img/tecnologias/claude.svg); --brand: #D97757"><img src="./assets/img/tecnologias/claude.svg" alt="" class="h-7 w-auto" /></span><span>Claude Code</span></li>
             </ul>
           </div>
         </div>
@@ -227,7 +229,13 @@
             <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
               <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
                 <div class="flex h-full w-full place-content-center place-items-end p-2">
-                  <i class="bi bi-brush-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
+                  <svg class="anim-icon anim-icon--why" data-icon="brush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <g class="ai-brush">
+                      <path class="draw" pathLength="1" d="M20 4 13.2 10.8" />
+                      <path class="draw" pathLength="1" style="--d: 0.25s" d="M13.2 10.8c-1.6-1.5-4.2-1-4.9 1.2-.4 1.4-1 2.8-3.1 3.4 2.6 2.2 6.6 2 8.4-.2 1-1.3.9-3.2-.4-4.4Z" />
+                    </g>
+                    <path class="draw ai-paint" pathLength="1" style="--d: 0.6s" d="M3.5 20.5c2-1.2 4-1.2 6 0s4 1.2 6 0 3.5-1 5 0" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.1.title">Design for your brand</h3>
@@ -236,7 +244,13 @@
             <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
               <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
                 <div class="flex h-full w-full place-content-center place-items-end p-2">
-                  <i class="bi bi-chat-dots-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
+                  <svg class="anim-icon anim-icon--why" data-icon="chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path class="draw" pathLength="1" d="M6.5 3h9A2.5 2.5 0 0 1 18 5.5v5a2.5 2.5 0 0 1-2.5 2.5H10l-3.5 3v-3A2.5 2.5 0 0 1 4 10.5v-5A2.5 2.5 0 0 1 6.5 3Z" />
+                    <path class="draw" pathLength="1" style="--d: 0.35s" d="M20 9.5A1.5 1.5 0 0 1 21.5 11v4.5A1.5 1.5 0 0 1 20 17h-.5v2.5L16.5 17H13a1.5 1.5 0 0 1-1.5-1.5" />
+                    <circle class="fill-in ai-dot" style="--d: 0.7s" cx="8" cy="8" r="1" fill="currentColor" stroke="none" />
+                    <circle class="fill-in ai-dot" style="--d: 0.8s; --i: 1" cx="11" cy="8" r="1" fill="currentColor" stroke="none" />
+                    <circle class="fill-in ai-dot" style="--d: 0.9s; --i: 2" cx="14" cy="8" r="1" fill="currentColor" stroke="none" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.2.title">Direct, bilingual service</h3>
@@ -245,7 +259,10 @@
             <div class="reveal-up flex w-[360px] flex-col gap-3 text-center max-md:w-[320px]">
               <div class="border-gradient h-[180px] w-full overflow-hidden max-md:h-[150px]">
                 <div class="flex h-full w-full place-content-center place-items-end p-2">
-                  <i class="bi bi-lightning-charge-fill text-7xl text-gray-200 max-md:text-5xl" aria-hidden="true"></i>
+                  <svg class="anim-icon anim-icon--why" data-icon="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path class="draw ai-bolt" pathLength="1" d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z" />
+                    <path class="draw ai-spark" pathLength="1" style="--d: 0.6s" d="m19 4.5 1.5-1.5M20 8.5h2M3.5 19.5 2 21" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mt-6 text-2xl font-normal max-md:text-xl" data-i18n="why.3.title">Ready to sell</h3>
@@ -266,42 +283,79 @@
         </p>
         <div class="mt-10 grid max-w-[1000px] gap-6 md:grid-cols-2">
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
-            <i class="bi bi-bag-check-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <svg class="anim-icon anim-icon--service" data-icon="bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path class="draw" pathLength="1" d="M5 8h14l-1 12.2a1.5 1.5 0 0 1-1.5 1.3h-9A1.5 1.5 0 0 1 6 20.2L5 8Z" />
+                    <path class="draw" pathLength="1" style="--d: 0.3s" d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+                    <path class="draw ai-check" pathLength="1" style="--d: 0.6s" d="m9.5 14.5 2 2 3.5-4" />
+                  </svg>
             <div class="flex flex-col gap-3">
               <h3 class="text-2xl max-md:text-xl" data-i18n="services.1.title">Online stores &amp; e-commerce</h3>
               <p class="text-gray-300 max-md:text-sm" data-i18n="services.1.text">Online stores with a catalog, cart, card payments and order management.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
-            <i class="bi bi-building-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <svg class="anim-icon anim-icon--service" data-icon="building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path class="draw" pathLength="1" d="M3 21h18M5.5 21V5.5A1.5 1.5 0 0 1 7 4h6.5A1.5 1.5 0 0 1 15 5.5V21m0-11h3a1.5 1.5 0 0 1 1.5 1.5V21" />
+                    <path class="draw" pathLength="1" style="--d: 0.4s" d="M9.25 21v-3h2v3" />
+                    <rect class="fill-in ai-window" style="--d: 0.6s" x="8" y="7" width="1.5" height="1.5" fill="currentColor" stroke="none" />
+                    <rect class="fill-in ai-window" style="--d: 0.65s; --i: 1" x="11" y="7" width="1.5" height="1.5" fill="currentColor" stroke="none" />
+                    <rect class="fill-in ai-window" style="--d: 0.7s; --i: 2" x="8" y="10.5" width="1.5" height="1.5" fill="currentColor" stroke="none" />
+                    <rect class="fill-in ai-window" style="--d: 0.75s; --i: 3" x="11" y="10.5" width="1.5" height="1.5" fill="currentColor" stroke="none" />
+                    <rect class="fill-in ai-window" style="--d: 0.8s; --i: 4" x="8" y="14" width="1.5" height="1.5" fill="currentColor" stroke="none" />
+                    <rect class="fill-in ai-window" style="--d: 0.85s; --i: 5" x="11" y="14" width="1.5" height="1.5" fill="currentColor" stroke="none" />
+                  </svg>
             <div class="flex flex-col gap-3">
               <h3 class="text-2xl max-md:text-xl" data-i18n="services.2.title">Websites for companies &amp; businesses</h3>
               <p class="text-gray-300 max-md:text-sm" data-i18n="services.2.text">Websites and landing pages that present your business and turn visitors into customers.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
-            <i class="bi bi-person-badge-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <svg class="anim-icon anim-icon--service" data-icon="badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <g class="ai-badge">
+                      <path class="draw" pathLength="1" d="M6 4.5h12A1.5 1.5 0 0 1 19.5 6v13a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V6A1.5 1.5 0 0 1 6 4.5Z" />
+                      <path class="draw" pathLength="1" style="--d: 0.3s" d="M10 2.5h4v3.5h-4z" />
+                      <circle class="draw" pathLength="1" style="--d: 0.5s" cx="12" cy="11" r="2.3" />
+                      <path class="draw" pathLength="1" style="--d: 0.65s" d="M8 17.5c.6-2 2.2-3 4-3s3.4 1 4 3" />
+                    </g>
+                  </svg>
             <div class="flex flex-col gap-3">
               <h3 class="text-2xl max-md:text-xl" data-i18n="services.3.title">Portfolios &amp; personal websites</h3>
               <p class="text-gray-300 max-md:text-sm" data-i18n="services.3.text">Your work and your story on a professional website that helps you stand out.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
-            <i class="bi bi-stars text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <svg class="anim-icon anim-icon--service" data-icon="stars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path class="draw ai-star" pathLength="1" d="M10 4c.7 4 2.5 5.8 6.5 6.5-4 .7-5.8 2.5-6.5 6.5-.7-4-2.5-5.8-6.5-6.5 4-.7 5.8-2.5 6.5-6.5Z" />
+                    <path class="draw ai-star" pathLength="1" style="--d: 0.35s; --i: 1" d="M18.5 2.5c.3 1.5.9 2.2 2.5 2.5-1.6.3-2.2 1-2.5 2.5-.3-1.5-.9-2.2-2.5-2.5 1.6-.3 2.2-1 2.5-2.5Z" />
+                    <path class="draw ai-star" pathLength="1" style="--d: 0.5s; --i: 2" d="M18 15.5c.25 1.2.8 1.75 2 2-1.2.25-1.75.8-2 2-.25-1.2-.8-1.75-2-2 1.2-.25 1.75-.8 2-2Z" />
+                  </svg>
             <div class="flex flex-col gap-3">
               <h3 class="text-2xl max-md:text-xl" data-i18n="services.4.title">Influencers &amp; creators</h3>
               <p class="text-gray-300 max-md:text-sm" data-i18n="services.4.text">Media kits, link pages and websites to show your numbers and land brand deals.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
-            <i class="bi bi-balloon-heart-fill text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <svg class="anim-icon anim-icon--service" data-icon="balloon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <g class="ai-balloon">
+                      <path class="draw" pathLength="1" d="M12 15.5s-6.5-3.9-6.5-8.4A3.6 3.6 0 0 1 12 5.2a3.6 3.6 0 0 1 6.5 1.9c0 4.5-6.5 8.4-6.5 8.4Z" />
+                      <path class="draw" pathLength="1" style="--d: 0.45s" d="m12 15.5-.8 1.1h1.6L12 15.5Zm0 1.1c-1 1.6 1 2.6 0 4.9" />
+                    </g>
+                  </svg>
             <div class="flex flex-col gap-3">
               <h3 class="text-2xl max-md:text-xl" data-i18n="services.5.title">Invitations &amp; events</h3>
               <p class="text-gray-300 max-md:text-sm" data-i18n="services.5.text">Web invitations for weddings, birthdays, quinceañeras and parties, with RSVP, QR codes and seating.</p>
             </div>
           </div>
           <div class="reveal-up flex gap-6 rounded-xl border border-outline bg-secondary p-8 max-md:p-6">
-            <i class="bi bi-vector-pen text-4xl max-md:text-2xl" aria-hidden="true"></i>
+            <svg class="anim-icon anim-icon--service" data-icon="pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <g class="ai-pen">
+                      <path class="draw" pathLength="1" d="m13 2.5-5 7 1.8 7h6.4l1.8-7-5-7Z" />
+                      <path class="draw" pathLength="1" style="--d: 0.3s" d="M13 2.5V8.6" />
+                      <circle class="draw" pathLength="1" style="--d: 0.4s" cx="13" cy="10" r="1.3" />
+                      <path class="draw" pathLength="1" style="--d: 0.5s" d="M9.8 16.5h6.4v2.5H9.8z" />
+                    </g>
+                    <path class="draw ai-stroke" pathLength="1" style="--d: 0.7s" d="M2.5 21.5c1.5-2.5 3.5-3 5.5-1.5" />
+                  </svg>
             <div class="flex flex-col gap-3">
               <h3 class="text-2xl max-md:text-xl" data-i18n="services.6.title">Logos &amp; business cards</h3>
               <p class="text-gray-300 max-md:text-sm" data-i18n="services.6.text">Visual identity for brands, companies and businesses: logo, business cards and social media pieces.</p>
@@ -316,9 +370,9 @@
           <div class="flex">
             <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
               <img
-                src="./assets/img/portafolio/pavlove.jpg"
+                src="./assets/img/portafolio/pavlove-en.jpg"
                 alt="Pavlove online store (with Dopicos)"
-                data-i18n-attr="alt:feature1.imageAlt"
+                data-i18n-attr="alt:feature1.imageAlt, src:img.pavlove"
                 loading="lazy"
                 class="h-full w-full object-cover"
               />
@@ -366,15 +420,15 @@
         </div>
       </section>
 
-      <!-- ================= DESTACADO 3: LANDINGS · Mastermind (imagen + lista) ================= -->
+      <!-- ================= DESTACADO 3: LANDINGS · Ale Creative Lab (imagen + lista) ================= -->
       <section class="relative flex min-h-[70vh] w-full max-w-[100vw] flex-col place-content-center place-items-center overflow-hidden p-6">
         <div class="reveal-up flex min-h-[60vh] place-content-center place-items-center gap-[10%] max-lg:flex-col max-lg:gap-10">
           <div class="flex">
             <div class="max-h-[650px] max-w-[750px] overflow-hidden rounded-lg shadow-lg shadow-[rgba(37,99,235,0.44)]">
               <img
-                src="./assets/img/portafolio/mastermind.jpg"
-                alt="Mastermind Hierarchy landing page"
-                data-i18n-attr="alt:feature3.imageAlt"
+                src="./assets/img/portafolio/acl-en.jpg"
+                alt="Ale Creative Lab landing page"
+                data-i18n-attr="alt:feature3.imageAlt, src:img.acl"
                 loading="lazy"
                 class="h-full w-full object-cover"
               />
@@ -387,8 +441,8 @@
               <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature3.1.text">Your customers book an appointment or message you without leaving the page.</p>
             </div>
             <div class="mt-4 flex flex-col gap-3">
-              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature3.2.title">Ready for your campaigns</span></h4>
-              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature3.2.text">Bilingual and set up to measure your ad results (Meta Pixel).</p>
+              <h4 class="text-xl font-medium"><i class="bi bi-check-all text-2xl!" aria-hidden="true"></i> <span data-i18n="feature3.2.title">Your work on display</span></h4>
+              <p class="text-lg text-gray-300 max-md:text-base" data-i18n="feature3.2.text">Bilingual, with a video gallery, your real social media numbers and your packages, ready to share from your bio.</p>
             </div>
           </div>
         </div>
@@ -396,7 +450,9 @@
 
       <!-- ================= PROYECTOS (portafolio con filtros) =================
            Para agregar un proyecto: copia un <article>, cambia data-category (web, events, design, github),
-           la imagen (assets/img/portafolio/) y los textos, y agrega sus claves en inglés en js/i18n.js. -->
+           la imagen (assets/img/portafolio/) y los textos, y agrega sus claves en inglés en js/i18n.js.
+           Si el sitio tiene inglés y español: en el HTML va la captura en inglés (*-en.jpg) y la española
+           (sin -en) se pone en js/i18n.js con data-i18n-attr="src:img.X" (y "srcset:img.XMovil" en el <source>). -->
       <section id="proyectos" class="mt-5 flex w-full flex-col place-items-center p-[2%] py-20 max-lg:p-3">
         <h2 class="reveal-up text-center text-4xl font-medium max-md:text-2xl" data-i18n="projects.title">Projects ✨</h2>
         <p class="reveal-up mt-4 max-w-[560px] text-center text-gray-400" data-i18n="projects.subtitle">
@@ -418,7 +474,7 @@
           <article data-preview data-category="web">
             <a href="https://pavlovesat.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
               <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
-                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/pavlove-movil.jpg" /><img src="./assets/img/portafolio/pavlove.jpg" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/pavlove-movil-en.jpg" data-i18n-attr="srcset:img.pavloveMovil" /><img src="./assets/img/portafolio/pavlove-en.jpg" data-i18n-attr="src:img.pavlove" alt="Pavlove" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
               <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400" data-i18n="projects.tag.store">Online store</span>
@@ -431,6 +487,20 @@
           </article>
 
           <article data-preview data-category="web">
+            <a href="https://alecreativelab.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
+              <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/acl-movil-en.jpg" data-i18n-attr="srcset:img.aclMovil" /><img src="./assets/img/portafolio/acl-en.jpg" data-i18n-attr="src:img.acl" alt="Ale Creative Lab" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
+              </div>
+              <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
+                <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span>
+              </div>
+              <h3 class="text-2xl font-semibold max-md:text-xl max-sm:text-base max-sm:leading-tight">Ale Creative Lab</h3>
+              <p class="text-gray-400 max-sm:hidden" data-i18n="projects.aclLanding">Bilingual landing page for a content creator and digital marketing brand in West Palm Beach: TikTok gallery, services, packages and contact form. HTML, Tailwind and JavaScript.</p>
+              <span class="mt-auto inline-flex items-center gap-2 text-sm max-sm:hidden"><span data-i18n="projects.view">View project</span> <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </article>
+
+          <article data-preview="desktop" data-category="web">
             <a href="https://imolagoldjewelry.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
               <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
                 <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/imola-movil.jpg" /><img src="./assets/img/portafolio/imola.jpg" alt="Imola Gold Jewelry" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
@@ -444,10 +514,10 @@
             </a>
           </article>
 
-          <article data-preview="desktop" data-category="web">
+          <article data-category="web">
             <a href="https://mastermind-team.com" target="_blank" rel="noopener" class="group flex h-full flex-col gap-3 rounded-lg p-3 transition-colors hover:bg-secondary max-sm:gap-2 max-sm:p-1.5">
               <div class="aspect-[9/16] w-full overflow-hidden rounded-md bg-secondary sm:aspect-auto sm:h-[220px]">
-                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/mastermind-movil.jpg" /><img src="./assets/img/portafolio/mastermind.jpg" alt="Mastermind Hierarchy" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
+                <picture class="block h-full w-full"><source media="(max-width: 639px)" srcset="./assets/img/portafolio/mastermind-movil-en.jpg" data-i18n-attr="srcset:img.mastermindMovil" /><img src="./assets/img/portafolio/mastermind-en.jpg" data-i18n-attr="src:img.mastermind" alt="Mastermind Hierarchy" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]" /></picture>
               </div>
               <div class="flex flex-wrap gap-1.5 text-[11px] sm:gap-2 sm:text-xs">
                 <span class="rounded-full border border-outline px-2 py-0.5 text-gray-400">Landing page</span>
@@ -649,7 +719,7 @@
         <div class="projects-more relative flex w-full max-w-[1200px] flex-col items-center" id="projects-more">
           <div class="projects-fade" aria-hidden="true"></div>
           <button type="button" class="projects-toggle" id="projects-toggle" aria-expanded="false" aria-controls="projects-grid">
-            <span class="projects-toggle__open"><span data-i18n="projects.showAll">See all</span> <span id="projects-count">18</span> <span data-i18n="projects.projectsWord">projects</span></span>
+            <span class="projects-toggle__open"><span data-i18n="projects.showAll">See all</span> <span id="projects-count">19</span> <span data-i18n="projects.projectsWord">projects</span></span>
             <span class="projects-toggle__close" hidden data-i18n="projects.showLess">Show fewer projects</span>
             <i class="bi bi-chevron-down" aria-hidden="true"></i>
           </button>

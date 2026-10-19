@@ -89,9 +89,9 @@ const translations = {
     "feature3.title": "Landing pages que consiguen clientes",
     "feature3.1.title": "Citas y formularios",
     "feature3.1.text": "Tus clientes agendan una cita o te escriben sin salir de la página.",
-    "feature3.2.title": "Listas para tus campañas",
-    "feature3.2.text": "Bilingües y preparadas para medir resultados de tus anuncios (Meta Pixel).",
-    "feature3.imageAlt": "Landing page de Mastermind Hierarchy",
+    "feature3.2.title": "Tu trabajo a la vista",
+    "feature3.2.text": "Bilingües, con galería de videos, los números reales de tus redes y tus paquetes, listas para compartir desde tu bio.",
+    "feature3.imageAlt": "Landing page de Ale Creative Lab",
 
     // Proyectos
     "projects.title": "Proyectos ✨",
@@ -123,6 +123,15 @@ const translations = {
       "Tienda de joyería en oro de 18k en West Palm Beach: catálogo por categorías, carrito y pagos. WordPress + WooCommerce.",
     "projects.mastermind":
       "Landing bilingüe para una agencia de seguros en Doral, FL: videos, citas con Calendly, formularios y Meta Pixel. HTML, Tailwind y JavaScript.",
+    // Capturas de los proyectos con inglés y español: en español se muestra la versión en español del sitio
+    "img.pavlove": "./assets/img/portafolio/pavlove.jpg",
+    "img.pavloveMovil": "./assets/img/portafolio/pavlove-movil.jpg",
+    "img.acl": "./assets/img/portafolio/acl.jpg",
+    "img.aclMovil": "./assets/img/portafolio/acl-movil.jpg",
+    "img.mastermind": "./assets/img/portafolio/mastermind.jpg",
+    "img.mastermindMovil": "./assets/img/portafolio/mastermind-movil.jpg",
+    "projects.aclLanding":
+      "Landing bilingüe para una creadora de contenido y marca de marketing digital en West Palm Beach: galería de TikToks, servicios, paquetes y formulario de contacto. HTML, Tailwind y JavaScript.",
     "projects.xv.title": "Invitación de XV años",
     "projects.xv": "Invitación web con video, música, cuenta regresiva, confirmación por QR y pases digitales para cada familia.",
     "projects.tables.title": "Buscador de mesas",
