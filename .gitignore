@@ -5,3 +5,7 @@ dist/
 *.log
 .env
 .dev.vars
+
+# Internal notes for Claude Code (not published; this repo is public)
+CLAUDE.md
+DECISIONES.md
